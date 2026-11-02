@@ -12,7 +12,8 @@ A complete static public website for **StarnyX Technologies** with a warm, light
 - 18 top-level HTML pages for the StarnyX public company website: Home, About, Services, Website Demos, Our Developments, Offers, Pricing, FAQ, Contact, Get a Quote, Careers, Privacy, Terms, Refund Policy, Cookie Policy, Disclaimer, Service Agreement and 404.
 - Light ivory, warm white, marigold, saffron and gold Diwali design.
 - Bundled local hero and promotional photographs. No external image URLs are required for the main visuals.
-- Visible CSS-only fireworks / sky shots with short rocket trails and burst effects on the page hero. The effect uses only transform/opacity animations—no canvas, per-particle physics, requestAnimationFrame loop or repeating JavaScript timers. Mobile uses fewer bursts, and motion respects `prefers-reduced-motion`.
+- Lightweight, colorful celebration particles that gently float around the hero artwork. There are no rockets, large starbursts, canvas effects, particle-physics loops or repeating JavaScript timers. Smaller screens use fewer particles, and motion respects `prefers-reduced-motion`.
+- Final responsive polish across all 18 pages: wider desktop content, fluid section spacing, stacked tablet layouts, compact mobile navigation and single-column enquiry fields on narrow screens.
 - Existing StarnyX blue metallic favicon/logo in the header and browser tab.
 - Separate Website Demo Gallery (`demos.html`) with Hotel, Lodge, Hotel & Lodge, Supermarket, Jewellers, Salon, Spa & Salon, Fashion, Clinic and Education cards. Each card has a View Demo control; only published demos open, while future demos are clearly marked Coming Soon. The Hotel Demo opens https://starnyxtechnologies.github.io/Hotel-demo/.
 - Our Developments page (`projects.html`) with transparent in-house build and concept-demo status labels.
@@ -28,7 +29,7 @@ The two main photographs are stored in the project root:
 - `diwali-hero.webp`
 - `diwali-promo.webp`
 
-**Do not upload only the HTML files.** Upload both `.webp` images, both CSS files, both JavaScript files, `favicon.svg`, `favicon.png`, the complete `api/` folder and `vercel.json` as well. If the images are omitted, the hero/promo photographs will show as missing.
+**Do not upload only the HTML files.** Upload both `.webp` images, all three CSS files, both JavaScript files, `favicon.svg`, `favicon.png`, the complete `api/` folder and `vercel.json` as well. If the images are omitted, the hero/promo photographs will show as missing.
 
 The ZIP is intentionally clean and keeps `index.html` and all website files at the archive root. It contains only the StarnyX public company website, required assets, the demo directory page with external links, the Discord API endpoint and deployment documentation. Individual demo websites are hosted in their own separate repositories and are NOT bundled here. Extract the ZIP and upload the contents directly to the root of the GitHub repository.
 
@@ -84,9 +85,10 @@ Review pricing, offers, legal content and company details before treating them a
 
 - `index.html`, other `.html` pages — pages
 - `styles.css` — original shared design system
-- `diwali-festival.css` — final light Diwali design layer
+- `diwali-festival.css` — final light Diwali design and floating celebration-particle layer
+- `responsive-polish.css` — shared desktop, tablet and mobile layout refinements
 - `script.js` — navigation, forms, WhatsApp and Tejas assistant
-- `diwali-festival.js` — inserts one lightweight fireworks layer into the page hero
+- `diwali-festival.js` — inserts a lightweight, colorful floating-particle layer into the page hero
 - `diwali-hero.webp`, `diwali-promo.webp` — locally bundled images
 - `favicon.svg`, `favicon.png` — StarnyX brand assets
 - `api/discord.js` — Vercel serverless Discord notification endpoint

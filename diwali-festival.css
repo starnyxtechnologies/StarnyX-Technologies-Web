@@ -223,11 +223,9 @@ input:focus, textarea:focus, select:focus { border-color: #d5a65b !important; bo
 .guide-disclaimer { background: #fffdf8 !important; color: #8b847a !important; }
 .whatsapp-float { box-shadow: 0 12px 28px rgba(20, 142, 92, .22) !important; }
 
-/* Lightweight, visible Diwali sky-shots.
-   Static gradients + compositor-friendly transform/opacity animations only. */
+/* Soft, colorful celebration particles — floating confetti only, not fireworks or rockets. */
 .hero, .page-hero, .error-page { position: relative; isolation: isolate; overflow: hidden; }
 .diwali-fireworks {
-  display: block !important;
   position: absolute;
   inset: 0;
   z-index: 4;
@@ -236,101 +234,43 @@ input:focus, textarea:focus, select:focus { border-color: #d5a65b !important; bo
   contain: layout paint;
 }
 .hero-layout { position: relative; }
+.page-hero-content, .error-content { position: relative; z-index: 6; }
 .hero-copy, .photo-art-caption { position: relative; z-index: 6 !important; }
 .hero-art { position: relative; z-index: 2 !important; }
-.hero-bottom, .page-hero-content, .error-content { position: relative; z-index: 6 !important; }
-
-.diwali-skyshot {
-  --shot-colour: #eaa53d;
+.hero-bottom { position: relative; z-index: 6 !important; }
+.diwali-particle {
   position: absolute;
-  width: clamp(76px, 9.5vw, 142px);
-  aspect-ratio: 1;
+  left: var(--particle-left);
+  top: var(--particle-top);
+  display: block;
+  width: var(--particle-size);
+  height: var(--particle-size);
   border-radius: 50%;
+  background: var(--particle-color);
+  box-shadow: 0 0 7px var(--particle-color), 0 0 14px var(--particle-color);
   opacity: 0;
-  transform: scale(.12);
-  transform-origin: center;
-  background:
-    radial-gradient(circle, rgba(255,255,255,.96) 0 2px, transparent 4px),
-    repeating-conic-gradient(from 0deg, transparent 0 9deg, var(--shot-colour) 9.4deg 10.5deg, transparent 11deg 18deg);
-  -webkit-mask: radial-gradient(circle, transparent 0 8%, #000 14% 70%, transparent 78%);
-  mask: radial-gradient(circle, transparent 0 8%, #000 14% 70%, transparent 78%);
-  animation: starnyxSkyshot 7.8s ease-out infinite both;
-  will-change: transform, opacity;
+  transform: translate3d(0, 8px, 0) scale(.35) rotate(0deg);
+  animation: starnyxPartyParticle var(--particle-duration) ease-in-out var(--particle-delay) infinite;
 }
-.diwali-skyshot::before {
-  content: "";
-  position: absolute;
-  inset: 35%;
-  border-radius: 50%;
-  background: #fff8dd;
-  box-shadow: 0 0 9px 3px var(--shot-colour);
-}
-.diwali-skyshot::after {
-  content: "";
-  position: absolute;
-  inset: 16%;
-  border: 1px solid color-mix(in srgb, var(--shot-colour) 60%, transparent);
-  border-radius: 50%;
-}
-.diwali-skyshot.gold, .diwali-rocket.gold { --shot-colour: #e8a332; }
-.diwali-skyshot.rose, .diwali-rocket.rose { --shot-colour: #db6684; }
-.diwali-skyshot.cyan, .diwali-rocket.cyan { --shot-colour: #54aeca; }
-
-/* Large hero bursts stay in the visual half, away from the headline and CTA. */
-.hero .shot-one { top: 10%; left: 70%; animation-delay: 0s; }
-.hero .shot-two { top: 22%; left: 87%; animation-delay: -2.6s; }
-.hero .shot-three { top: 5%; left: 51%; animation-delay: -5.2s; }
-/* Inner-page bursts sit near the outer edges of the heading area. */
-.page-hero .shot-one, .error-page .shot-one { top: 8%; right: 7%; animation-delay: 0s; }
-.page-hero .shot-two, .error-page .shot-two { top: 28%; left: 5%; animation-delay: -3.9s; }
-
-@keyframes starnyxSkyshot {
-  0%, 13% { opacity: 0; transform: scale(.12); }
-  17% { opacity: .9; transform: scale(.72); }
-  23% { opacity: .82; transform: scale(1); }
-  31% { opacity: .48; transform: scale(1.12); }
-  43%, 100% { opacity: 0; transform: scale(1.22); }
-}
-
-.diwali-rocket {
-  --rocket-drift: -12px;
-  position: absolute;
-  bottom: -58px;
+.diwali-particle.is-confetti {
   width: 2px;
-  height: 54px;
-  border-radius: 50%;
-  opacity: 0;
-  transform-origin: center bottom;
-  background: linear-gradient(to top, transparent, var(--shot-colour) 48%, #fffdf2 100%);
-  animation: starnyxRocket 7.8s ease-out infinite both;
-  will-change: transform, opacity;
+  height: var(--particle-length);
+  border-radius: 5px;
+  box-shadow: 0 0 6px var(--particle-color);
 }
-.hero .shot-one-rocket { left: 75%; --rocket-drift: -16px; animation-delay: 0s; }
-.hero .shot-two-rocket { left: 90%; --rocket-drift: -8px; animation-delay: -2.6s; }
-.hero .shot-three-rocket { left: 56%; --rocket-drift: 12px; animation-delay: -5.2s; }
-.page-hero .shot-one-rocket, .error-page .shot-one-rocket { left: 88%; --rocket-drift: -12px; animation-delay: 0s; }
-.page-hero .shot-two-rocket, .error-page .shot-two-rocket { left: 9%; --rocket-drift: 10px; animation-delay: -3.9s; }
-@keyframes starnyxRocket {
-  0%, 1% { opacity: 0; transform: translate3d(0, 0, 0) scaleY(.25); }
-  3% { opacity: .9; }
-  16% { opacity: .85; transform: translate3d(var(--rocket-drift), -48vh, 0) scaleY(1); }
-  18%, 100% { opacity: 0; transform: translate3d(var(--rocket-drift), -52vh, 0) scaleY(.7); }
+.diwali-particle.is-twinkle {
+  width: 3px;
+  height: 3px;
+  box-shadow: 0 0 3px #fff, 0 0 9px var(--particle-color), 0 0 15px var(--particle-color);
 }
-
-/* Keep the rest of the page calm and readable; no decorative particle DOM. */
-@media (max-width: 760px) {
-  .diwali-skyshot { width: clamp(66px, 20vw, 94px); }
-  .hero .shot-one { top: 8%; left: 67%; }
-  .hero .shot-two { top: 23%; left: 82%; }
-  .hero .shot-three { display: none; }
-  .hero .shot-three-rocket { display: none; }
-  .page-hero .shot-two, .error-page .shot-two { display: none; }
-  .diwali-rocket { height: 42px; }
-  .diwali-fireworks { opacity: .62; }
+@keyframes starnyxPartyParticle {
+  0%, 100% { opacity: 0; transform: translate3d(0, 8px, 0) scale(.35) rotate(0deg); }
+  16% { opacity: .78; }
+  52% { opacity: .88; transform: translate3d(var(--particle-drift-x), var(--particle-drift-y), 0) scale(1) rotate(145deg); }
+  82% { opacity: .36; }
 }
-@media (max-width: 390px) {
-  .hero .shot-two { left: 78%; }
-  .diwali-skyshot { width: 64px; }
+@media (max-width: 620px) {
+  .diwali-fireworks { opacity: .76; }
 }
 @media (prefers-reduced-motion: reduce) {
   .diwali-fireworks { display: none !important; }
