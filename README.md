@@ -1,81 +1,91 @@
-# StarnyX Technologies — Public Website
+# StarnyX Technologies — Diwali Public Website
 
-Premium static public website for **StarnyX Technologies**.
+A complete static public website for **StarnyX Technologies** with a warm, light Diwali visual theme.
 
-- Official domain: https://starnyxtechnologies.in
+- Official website: https://starnyxtechnologies.in
 - WhatsApp enquiries: +91 73855 85398
-- UI: HTML, CSS and vanilla JavaScript
-- Hosting: Vercel (static pages + one serverless Discord notification endpoint)
-- No public payment gateway, login or business application is included in this phase.
+- Main StarnyX business application: under construction (announced on the public website)
+- Payment gateway: not included on this public marketing website
 
-## Public platform notice and chatbot
+## What is included
 
-- A separate, full-width Diwali announcement strip appears directly below the navigation on all public pages. The navigation and notice occupy separate layout rows and do not overlap. It explains that the main StarnyX business application is under construction. The site uses a bright ivory-and-champagne light theme with a warm, realistic diya-and-rangoli hero photograph. The earlier illustrated kandil, star motifs and night-sky canvas effects have been removed.
-- The StarnyX Tejas — StarnyX Digital Guide is a small rule-based JavaScript chatbot with festive greetings, Happy Diwali wishes, service guidance and DIWALI25 offer guidance. It responds to greetings (hello, hi, hey, namaste), thanks, goodbye, basic questions about StarnyX, services, pricing, the Diwali offer, contact and the main application status. It does not use an AI API or access private data.
-- Contact and quote forms prepare a WhatsApp message for +91 73855 85398 and send a separate enquiry notification to `/api/discord` when the Vercel webhook is configured. The visitor must press **Send** in WhatsApp to send the message.
+- 17 HTML pages: Home, About, Services, Our Work, Offers, Pricing, FAQ, Contact, Get a Quote, Careers, Privacy, Terms, Refund Policy, Cookie Policy, Disclaimer, Service Agreement and 404.
+- Light ivory, warm white, marigold, saffron and gold Diwali design.
+- Bundled local hero and promotional photographs. No external image URLs are required for the main visuals.
+- Animated fireworks / sky shots, subtle floating light particles, fairy lights and diya dividers. Motion automatically respects `prefers-reduced-motion`.
+- Existing StarnyX blue metallic favicon/logo in the header and browser tab.
+- Tejas JavaScript guide assistant.
+- WhatsApp enquiry and quote actions.
+- Vercel serverless Discord enquiry endpoint at `/api/discord`.
+- SEO metadata, sitemap and robots.txt.
 
-## Pages
+## Important: upload ALL files
 
-Home, About, Services, Our Work, Pricing, Offers, FAQ, Contact, Get a Quote, Careers, Privacy Policy, Terms, Refund Policy, Cookie Policy, Disclaimer, Service Agreement and 404.
+The two main photographs are stored in the project root:
 
-## Run locally
+- `diwali-hero.webp`
+- `diwali-promo.webp`
 
-Open `index.html` in a browser for a static preview. For the Discord serverless function, use the Vercel CLI: install the Vercel CLI, run `vercel dev` from this folder, and set `DISCORD_WEBHOOK_URL` in a local `.env.local` file. Never commit `.env.local`.
+**Do not upload only the HTML files.** Upload both `.webp` images, both CSS files, both JavaScript files, `favicon.svg`, `favicon.png`, the complete `api/` folder and `vercel.json` as well. If the images are omitted, the hero/promo photographs will show as missing.
 
-## Deploy to GitHub and Vercel
+The ZIP is intentionally packaged with `index.html` and all other website files at the archive root. Extract the ZIP and upload the contents of that extracted folder directly to the root of the GitHub repository.
 
-1. Create a private GitHub repository, for example `starnyx-public-website`.
-2. Upload the contents of this folder to the repository root (not the parent folder).
-3. Import the repository in Vercel.
-4. Framework Preset: **Other**.
-5. Build Command: leave blank.
-6. Output Directory: `.` (repository root).
-7. Install Command: leave blank.
-8. Deploy.
-9. Add `starnyxtechnologies.in` and `www.starnyxtechnologies.in` in Vercel → Project → Settings → Domains.
-10. Copy the exact DNS records Vercel displays into the DNS provider for the domain. Wait until Vercel verifies the domain and provisions HTTPS.
+## Local preview
 
-The `api/discord.js` file is a Vercel Node.js Serverless Function. It is deployed as `/api/discord`.
+No build or package installation is required.
 
-## Add the Discord webhook (IMPORTANT)
+You can open `index.html` directly, or run a local static server from this folder:
 
-The Discord webhook URL is a secret. **Do not paste it into `script.js`, any HTML file, GitHub, or a public screenshot.**
+```bash
+python -m http.server 8080
+```
 
-1. In Discord, create or choose a private channel for website enquiries, e.g. `#website-enquiries`.
-2. Open that channel’s **Edit Channel → Integrations → Webhooks**.
-3. Choose **New Webhook**, give it a name such as `StarnyX Website Enquiries`, select the correct channel, and copy the webhook URL.
-4. Open **Vercel Dashboard → your website project → Settings → Environment Variables**.
-5. Add a variable named exactly `DISCORD_WEBHOOK_URL`. Paste the copied webhook URL as its value. Select **Production** (and Preview too only if you want preview enquiries sent to the same channel).
-6. Set `ALLOWED_ORIGIN` to the exact public website origin, for example `https://starnyxtechnologies.in` or `https://www.starnyxtechnologies.in`. You may enter multiple comma-separated origins if required. The endpoint also permits the current Vercel deployment URL and the known project alias.
-7. Save the variables and trigger a new deployment (Deployments → latest deployment → Redeploy). Vercel Functions read environment variables at runtime; redeploy after changing them.
-8. Test the Contact or Get a Quote form. The visitor’s WhatsApp opens with a prepared message; they must tap **Send** in WhatsApp. When the webhook is configured, the website also sends a private notification to the Discord channel.
+Then open `http://localhost:8080`.
 
-**Do not paste the actual webhook URL into a source file, `.env.example`, or GitHub repository.** The repository shown earlier was Public. A committed webhook can be copied and abused by anyone. GitHub Actions repository secrets are available only to GitHub Actions jobs; they are not automatically available to a deployed Vercel Function at runtime. This website sends Discord alerts through the Vercel serverless endpoint `api/discord.js`, so the runtime secret must be configured in Vercel Project Settings → Environment Variables. This is a technical requirement, not an optional preference. Keep the repository private as an additional source-code privacy measure, but still keep the webhook out of Git history.
+## GitHub + Vercel deployment
 
-If `DISCORD_WEBHOOK_URL` is absent, the website still works and WhatsApp enquiries remain available. The form will report that the private Discord alert is not configured.
+1. Extract the ZIP.
+2. Upload **all extracted files and folders** to the root of the GitHub repository, replacing the older website files.
+3. Commit the changes to the production branch.
+4. Connect/import the repository in Vercel.
+5. Framework preset: **Other**.
+6. Build command: leave blank.
+7. Output directory: `.` (project root).
+8. Install command: leave blank.
+9. Add `starnyxtechnologies.in` and `www.starnyxtechnologies.in` under Vercel → Project → Settings → Domains.
+10. Apply the DNS records Vercel shows for the domain.
 
-## WhatsApp number
+## Discord enquiry notifications
 
-The number is configured in `script.js` as `917385585398` (country code 91 + number). The website does not send WhatsApp messages automatically; it opens WhatsApp with a pre-filled enquiry and the visitor confirms by tapping **Send**.
+The browser never contains the Discord webhook URL.
 
-## Diwali offer
+The included function is `api/discord.js`. Configure these variables in **Vercel → Project → Settings → Environment Variables**:
 
-The public website advertises up to 25% off selected StarnyX service fees using enquiry reference `DIWALI25`. It does not automatically calculate or deduct a discount. Confirm eligibility, final discount, exclusions and booking validity in a written quotation over WhatsApp. Third-party costs are excluded unless specifically stated.
+- `DISCORD_WEBHOOK_URL` — the complete Discord incoming webhook URL.
+- `ALLOWED_ORIGIN` — `https://starnyxtechnologies.in,https://www.starnyxtechnologies.in` (comma-separated origins; add the Vercel preview origin only when needed).
 
-## Important launch notes
+Apply to Production (and Preview only if you want preview enquiries sent to Discord), save, then redeploy. GitHub repository secrets are for GitHub Actions and are not automatically available inside a Vercel Function.
 
-- No email collection or `mailto:` contact flow is used.
-- No online payment gateway is included in this public-only phase.
-- The chatbot is a small rule-based JavaScript guide, not an AI model. It does not access private data.
-- Legal pages are initial website information and should be reviewed for actual business practices before being treated as formal legal advice.
-- Portfolio examples should be published only when they represent genuine work or are clearly labelled as illustrative demos.
+The API intentionally returns `NOT_CONFIGURED` when the webhook is absent and never reports a fake delivery success.
 
+## WhatsApp
 
-### Why the webhook is not hard-coded in GitHub
-A GitHub repository is source storage, not a runtime secret manager for a static website. GitHub Actions secrets are only exposed to GitHub Actions jobs; a deployed Vercel Function cannot read them automatically. The Discord webhook must be supplied to the serverless runtime through that host's environment-variable settings. Never place it in HTML, JavaScript, or a committed workflow file.
+The configured enquiry number is `+91 73855 85398`. WhatsApp opens a pre-filled message; the visitor still presses Send in WhatsApp. This site does not send WhatsApp messages silently.
 
+## Content and business facts
 
-## Diwali light visual theme
-The public website uses a bright ivory and soft-white design with navy typography, warm gold and marigold accents, and a realistic brass-diya/rangoli still-life image. The custom illustrated kandil, star/orbit decorations and night-sky fireworks canvas have been removed. All public page heroes and content sections use the light theme. The Tejas assistant uses a human-style avatar and local intent-based replies.
+This is a public marketing site, not the future Explorer / Client / Admin application. There is no login portal, database, payment gateway, online ordering, or booking system in this website package. The larger StarnyX business application can be developed separately later.
 
-The offer reference is `DIWALI25`: up to 25% off selected StarnyX professional service fees, subject to written quotation confirmation. No automatic discount or online payment is processed on this public website.
+Review pricing, offers, legal content and company details before treating them as final commercial/legal terms. The displayed `DIWALI25` is an enquiry code; the final discount and eligible scope must be confirmed by StarnyX.
+
+## Files
+
+- `index.html`, other `.html` pages — pages
+- `styles.css` — original shared design system
+- `diwali-festival.css` — final light Diwali design layer
+- `script.js` — navigation, forms, WhatsApp and Tejas assistant
+- `diwali-festival.js` — fairy lights, diya dividers, particles and fireworks
+- `diwali-hero.webp`, `diwali-promo.webp` — locally bundled images
+- `favicon.svg`, `favicon.png` — StarnyX brand assets
+- `api/discord.js` — Vercel serverless Discord notification endpoint
+- `vercel.json` — Vercel function configuration
