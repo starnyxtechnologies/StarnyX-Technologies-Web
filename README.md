@@ -10,7 +10,7 @@ Premium static public website for **StarnyX Technologies**.
 
 ## Public platform notice and chatbot
 
-- A separate, full-width Diwali announcement strip appears directly below the navigation on all public pages. The navigation and notice occupy separate layout rows and do not overlap. It promotes the festive message and explains that the main StarnyX business application is under construction. Hero sections include lightweight animated fireworks, festive lights and diya decorations; reduced-motion preferences are respected.
+- A separate, full-width Diwali announcement strip appears directly below the navigation on all public pages. The navigation and notice occupy separate layout rows and do not overlap. It explains that the main StarnyX business application is under construction. The site uses a bright ivory-and-champagne light theme with a warm, realistic diya-and-rangoli hero photograph. The earlier illustrated kandil, star motifs and night-sky canvas effects have been removed.
 - The StarnyX Tejas — StarnyX Digital Guide is a small rule-based JavaScript chatbot with festive greetings, Happy Diwali wishes, service guidance and DIWALI25 offer guidance. It responds to greetings (hello, hi, hey, namaste), thanks, goodbye, basic questions about StarnyX, services, pricing, the Diwali offer, contact and the main application status. It does not use an AI API or access private data.
 - Contact and quote forms prepare a WhatsApp message for +91 73855 85398 and send a separate enquiry notification to `/api/discord` when the Vercel webhook is configured. The visitor must press **Send** in WhatsApp to send the message.
 
@@ -75,8 +75,7 @@ The public website advertises up to 25% off selected StarnyX service fees using 
 A GitHub repository is source storage, not a runtime secret manager for a static website. GitHub Actions secrets are only exposed to GitHub Actions jobs; a deployed Vercel Function cannot read them automatically. The Discord webhook must be supplied to the serverless runtime through that host's environment-variable settings. Never place it in HTML, JavaScript, or a committed workflow file.
 
 
-## Diwali visual theme
-The public website uses a seasonal midnight, saffron, marigold and gold palette, with a lightweight canvas fireworks animation in hero areas, festive announcement banner, diya accents and Diwali-themed chatbot greetings. The offer reference is `DIWALI25`: up to 25% off selected StarnyX professional service fees, subject to written quotation confirmation. No automatic discount or online payment is processed on this public website.
+## Diwali light visual theme
+The public website uses a bright ivory and soft-white design with navy typography, warm gold and marigold accents, and a realistic brass-diya/rangoli still-life image. The custom illustrated kandil, star/orbit decorations and night-sky fireworks canvas have been removed. All public page heroes and content sections use the light theme. The Tejas assistant uses a human-style avatar and local intent-based replies.
 
-## Diwali Festival Experience v2
-The homepage features a custom animated SVG Akash Kandil, foreground diyas, animated sky-shot bursts and a festive midnight palette. Inner-page hero sections share the animated fireworks ambience. The Tejas assistant uses a human-style avatar and local intent-based replies.
+The offer reference is `DIWALI25`: up to 25% off selected StarnyX professional service fees, subject to written quotation confirmation. No automatic discount or online payment is processed on this public website.

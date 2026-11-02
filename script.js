@@ -37,132 +37,14 @@ function createPlatformNotice() {
     <div class="platform-notice-inner container">
       <span class="platform-notice-label"><i aria-hidden="true"></i> HAPPY DIWALI · STARNYX</span>
       <p>Make your Diwali brighter with digital solutions. Our main StarnyX business application is currently under construction.</p>
-      <a href="offers.html">Explore offer <span aria-hidden="true">✦</span></a>
+      <a href="offers.html">Explore offer <span aria-hidden="true">↗</span></a>
     </div>`;
   header.insertAdjacentElement('afterend', notice);
 }
 createPlatformNotice();
 
-// Diwali night-sky animation: lightweight canvas fireworks behind each page hero.
-// It uses no external images or APIs and respects reduced-motion preferences.
-function initDiwaliNightSky() {
-  document.body.classList.add('diwali-festival-mode');
-  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const skySections = document.querySelectorAll('.hero, .page-hero, .error-page');
-
-  skySections.forEach((section) => {
-    if (section.querySelector('.diwali-fireworks')) return;
-    section.classList.add('diwali-sky-section');
-
-    const canvas = document.createElement('canvas');
-    canvas.className = 'diwali-fireworks';
-    canvas.setAttribute('aria-hidden', 'true');
-    section.insertBefore(canvas, section.firstChild);
-
-    const lights = document.createElement('div');
-    lights.className = 'diwali-sky-lights';
-    lights.setAttribute('aria-hidden', 'true');
-    section.appendChild(lights);
-
-    const diyaRow = document.createElement('div');
-    diyaRow.className = 'diwali-diya-row';
-    diyaRow.setAttribute('aria-hidden', 'true');
-    diyaRow.innerHTML = '<span class="diwali-diya"><i></i></span><span class="diwali-diya"><i></i></span><span class="diwali-diya"><i></i></span><span class="diwali-diya"><i></i></span><span class="diwali-diya"><i></i></span><span class="diwali-diya"><i></i></span>';
-    section.appendChild(diyaRow);
-
-    if (reduceMotion) {
-      section.classList.add('diwali-static-sky');
-      return;
-    }
-
-    const ctx = canvas.getContext('2d', { alpha: true });
-    if (!ctx) return;
-    let width = 0, height = 0, dpr = 1, raf = 0, lastLaunch = 0;
-    let rockets = [];
-    let particles = [];
-    let active = true;
-    const palette = ['#ffd166', '#ff9f43', '#ff6b6b', '#7de7f5', '#fff2bd', '#ff83b8', '#b9a1ff', '#ffcf83'];
-    const rand = (min, max) => Math.random() * (max - min) + min;
-
-    const resize = () => {
-      const rect = section.getBoundingClientRect();
-      width = Math.max(1, rect.width);
-      height = Math.max(1, rect.height);
-      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      canvas.width = Math.round(width * dpr);
-      canvas.height = Math.round(height * dpr);
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
-
-    const burst = (x, y, color) => {
-      const count = Math.round(rand(58, 78));
-      for (let i = 0; i < count; i++) {
-        const angle = (Math.PI * 2 * i) / count + rand(-0.06, 0.06);
-        const speed = rand(1.6, 4.4);
-        particles.push({ x, y, px: x, py: y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, life: rand(42, 78), max: 78, size: rand(1.5, 3.1), color: Math.random() > .82 ? palette[Math.floor(rand(0, palette.length))] : color });
-      }
-    };
-
-    const launch = () => {
-      const x = rand(width * 0.12, width * 0.88);
-      const targetY = rand(height * 0.10, height * 0.48);
-      const color = palette[Math.floor(rand(0, palette.length))];
-      rockets.push({ x, y: height + 4, px: x, py: height + 4, targetY, vy: rand(-6.2, -8.1), color });
-    };
-
-    const draw = (time) => {
-      if (!active) return;
-      ctx.clearRect(0, 0, width, height);
-      if (time - lastLaunch > rand(720, 1250) && rockets.length < 4) {
-        launch();
-        lastLaunch = time;
-      }
-
-      rockets = rockets.filter((rocket) => {
-        rocket.px = rocket.x; rocket.py = rocket.y;
-        rocket.y += rocket.vy;
-        rocket.vy += 0.045;
-        ctx.globalAlpha = 0.8;
-        ctx.strokeStyle = rocket.color;
-        ctx.lineWidth = 1.6;
-        ctx.beginPath(); ctx.moveTo(rocket.px, rocket.py); ctx.lineTo(rocket.x, rocket.y); ctx.stroke();
-        if (rocket.y <= rocket.targetY || rocket.vy >= -1) {
-          burst(rocket.x, rocket.y, rocket.color);
-          return false;
-        }
-        return true;
-      });
-
-      particles = particles.filter((particle) => {
-        particle.px = particle.x; particle.py = particle.y;
-        particle.x += particle.vx; particle.y += particle.vy;
-        particle.vx *= 0.986; particle.vy = particle.vy * 0.986 + 0.035;
-        particle.life -= 1;
-        const alpha = Math.max(0, particle.life / particle.max);
-        ctx.globalAlpha = alpha;
-        ctx.strokeStyle = particle.color;
-        ctx.lineWidth = particle.size;
-        ctx.beginPath(); ctx.moveTo(particle.px, particle.py); ctx.lineTo(particle.x, particle.y); ctx.stroke();
-        return particle.life > 0;
-      });
-      ctx.globalAlpha = 1;
-      raf = requestAnimationFrame(draw);
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      active = entries[0]?.isIntersecting ?? true;
-      if (active && !raf) raf = requestAnimationFrame(draw);
-      if (!active && raf) { cancelAnimationFrame(raf); raf = 0; }
-    }, { threshold: 0.02 });
-    observer.observe(section);
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
-    if (active) raf = requestAnimationFrame(draw);
-  });
-}
-initDiwaliNightSky();
+// Warm, light Diwali theme is styled in CSS; no intrusive canvas/fireworks overlays are injected.
+document.body.classList.add('diwali-festival-mode');
 
 
 // Current year and active navigation state.

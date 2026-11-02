@@ -726,3 +726,397 @@ input:focus, textarea:focus, select:focus { border-color: #d98d42 !important; bo
 @media (prefers-reduced-motion: reduce) {
   .main-kandil, .side-kandil, .svg-firework, .scene-stars, .floating-sparks, .hero-diya { animation: none !important; }
 }
+
+
+/* =============================================================
+   STARNYX LIGHT DIWALI EDITION — final visual system
+   Warm ivory, soft marigold, champagne gold and StarnyX blue.
+   The former illustrated kandil/star/night-sky scene is removed.
+   ============================================================= */
+:root {
+  --diwali-paper: #fffaf2;
+  --diwali-cream: #fff4df;
+  --diwali-text: #17243b;
+  --diwali-muted: #68758a;
+  --diwali-saffron: #e89a32;
+  --diwali-marigold: #d66a3d;
+  --diwali-gold: #c99239;
+  --ink: #17243b;
+  --muted: #68758a;
+  --pale: #f8f5ef;
+  --line: #e9e2d6;
+  --white: #ffffff;
+  --shadow: 0 18px 48px rgba(33, 42, 61, .09);
+}
+html, body, body.diwali-festival-mode, .site-shell {
+  background: #fffaf2 !important;
+  color: #17243b !important;
+}
+body { color: #17243b !important; }
+
+/* Clean sticky white header — announcement now sits below without overlap. */
+.site-header, .inner-page .site-header {
+  position: sticky !important;
+  inset: auto !important;
+  top: 0 !important;
+  z-index: 50 !important;
+  background: rgba(255, 255, 255, .96) !important;
+  border-bottom: 1px solid #eee5d6 !important;
+  box-shadow: 0 5px 24px rgba(30, 42, 60, .045) !important;
+  backdrop-filter: blur(16px);
+}
+.nav { height: 82px !important; }
+.brand { color: #17243b !important; }
+.brand-copy strong { color: #17243b !important; }
+.brand-copy small, .brand-footer .brand-copy small { color: #8b7890 !important; }
+.brand-logo { filter: none !important; }
+.nav-links { color: #536176 !important; }
+.nav-links > a:not(.nav-cta):hover,
+.nav-links > a[aria-current="page"] { color: #bd6a27 !important; }
+.nav-cta {
+  color: #17243b !important;
+  background: #fff4df !important;
+  border: 1px solid #e6c68e !important;
+  box-shadow: 0 5px 16px rgba(184, 126, 44, .08);
+}
+.nav-cta:hover { background: #ffebc8 !important; border-color: #d5a45b !important; }
+.nav-cta span { color: #bd6a27 !important; }
+.menu-toggle span { background: #26364f !important; }
+
+/* Soft festive announcement strip. */
+.platform-notice, .diwali-platform-notice {
+  background: linear-gradient(90deg, #fff2d8 0%, #fff8ec 50%, #fcebd6 100%) !important;
+  color: #604b35 !important;
+  border-bottom: 1px solid #f0dfc3 !important;
+}
+.platform-notice:before { opacity: .35; }
+.platform-notice-label { color: #a45b29 !important; }
+.platform-notice-label i { background: #d99036 !important; box-shadow: 0 0 9px rgba(217, 144, 54, .35) !important; }
+.platform-notice p { color: #655846 !important; }
+.platform-notice a { color: #9a512c !important; }
+.platform-notice a:hover { color: #6f351f !important; }
+
+/* Bright homepage hero with genuine festive still-life photography. */
+.hero {
+  min-height: auto !important;
+  padding: 74px 0 0 !important;
+  color: #17243b !important;
+  background:
+    radial-gradient(ellipse at 86% 32%, rgba(242, 190, 105, .22), transparent 31%),
+    radial-gradient(ellipse at 8% 86%, rgba(217, 119, 75, .09), transparent 28%),
+    linear-gradient(120deg, #fffdf9 0%, #fff8ed 56%, #fff1dc 100%) !important;
+}
+.hero-grid, .hero-glow, .scene-glow,
+.diwali-fireworks, .diwali-sky-lights, .diwali-diya-row,
+.diwali-home-firework, .diwali-promo-spark, .diwali-promo-orbit,
+.offer-sparkle, .scene-caption-star { display: none !important; }
+.hero-layout {
+  min-height: 500px !important;
+  grid-template-columns: .92fr 1.08fr !important;
+  align-items: center !important;
+  gap: clamp(28px, 4vw, 62px) !important;
+}
+.hero-copy { max-width: 610px !important; }
+.eyebrow-light { color: #a56d37 !important; }
+.eyebrow-dot, .pulse-dot {
+  background: #d99036 !important;
+  box-shadow: 0 0 0 5px rgba(217, 144, 54, .12), 0 0 14px rgba(217, 144, 54, .2) !important;
+}
+.hero h1 {
+  color: #17243b !important;
+  font-size: clamp(52px, 5.5vw, 76px) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -3.8px !important;
+}
+.hero h1 .gradient-text, .gradient-text {
+  background: linear-gradient(100deg, #b96b2d 0%, #e39b36 48%, #d56a48 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+.hero-lede { color: #5e6b7f !important; max-width: 560px; }
+.hero-note { color: #7d786f !important; }
+.note-line { background: #d99a42 !important; }
+.button-primary {
+  color: #fff !important;
+  background: linear-gradient(110deg, #2659a6, #3479c7) !important;
+  box-shadow: 0 10px 25px rgba(37, 91, 165, .2) !important;
+}
+.button-primary:hover { box-shadow: 0 13px 30px rgba(37, 91, 165, .28) !important; }
+.button-ghost {
+  color: #31415a !important;
+  background: rgba(255, 255, 255, .76) !important;
+  border-color: #e4d6c2 !important;
+}
+.button-ghost:hover { background: #fff !important; border-color: #d3b27e !important; }
+.diwali-photo-art {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 650px !important;
+  height: auto !important;
+  aspect-ratio: 1.58 / 1 !important;
+  justify-self: end !important;
+  display: block !important;
+  overflow: hidden !important;
+  border-radius: 26px !important;
+  border: 1px solid rgba(220, 191, 147, .58) !important;
+  background: #fff4e2 !important;
+  box-shadow: 0 24px 65px rgba(88, 63, 39, .13) !important;
+}
+.diwali-photo-art img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+.photo-art-caption {
+  position: absolute !important;
+  left: 18px !important;
+  bottom: 16px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  padding: 10px 14px !important;
+  color: #654725 !important;
+  background: rgba(255, 251, 243, .88) !important;
+  border: 1px solid rgba(226, 197, 151, .75) !important;
+  border-radius: 999px !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.2px !important;
+  backdrop-filter: blur(10px);
+}
+.photo-caption-dot { width: 7px; height: 7px; border-radius: 50%; background: #d68a35; }
+.hero-bottom {
+  border-color: #e9dfd0 !important;
+  color: #8a7863 !important;
+  margin-top: 24px !important;
+}
+.hero-capabilities { color: #69768a !important; }
+.hero-capabilities i { background: #d99a42 !important; }
+
+/* All standard content sections use light surfaces. */
+.intro-section, .services-section, .faq-section, .soft-band,
+.pricing-section, .projects-section, .contact-section,
+.section-pad, .approach-section {
+  background-color: #fffdf9 !important;
+  color: #17243b !important;
+}
+.intro-section { background-image: linear-gradient(180deg, #fffdf9, #fffaf2) !important; }
+.services-section, .faq-section, .pricing-section, .projects-section {
+  background: #f8f5ef !important;
+}
+.section-kicker, .section-kicker span, .service-detail-no,
+.process-no, .capability-number { color: #b97836 !important; }
+.text-blue, .text-link, .card-link, .offer-service-grid a { color: #285f9f !important; }
+.intro-main h2, .section-heading h2, .capability-copy h2,
+.faq-heading h2, .contact-copy h2, .split-feature h2 { color: #17243b !important; }
+.body-large, .body-muted, .heading-aside, .prose-large,
+.page-hero-content > p, .error-content p { color: #637187 !important; }
+.service-card, .service-detail-card, .project-card, .pricing-card,
+.faq-item, .contact-card, .commerce-card, .price-card, .work-card,
+.value-card, .process-step {
+  color: #17243b !important;
+  background: #fff !important;
+  border: 1px solid #ebe3d8 !important;
+  box-shadow: 0 12px 32px rgba(36, 47, 65, .055) !important;
+}
+.service-card h3, .service-detail-card h3, .project-card h3,
+.pricing-card h3, .faq-item summary, .contact-card h3,
+.work-card h3, .value-card h3, .process-step h3 { color: #1b2a43 !important; }
+.service-card p, .service-detail-card p, .project-card p,
+.pricing-card p, .contact-card p, .work-card p, .value-card p,
+.process-step p { color: #67758a !important; }
+.service-card:hover, .service-detail-card:hover, .project-card:hover {
+  border-color: #e5c894 !important;
+  box-shadow: 0 18px 42px rgba(70, 57, 39, .10) !important;
+}
+.service-icon { color: #a9652d !important; background: #fff1d9 !important; }
+.service-card-cta {
+  background: linear-gradient(145deg, #fff0d7, #fce5c7) !important;
+  color: #27344a !important;
+  border: 1px solid #efd3a4 !important;
+}
+.service-card-cta h3 { color: #27344a !important; }
+.service-card-cta p { color: #6b5a48 !important; }
+.cta-eyebrow { color: #a45d2b !important; }
+.button-light { color: #fff !important; background: #285f9f !important; border: 1px solid #285f9f !important; }
+.soft-band { background: linear-gradient(120deg, #fff8ea, #fffdf8) !important; }
+
+/* Replace former dark feature, CTA, offer and footer bands with bright editorial surfaces. */
+.capabilities-section, .dark-feature-section, .closing-cta,
+.offer-hero, .site-footer, .diwali-home-promo, .diwali-strip {
+  background: linear-gradient(120deg, #fff7e9 0%, #fffdf8 53%, #f8eee0 100%) !important;
+  color: #17243b !important;
+  border-top: 1px solid #eee2d0 !important;
+  border-bottom: 1px solid #eee2d0 !important;
+}
+.capability-glow, .contact-glow { display: none !important; }
+.capability-copy h2, .closing-cta h2, .dark-feature-section h2,
+.offer-hero h1, .diwali-home-promo h2, .diwali-strip h2 { color: #17243b !important; }
+.capability-copy p, .closing-cta p, .dark-feature-section p,
+.offer-hero p, .diwali-home-promo p, .diwali-strip p { color: #637187 !important; }
+.section-kicker-light { color: #a56a36 !important; }
+.section-kicker-light span { color: #b97836 !important; }
+.closing-cta-inner { background: transparent !important; }
+.site-footer { background: #f7f1e7 !important; }
+.site-footer .brand-copy strong { color: #17243b !important; }
+.site-footer .brand-copy small { color: #8d785e !important; }
+.footer-brand-col > p { color: #657187 !important; }
+.footer-links h4 { color: #9c5d2b !important; }
+.footer-links a, .footer-bottom { color: #667388 !important; }
+.footer-links a:hover, .back-top, .footer-whatsapp { color: #285f9f !important; }
+.footer-bottom { border-top: 1px solid #e6ddcf !important; }
+
+/* Diwali offer and service strip: elegant cream + gold, no dark promo artwork. */
+.diwali-home-promo, .diwali-strip {
+  position: relative !important;
+  overflow: hidden !important;
+  background: linear-gradient(115deg, #fff2dc, #fffaf1 60%, #f8e8d3) !important;
+}
+.diwali-home-promo h2 span, .diwali-copy h2 span {
+  background: linear-gradient(90deg, #a85d2c, #d58a32, #bf563d) !important;
+  -webkit-background-clip: text !important; background-clip: text !important; color: transparent !important;
+}
+.diwali-kicker { color: #a25d2d !important; }
+.diwali-promo-art {
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: 260px !important;
+  border: 1px solid #e8d5b7 !important;
+  border-radius: 22px !important;
+  box-shadow: 0 18px 44px rgba(81, 58, 34, .11) !important;
+}
+.diwali-promo-art > img { width: 100%; height: 100%; min-height: 260px; object-fit: cover; display: block; }
+.diwali-promo-discount {
+  position: absolute !important; right: 18px !important; bottom: 18px !important;
+  display: grid !important; place-content: center !important; text-align: center !important;
+  width: 112px !important; height: 112px !important; border-radius: 50% !important;
+  background: rgba(255, 250, 240, .93) !important; border: 1px solid #dfb66f !important;
+  box-shadow: 0 12px 26px rgba(82, 47, 21, .14) !important;
+}
+.diwali-promo-discount strong { color: #a7542b !important; font: 700 34px var(--font-display) !important; }
+.diwali-promo-discount small { color: #795332 !important; font-size: 9px !important; letter-spacing: 1.3px !important; }
+.offer-feature-card {
+  background: linear-gradient(145deg, #fff0d5, #fffaf1) !important;
+  border: 1px solid #e9d3ad !important;
+  color: #17243b !important;
+  box-shadow: 0 16px 40px rgba(91, 62, 29, .08) !important;
+}
+.offer-feature-card h2, .offer-feature-card h3, .offer-feature-card p { color: #26344b !important; }
+.offer-code-row strong, .offer-discount-large strong, .offer-discount-large small { color: #a9582e !important; }
+.offer-small-note { background: #fff1d8 !important; border-left-color: #d99a42 !important; color: #66553e !important; }
+.offer-hero { background: linear-gradient(120deg, #fff4e3, #fffdf9 58%, #f8ead7) !important; }
+
+/* Inner pages and error page: bright warm paper with restrained festive detail. */
+.page-hero, .error-page {
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: 320px !important;
+  padding: 104px 0 72px !important;
+  color: #17243b !important;
+  background:
+    radial-gradient(ellipse at 88% 22%, rgba(237, 185, 103, .18), transparent 28%),
+    linear-gradient(120deg, #fffdf9, #fff6e8 68%, #fffaf2) !important;
+}
+.page-hero:after { display: none !important; }
+.page-hero h1, .error-page h1 { color: #17243b !important; }
+.page-hero h1 .gradient-text, .error-page .gradient-text {
+  background: linear-gradient(90deg, #b96b2d, #dc9635, #ca6144) !important;
+  -webkit-background-clip: text !important; background-clip: text !important; color: transparent !important;
+}
+.breadcrumbs, .breadcrumbs span { color: #8790a0 !important; }
+.breadcrumbs a { color: #285f9f !important; }
+.page-hero-content > p { color: #637187 !important; }
+.eyebrow, .section-kicker { color: #8a735b !important; }
+.error-code { color: rgba(185, 107, 45, .12) !important; }
+
+/* Tejas widget: bright, friendly and easy to read. */
+.guide-launcher {
+  color: #25344b !important;
+  background: linear-gradient(135deg, #fffdf8, #fff0d7) !important;
+  border: 1px solid #e5c78f !important;
+  box-shadow: 0 12px 32px rgba(65, 52, 35, .15) !important;
+}
+.guide-launcher-icon { background: linear-gradient(145deg, #ffe2a6, #e7a14f) !important; box-shadow: none !important; }
+.guide-panel { background: #fffdf9 !important; border: 1px solid #e8d9c2 !important; box-shadow: 0 24px 68px rgba(35, 44, 59, .2) !important; }
+.guide-panel-head { background: linear-gradient(110deg, #fff3df, #fffaf1) !important; border-bottom: 1px solid #eadcc7 !important; }
+.guide-panel-head strong { color: #1f2d44 !important; }
+.guide-panel-head small { color: #82715d !important; }
+.guide-close { color: #5d6879 !important; }
+.guide-messages { background: #fffdf8 !important; }
+.guide-message-bot { background: #f7f3eb !important; color: #35445b !important; border-color: #e8dfd2 !important; }
+.guide-message-user { background: linear-gradient(120deg, #2b63a7, #367cc3) !important; color: #fff !important; }
+.guide-result-link { color: #285f9f !important; }
+.guide-quick-actions { background: #fff9ef !important; }
+.guide-quick-actions button { border-color: #e5d3b7 !important; color: #73512e !important; background: #fff !important; }
+.guide-quick-actions button:hover { background: #fff0d7 !important; border-color: #d9b579 !important; }
+.guide-form { background: #fffdf8 !important; border-top: 1px solid #e9e1d5 !important; }
+.guide-form input { border-color: #ded7cc !important; color: #25344b !important; }
+.guide-form button { background: #285f9f !important; color: #fff !important; }
+.guide-disclaimer { background: #fffdf8 !important; color: #8b847a !important; }
+
+/* Forms, quote cards and tables stay legible in the light design. */
+.form-card, .contact-form, .quote-checklist, .contact-aside-note {
+  background: #fff !important; border-color: #e9e0d4 !important; color: #23324a !important;
+  box-shadow: 0 14px 36px rgba(35, 45, 62, .06) !important;
+}
+input, textarea, select { accent-color: #285f9f !important; color: #24334b !important; background-color: #fff !important; border-color: #ddd7cd !important; }
+input:focus, textarea:focus, select:focus { border-color: #5f91c9 !important; box-shadow: 0 0 0 3px rgba(40, 95, 159, .12) !important; }
+.form-consent input { accent-color: #285f9f !important; }
+.form-heading, .form-heading span { color: #8a5b32 !important; }
+.form-note, .contact-aside-note p { color: #6f7a8c !important; }
+.whatsapp-float { box-shadow: 0 12px 28px rgba(20, 142, 92, .22) !important; }
+
+/* Responsive: preserve the hero composition and readable navigation. */
+@media (max-width: 980px) {
+  .hero { padding-top: 56px !important; }
+  .hero-layout { grid-template-columns: 1fr 1fr !important; gap: 24px !important; min-height: 440px !important; }
+  .diwali-photo-art { aspect-ratio: 1.2 / 1 !important; }
+  .nav-links { gap: 18px !important; }
+}
+@media (max-width: 760px) {
+  .nav { height: 72px !important; }
+  .site-header { position: sticky !important; }
+  .nav-links { background: #fffdf9 !important; border: 1px solid #eadfce !important; box-shadow: 0 18px 35px rgba(33, 43, 59, .12) !important; color: #34435a !important; }
+  .nav-links a { color: #34435a !important; }
+  .nav-links .nav-cta { color: #17243b !important; }
+  .menu-toggle span { background: #25344b !important; }
+  .platform-notice-inner { flex-wrap: wrap !important; gap: 6px 12px !important; justify-content: center !important; text-align: center !important; }
+  .platform-notice p { width: 100% !important; order: 3 !important; }
+  .hero { padding-top: 42px !important; padding-bottom: 16px !important; }
+  .hero-layout { grid-template-columns: 1fr !important; min-height: unset !important; gap: 24px !important; }
+  .hero h1 { font-size: clamp(43px, 10.5vw, 64px) !important; letter-spacing: -2.5px !important; margin: 18px 0 16px !important; }
+  .hero-lede { font-size: 15px !important; line-height: 1.7 !important; }
+  .diwali-photo-art { width: 100% !important; max-width: 600px !important; aspect-ratio: 1.42 / 1 !important; justify-self: center !important; border-radius: 18px !important; }
+  .photo-art-caption { left: 10px !important; bottom: 10px !important; font-size: 8px !important; padding: 8px 10px !important; }
+  .hero-bottom { display: grid !important; gap: 12px !important; padding: 18px 0 !important; }
+  .hero-capabilities { flex-wrap: wrap !important; row-gap: 9px !important; }
+  .page-hero { padding: 76px 0 52px !important; min-height: 280px !important; }
+  .guide-widget { left: 12px !important; bottom: 12px !important; }
+  .guide-panel { width: min(390px, calc(100vw - 24px)) !important; height: min(565px, 76vh) !important; bottom: 61px !important; }
+  .guide-launcher { padding: 9px 13px !important; }
+  .whatsapp-float { right: 12px !important; bottom: 12px !important; }
+  .diwali-home-promo-inner, .diwali-strip-inner { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 390px) {
+  .hero-actions { gap: 8px !important; }
+  .hero-actions .button { padding: 12px 13px !important; font-size: 11px !important; }
+  .diwali-photo-art { aspect-ratio: 1.15 / 1 !important; }
+  .guide-panel { height: 72vh !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* Final tidy: keep the light festival styling free of decorative star/orbit motifs. */
+.diwali-strip::before,
+.diwali-home-promo::before,
+.diwali-home-promo::after,
+.closing-cta::after { display: none !important; content: none !important; }
+.diwali-promo-link { color: #285f9f !important; }
+.capability-list, .capability-row { border-color: #e7ded1 !important; }
+.capability-row h3 { color: #24344d !important; }
+.capability-row p { color: #68758a !important; }
+.capability-arrow { color: #ad6a32 !important; }
