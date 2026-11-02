@@ -82,3 +82,6 @@
 .development-preview-copy { min-height:76px; display:grid; place-items:center; padding:12px; color:#9a672e; background:linear-gradient(120deg,#fff7e9,#f5dfbd); font:800 12px/1.5 'DM Sans',sans-serif; letter-spacing:1px; text-align:center; }
 .development-copy .button { margin-top:8px; }
 @media(max-width:650px){.demo-card-actions .button{width:100%;justify-content:center}.development-copy .button{width:100%;justify-content:center}}
+
+.art-restaurant { background:linear-gradient(135deg,#fff0d9,#e8b47c); }
+.art-restaurant .demo-art-content b { color:#8c3d24; }
