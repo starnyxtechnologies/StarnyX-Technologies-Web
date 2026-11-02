@@ -10,8 +10,8 @@ Premium static public website for **StarnyX Technologies**.
 
 ## Public platform notice and chatbot
 
-- A separate, full-width announcement strip appears directly below the navigation on all public pages. The navigation and notice occupy separate layout rows and do not overlap. It explains that this is the secondary public platform while the main StarnyX business application is under construction.
-- The StarnyX Guide is a small rule-based JavaScript chatbot. It responds to greetings (hello, hi, hey, namaste), thanks, goodbye, basic questions about StarnyX, services, pricing, the Diwali offer, contact and the main application status. It does not use an AI API or access private data.
+- A separate, full-width Diwali announcement strip appears directly below the navigation on all public pages. The navigation and notice occupy separate layout rows and do not overlap. It promotes the festive message and explains that the main StarnyX business application is under construction. Hero sections include lightweight animated fireworks, festive lights and diya decorations; reduced-motion preferences are respected.
+- The StarnyX Diwali Guide is a small rule-based JavaScript chatbot with festive greetings, Happy Diwali wishes, service guidance and DIWALI25 offer guidance. It responds to greetings (hello, hi, hey, namaste), thanks, goodbye, basic questions about StarnyX, services, pricing, the Diwali offer, contact and the main application status. It does not use an AI API or access private data.
 - Contact and quote forms prepare a WhatsApp message for +91 73855 85398 and send a separate enquiry notification to `/api/discord` when the Vercel webhook is configured. The visitor must press **Send** in WhatsApp to send the message.
 
 ## Pages
@@ -69,3 +69,11 @@ The public website advertises up to 25% off selected StarnyX service fees using 
 - The chatbot is a small rule-based JavaScript guide, not an AI model. It does not access private data.
 - Legal pages are initial website information and should be reviewed for actual business practices before being treated as formal legal advice.
 - Portfolio examples should be published only when they represent genuine work or are clearly labelled as illustrative demos.
+
+
+### Why the webhook is not hard-coded in GitHub
+A GitHub repository is source storage, not a runtime secret manager for a static website. GitHub Actions secrets are only exposed to GitHub Actions jobs; a deployed Vercel Function cannot read them automatically. The Discord webhook must be supplied to the serverless runtime through that host's environment-variable settings. Never place it in HTML, JavaScript, or a committed workflow file.
+
+
+## Diwali visual theme
+The public website uses a seasonal midnight, saffron, marigold and gold palette, with a lightweight canvas fireworks animation in hero areas, festive announcement banner, diya accents and Diwali-themed chatbot greetings. The offer reference is `DIWALI25`: up to 25% off selected StarnyX professional service fees, subject to written quotation confirmation. No automatic discount or online payment is processed on this public website.

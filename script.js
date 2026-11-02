@@ -31,17 +31,139 @@ function createPlatformNotice() {
   const header = document.querySelector('.site-header');
   if (!header || document.querySelector('.platform-notice')) return;
   const notice = document.createElement('aside');
-  notice.className = 'platform-notice';
-  notice.setAttribute('aria-label', 'Platform update');
+  notice.className = 'platform-notice diwali-platform-notice';
+  notice.setAttribute('aria-label', 'Diwali celebration and platform update');
   notice.innerHTML = `
     <div class="platform-notice-inner container">
-      <span class="platform-notice-label"><i aria-hidden="true"></i> PLATFORM UPDATE</span>
-      <p>You’re visiting our secondary public platform. The main StarnyX business application is currently under construction.</p>
-      <a href="https://wa.me/${STARNYX_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hello StarnyX Technologies, I would like to know more about your services.') }" target="_blank" rel="noopener noreferrer">Talk to us <span aria-hidden="true">↗</span></a>
+      <span class="platform-notice-label"><i aria-hidden="true"></i> HAPPY DIWALI · STARNYX</span>
+      <p>Make your Diwali brighter with digital solutions. Our main StarnyX business application is currently under construction.</p>
+      <a href="offers.html">Explore offer <span aria-hidden="true">✦</span></a>
     </div>`;
   header.insertAdjacentElement('afterend', notice);
 }
 createPlatformNotice();
+
+// Diwali night-sky animation: lightweight canvas fireworks behind each page hero.
+// It uses no external images or APIs and respects reduced-motion preferences.
+function initDiwaliNightSky() {
+  document.body.classList.add('diwali-festival-mode');
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const skySections = document.querySelectorAll('.hero, .page-hero, .error-page');
+
+  skySections.forEach((section) => {
+    if (section.querySelector('.diwali-fireworks')) return;
+    section.classList.add('diwali-sky-section');
+
+    const canvas = document.createElement('canvas');
+    canvas.className = 'diwali-fireworks';
+    canvas.setAttribute('aria-hidden', 'true');
+    section.insertBefore(canvas, section.firstChild);
+
+    const lights = document.createElement('div');
+    lights.className = 'diwali-sky-lights';
+    lights.setAttribute('aria-hidden', 'true');
+    section.appendChild(lights);
+
+    const diyaRow = document.createElement('div');
+    diyaRow.className = 'diwali-diya-row';
+    diyaRow.setAttribute('aria-hidden', 'true');
+    diyaRow.innerHTML = '<span class="diwali-diya"><i></i></span><span class="diwali-diya"><i></i></span><span class="diwali-diya"><i></i></span>';
+    section.appendChild(diyaRow);
+
+    if (reduceMotion) {
+      section.classList.add('diwali-static-sky');
+      return;
+    }
+
+    const ctx = canvas.getContext('2d', { alpha: true });
+    if (!ctx) return;
+    let width = 0, height = 0, dpr = 1, raf = 0, lastLaunch = 0;
+    let rockets = [];
+    let particles = [];
+    let active = true;
+    const palette = ['#ffd166', '#ff9f43', '#ff6b6b', '#7de7f5', '#fff2bd', '#ff83b8'];
+    const rand = (min, max) => Math.random() * (max - min) + min;
+
+    const resize = () => {
+      const rect = section.getBoundingClientRect();
+      width = Math.max(1, rect.width);
+      height = Math.max(1, rect.height);
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+
+    const burst = (x, y, color) => {
+      const count = Math.round(rand(30, 48));
+      for (let i = 0; i < count; i++) {
+        const angle = (Math.PI * 2 * i) / count + rand(-0.06, 0.06);
+        const speed = rand(1.0, 3.3);
+        particles.push({ x, y, px: x, py: y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, life: rand(42, 78), max: 78, size: rand(1, 2.3), color: Math.random() > .82 ? palette[Math.floor(rand(0, palette.length))] : color });
+      }
+    };
+
+    const launch = () => {
+      const x = rand(width * 0.12, width * 0.88);
+      const targetY = rand(height * 0.13, height * 0.55);
+      const color = palette[Math.floor(rand(0, palette.length))];
+      rockets.push({ x, y: height + 4, px: x, py: height + 4, targetY, vy: rand(-5.4, -7.2), color });
+    };
+
+    const draw = (time) => {
+      if (!active) return;
+      ctx.clearRect(0, 0, width, height);
+      if (time - lastLaunch > rand(1050, 1700) && rockets.length < 3) {
+        launch();
+        lastLaunch = time;
+      }
+
+      rockets = rockets.filter((rocket) => {
+        rocket.px = rocket.x; rocket.py = rocket.y;
+        rocket.y += rocket.vy;
+        rocket.vy += 0.045;
+        ctx.globalAlpha = 0.8;
+        ctx.strokeStyle = rocket.color;
+        ctx.lineWidth = 1.6;
+        ctx.beginPath(); ctx.moveTo(rocket.px, rocket.py); ctx.lineTo(rocket.x, rocket.y); ctx.stroke();
+        if (rocket.y <= rocket.targetY || rocket.vy >= -1) {
+          burst(rocket.x, rocket.y, rocket.color);
+          return false;
+        }
+        return true;
+      });
+
+      particles = particles.filter((particle) => {
+        particle.px = particle.x; particle.py = particle.y;
+        particle.x += particle.vx; particle.y += particle.vy;
+        particle.vx *= 0.986; particle.vy = particle.vy * 0.986 + 0.035;
+        particle.life -= 1;
+        const alpha = Math.max(0, particle.life / particle.max);
+        ctx.globalAlpha = alpha;
+        ctx.strokeStyle = particle.color;
+        ctx.lineWidth = particle.size;
+        ctx.beginPath(); ctx.moveTo(particle.px, particle.py); ctx.lineTo(particle.x, particle.y); ctx.stroke();
+        return particle.life > 0;
+      });
+      ctx.globalAlpha = 1;
+      raf = requestAnimationFrame(draw);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      active = entries[0]?.isIntersecting ?? true;
+      if (active && !raf) raf = requestAnimationFrame(draw);
+      if (!active && raf) { cancelAnimationFrame(raf); raf = 0; }
+    }, { threshold: 0.02 });
+    observer.observe(section);
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+    if (active) raf = requestAnimationFrame(draw);
+  });
+}
+initDiwaliNightSky();
+
 
 // Current year and active navigation state.
 const year = document.getElementById('year');
@@ -184,13 +306,13 @@ function createGuideBot() {
   const widget = document.createElement('div');
   widget.className = 'guide-widget';
   widget.innerHTML = `
-    <button class="guide-launcher" type="button" aria-label="Open StarnyX guide" aria-expanded="false"><span class="guide-launcher-icon">✦</span><span>Ask StarnyX</span><i class="guide-online-dot"></i></button>
+    <button class="guide-launcher" type="button" aria-label="Open StarnyX guide" aria-expanded="false"><span class="guide-launcher-icon">🪔</span><span>Diwali Guide</span><i class="guide-online-dot"></i></button>
     <section class="guide-panel" aria-label="StarnyX website guide" hidden>
-      <div class="guide-panel-head"><div class="guide-avatar">S<span>✦</span></div><div><strong>StarnyX Guide</strong><small><i></i> Quick website assistant</small></div><button type="button" class="guide-close" aria-label="Close guide">×</button></div>
-      <div class="guide-messages" aria-live="polite" aria-relevant="additions" role="log"><div class="guide-message guide-message-bot">Hi there! 👋 Welcome to StarnyX Technologies. I’m the website guide. You can ask me about our services, pricing, projects, offers or how to contact us. How can I help?</div></div>
-      <div class="guide-quick-actions"><button type="button" data-guide-query="Hello">Hello</button><button type="button" data-guide-query="What services do you offer?">Our services</button><button type="button" data-guide-query="Tell me about pricing">Pricing</button><button type="button" data-guide-query="How can I contact you?">WhatsApp</button></div>
-      <form class="guide-form"><label class="sr-only" for="guide-input">Ask a question</label><input id="guide-input" name="question" maxlength="300" autocomplete="off" placeholder="Ask about a service…" required><button type="submit" aria-label="Send message">↑</button></form>
-      <div class="guide-disclaimer">Rule-based guide · No AI · No account data</div>
+      <div class="guide-panel-head"><div class="guide-avatar">S<span>🪔</span></div><div><strong>StarnyX Diwali Guide</strong><small><i></i> Your festive digital guide</small></div><button type="button" class="guide-close" aria-label="Close guide">×</button></div>
+      <div class="guide-messages" aria-live="polite" aria-relevant="additions" role="log"><div class="guide-message guide-message-bot">Happy Diwali! 🪔✨ Welcome to StarnyX Technologies. May your ideas shine bright this festive season! I’m your Diwali Guide. Ask me about our digital services, the festive offer, project quotes or WhatsApp support.</div></div>
+      <div class="guide-quick-actions"><button type="button" data-guide-query="Happy Diwali">Happy Diwali 🪔</button><button type="button" data-guide-query="Tell me about the Diwali offer">Diwali Offer</button><button type="button" data-guide-query="What services do you offer?">Our services</button><button type="button" data-guide-query="How can I contact you?">WhatsApp</button></div>
+      <form class="guide-form"><label class="sr-only" for="guide-input">Ask a question</label><input id="guide-input" name="question" maxlength="300" autocomplete="off" placeholder="Ask your Diwali or project question…" required><button type="submit" aria-label="Send message">↑</button></form>
+      <div class="guide-disclaimer">Festive guide · Instant replies · No account data</div>
     </section>`;
   document.body.appendChild(widget);
 
@@ -212,9 +334,16 @@ function createGuideBot() {
     const normalized = question.toLowerCase().trim().replace(/[.!?,]+$/g, '').replace(/\s+/g, ' ');
     const exact = (patterns) => patterns.some((pattern) => pattern.test(normalized));
 
+    // Diwali greetings and festive conversation.
+    if (exact([/^(happy diwali|shubh deepawali|shubh diwali|diwali wishes|happy deepavali|शुभ दीपावली|शुभ दिवाळी|दिवाळीच्या शुभेच्छा)(\s+(bro|team|starnyx))?$/])) {
+      addBotMessage(messages, 'Happy Diwali! 🪔✨ Wishing you and your loved ones a bright, joyful and prosperous festive season. May this Diwali light up new ideas and new beginnings! Explore our DIWALI25 offer for up to 25% off selected digital service fees.');
+      const link = document.createElement('a'); link.className = 'guide-result-link'; link.href = 'offers.html'; link.textContent = 'Explore the Diwali offer ↗'; messages.appendChild(link);
+      return;
+    }
+
     // Friendly everyday conversation, handled locally without an AI service.
     if (exact([/^(hi+|hii+|hello+|hey+|heyy+|namaste|hola)(\s+(there|bro|team|starnyx))?$/, /^(good morning|good afternoon|good evening|good night)(\s+(bro|team))?$/])) {
-      addBotMessage(messages, 'Hello! 👋 Great to meet you. I can guide you through StarnyX services, pricing, project enquiries and the next steps. What would you like to explore?');
+      addBotMessage(messages, 'Hello and Happy Diwali! 🪔✨ Great to meet you. I can guide you through StarnyX services, the festive offer, project enquiries and next steps. What would you like to explore?');
       return;
     }
     if (exact([/^(how are you|how r you|how are u|how are things)$/])) {
@@ -222,7 +351,7 @@ function createGuideBot() {
       return;
     }
     if (exact([/^(thanks|thank you|thankyou|thx|many thanks|okay thanks|ok thanks)(\s+(bro|a lot))?$/])) {
-      addBotMessage(messages, 'You’re very welcome! 💙 Whenever you’re ready, share your project idea. I can help you find the right service or connect you with the StarnyX team on WhatsApp.');
+      addBotMessage(messages, 'You’re very welcome! 🪔 Wishing you a bright Diwali. Whenever you’re ready, share your project idea and I’ll help you find the right StarnyX service or connect you on WhatsApp.');
       return;
     }
     if (exact([/^(bye|goodbye|see you|see ya|tata)(\s+(bro|team))?$/])) {
@@ -234,7 +363,7 @@ function createGuideBot() {
       return;
     }
     if (exact([/^(who are you|what is your name|your name)$/])) {
-      addBotMessage(messages, 'I’m the StarnyX Guide — a simple website assistant for StarnyX Technologies. I can answer basic questions about our public services and guide you to the right page.');
+      addBotMessage(messages, 'I’m the StarnyX Diwali Guide — a simple festive website assistant. I can answer basic questions about our services, the DIWALI25 offer and help you reach the right page.');
       return;
     }
     if (exact([/^(what is starnyx|tell me about starnyx|about starnyx|what do you do)$/])) {
@@ -261,13 +390,13 @@ function createGuideBot() {
       return;
     }
     if (exact([/^(ok|okay|ok bro|nice|great|cool|understood)$/])) {
-      addBotMessage(messages, 'Glad I could help! 😊 You can ask another question or start a project conversation with us on WhatsApp.');
+      addBotMessage(messages, 'Glad I could help! 🪔 Have a bright Diwali! You can ask another question or start a project conversation with us on WhatsApp.');
       return;
     }
 
     const match = botKnowledge.find((entry) => entry.keys.some((key) => normalized.includes(key)));
     if (!match) {
-      addBotMessage(messages, 'I can help with websites, web apps, mobile apps, UI/UX, cloud deployment, automation, pricing and the Diwali offer. Choose a topic above or contact our team on WhatsApp for a specific requirement.');
+      addBotMessage(messages, 'Happy Diwali! 🪔 I can guide you through websites, web apps, mobile apps, UI/UX, cloud deployment, automation, pricing and the DIWALI25 festive offer. Choose a topic above or contact our team on WhatsApp.');
       return;
     }
     addBotMessage(messages, match.text);

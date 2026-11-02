@@ -273,3 +273,262 @@
     font-size: 10px;
   }
 }
+
+
+/* ============================================================
+   STARNYX DIWALI FESTIVAL EXPERIENCE — seasonal design layer
+   Keeps the midnight technology identity while adding saffron,
+   marigold, gold, diyas and animated fireworks.
+   ============================================================ */
+:root {
+  --diwali-saffron: #f59e0b;
+  --diwali-marigold: #ff9b35;
+  --diwali-gold: #ffd166;
+  --diwali-gold-soft: #ffe7a3;
+  --diwali-rose: #ff6f72;
+  --diwali-cream: #fff8e9;
+  --diwali-ink: #21172a;
+}
+body.diwali-festival-mode {
+  background: #fffdf8;
+  --blue: #d97706;
+  --blue-bright: #f59e0b;
+  --cyan: #fbbf24;
+  --violet: #db526d;
+  --pale: #fff8ed;
+  --line: #f1dfc0;
+}
+.site-header {
+  background: rgba(7, 14, 31, .97) !important;
+  border-bottom-color: rgba(255, 209, 102, .24) !important;
+  box-shadow: 0 7px 26px rgba(17, 9, 29, .16);
+}
+.brand-mark { color: var(--diwali-gold); filter: drop-shadow(0 0 9px rgba(255, 178, 61, .3)); }
+.brand-copy small { color: #eacb88; }
+.nav-links > a:not(.nav-cta)[aria-current="page"],
+.nav-links > a:not(.nav-cta):hover { color: #ffd98b; }
+.nav-cta {
+  border-color: rgba(255, 194, 87, .56);
+  background: linear-gradient(120deg, rgba(188, 91, 20, .23), rgba(72, 34, 51, .42));
+  color: #fff3d4;
+}
+.nav-cta:hover { border-color: #ffd166; background: rgba(196, 113, 24, .3); }
+.nav-cta span { color: #ffd166; }
+.platform-notice {
+  background: linear-gradient(100deg, #241127 0%, #54243a 40%, #7b371f 72%, #2d1830 100%);
+  border-bottom: 1px solid rgba(255, 205, 115, .4);
+  box-shadow: inset 0 -1px 0 rgba(255, 228, 159, .08);
+}
+.platform-notice:before {
+  background: linear-gradient(90deg, transparent, rgba(255, 208, 111, .22), transparent);
+}
+.platform-notice-label { color: #ffd77e; }
+.platform-notice-label i { background: #ffcb68; box-shadow: 0 0 12px rgba(255, 202, 100, .95); }
+.platform-notice p { color: #ffefd4; }
+.platform-notice a { color: #ffe29a; }
+.hero, .page-hero, .error-page {
+  isolation: isolate;
+  background-color: #100d20;
+  background-image:
+    radial-gradient(ellipse at 78% 42%, rgba(205, 91, 37, .24), transparent 34%),
+    radial-gradient(ellipse at 18% 86%, rgba(184, 80, 55, .14), transparent 34%),
+    radial-gradient(ellipse at 51% 0%, rgba(245, 176, 61, .10), transparent 32%),
+    linear-gradient(118deg, #090f20 0%, #171027 48%, #29152c 100%) !important;
+}
+.hero-grid {
+  z-index: 0;
+  opacity: .58;
+  background-image:
+    linear-gradient(rgba(255, 192, 91, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 192, 91, .055) 1px, transparent 1px);
+}
+.hero-glow-one { background: rgba(232, 110, 48, .20); }
+.hero-glow-two { background: rgba(255, 194, 75, .13); }
+.hero h1 .gradient-text,
+.page-hero h1 .gradient-text,
+.error-page .gradient-text {
+  background: linear-gradient(100deg, #fff0bd 0%, #ffc34c 34%, #ff8a45 70%, #ff6d83 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.eyebrow-dot, .pulse-dot {
+  background: #ffc45a;
+  box-shadow: 0 0 0 5px rgba(255, 192, 78, .13), 0 0 18px rgba(255, 178, 54, .9);
+}
+.button-primary {
+  background: linear-gradient(110deg, #ffb52e 0%, #f47b25 56%, #d94c4e 100%);
+  color: #251326;
+  box-shadow: 0 10px 30px rgba(227, 108, 39, .28);
+}
+.button-primary:hover { box-shadow: 0 14px 36px rgba(227, 108, 39, .4); }
+.button-ghost { border-color: rgba(255, 213, 142, .38); color: #ffefd6; background: rgba(255, 255, 255, .035); }
+.button-ghost:hover { background: rgba(255, 194, 87, .09); }
+.hero-note { color: #d5bd9c; }
+.note-line { background: #ffc15a; }
+.hero-capabilities { color: #ebd7b6; }
+.hero-capabilities i { background: #ffbd4d; }
+.art-label { color: #e2c79f; }
+.art-label-bottom b, .art-spark { color: #ffd166; text-shadow: 0 0 18px rgba(255, 175, 56, .72); }
+.orbit, .orbit-middle, .orbit-inner { border-color: rgba(255, 188, 91, .28); }
+.orbit-core { border-color: rgba(255, 190, 94, .5); box-shadow: 0 0 65px rgba(229, 112, 44, .25), inset 0 0 24px rgba(255, 188, 91, .12); }
+.orbit-node { border-color: rgba(255, 196, 111, .32); background: rgba(28, 17, 35, .9); color: #ffebc9; }
+.orbit-node i { background: #ffc55d; box-shadow: 0 0 10px #ffb64e; }
+.section-pad { position: relative; }
+.intro-section { background: linear-gradient(180deg, #fffdf8 0%, #fffaf0 100%); }
+.services-section, .faq-section { background: #fff7e9; }
+.soft-band { background: linear-gradient(120deg, #fffaf0, #fff1db); }
+.section-kicker span, .process-no, .capability-number { color: #c46b16 !important; }
+.text-blue { color: #c66a16 !important; }
+.text-link, .card-link, .offer-service-grid a { color: #bd5b17; }
+.service-card { border-color: #f0e2ca; box-shadow: 0 12px 32px rgba(84, 48, 17, .035); }
+.service-card:hover { border-color: #edbd72; box-shadow: 0 18px 44px rgba(117, 67, 20, .10); }
+.service-icon { color: #b95e19; background: linear-gradient(145deg, #fff0d1, #ffe8d8); }
+.service-card-cta { background: linear-gradient(135deg, #8c321e, #30162e 78%); color: #fff8e8; }
+.service-card-cta p { color: #f1d7bd; }
+.service-card-cta .cta-eyebrow { color: #ffd36f; }
+.button-light { background: #fff1cf; color: #843d1d; }
+.capabilities-section { background: linear-gradient(115deg, #100e20, #25162f 70%, #391c31); }
+.capability-glow { background: rgba(239, 132, 47, .17); }
+.capability-number { color: #ffc35c !important; }
+.capability-arrow { color: #ffd166; }
+.process-line:before { background: #f1a32f; box-shadow: 0 0 0 4px #fff0d3; }
+.faq-item summary { color: #281c2a; }
+.faq-plus:before, .faq-plus:after { background: #d47b1e; }
+.faq-list, .faq-page-list, .faq-item { border-color: #ecdcc2; }
+.faq-group > h3 { color: #a34d25; }
+.closing-cta { background: linear-gradient(110deg, #100e20, #321a31 64%, #642b2d); }
+.closing-cta:after { border-color: rgba(255, 203, 113, .24); box-shadow: 0 0 0 34px rgba(255, 174, 72, .05), 0 0 0 70px rgba(255, 174, 72, .03); }
+.site-footer { background: #0d1020; border-top: 1px solid rgba(255, 192, 91, .23); }
+.footer-brand-col .brand-copy small { color: #e6c48c; }
+.footer-links h4 { color: #ffd27d; }
+.footer-links a:hover, .footer-bottom a:hover { color: #ffd27d; }
+.footer-bottom { border-top-color: rgba(255, 199, 111, .18); }
+.contact-section { background: radial-gradient(circle at 85% 20%, rgba(198, 78, 42, .23), transparent 31%), linear-gradient(115deg, #100e20, #2c1830 70%, #431f32); }
+.contact-glow { background: rgba(255, 166, 65, .12); }
+.contact-form { border-color: #efddc1; box-shadow: 0 22px 65px rgba(71, 42, 20, .12); }
+.contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: #e9a23e; box-shadow: 0 0 0 3px rgba(235, 165, 58, .15); }
+.form-consent input { accent-color: #db8127; }
+.form-heading span { color: #a95426; }
+.form-note { color: #826b55; }
+.price-card { border-color: #efdfc5; }
+.price-card-featured { border-color: #e5a74d; background: linear-gradient(155deg, #fff9ec, #fff0d8); box-shadow: 0 18px 45px rgba(176, 98, 26, .10); }
+.price-label { color: #ad5d23; }
+.button-outline { border-color: #ddb46e; color: #8e4c20; }
+.button-outline:hover { background: #fff3dc; }
+/* Diwali strip and home promotion */
+.diwali-strip {
+  background: radial-gradient(circle at 83% 48%, rgba(255, 190, 78, .22), transparent 29%), radial-gradient(circle at 18% 100%, rgba(223, 81, 70, .16), transparent 35%), linear-gradient(110deg, #150f22, #462037 58%, #7c3429);
+  border-top: 1px solid rgba(255, 201, 111, .2);
+  border-bottom: 1px solid rgba(255, 201, 111, .2);
+}
+.diwali-strip:before { color: rgba(255, 209, 102, .2); }
+.diwali-kicker { color: #ffd477; }
+.diwali-copy h2 span { background: linear-gradient(90deg, #ffe8a4, #ffb64c, #ff8b59); background-clip: text; color: transparent; }
+.diwali-copy > p { color: #f4dec4; }
+.diwali-terms { color: #d7b997; }
+.diwali-terms b { color: #ffd477; }
+.discount-orb { border-color: rgba(255, 211, 121, .68); background: radial-gradient(circle at 30% 25%, rgba(255, 207, 111, .42), rgba(91, 38, 42, .95) 68%); box-shadow: 0 0 0 10px rgba(255, 179, 66, .08), 0 0 50px rgba(255, 154, 57, .22); }
+.discount-orb strong span, .discount-orb small { color: #ffdb8d; }
+.diwali-home-promo {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 64px 0;
+  color: #fff5df;
+  background: radial-gradient(ellipse at 88% 40%, rgba(255, 179, 69, .19), transparent 29%), linear-gradient(110deg, #211329, #6c2b31 68%, #a44c2a);
+  border-top: 1px solid rgba(255, 214, 137, .28);
+  border-bottom: 1px solid rgba(255, 214, 137, .28);
+}
+.diwali-home-promo:before, .diwali-home-promo:after { content: ""; position: absolute; border: 1px solid rgba(255, 212, 129, .14); border-radius: 50%; pointer-events: none; z-index: -1; }
+.diwali-home-promo:before { width: 470px; height: 470px; right: -110px; top: -250px; box-shadow: 0 0 0 35px rgba(255, 200, 111, .035), 0 0 0 78px rgba(255, 200, 111, .025); }
+.diwali-home-promo:after { width: 260px; height: 260px; left: -130px; bottom: -200px; }
+.diwali-home-promo-inner { position: relative; display: grid; grid-template-columns: 1fr 300px; gap: 45px; align-items: center; }
+.diwali-home-copy h2 { max-width: 760px; margin: 17px 0 12px; font: 600 clamp(34px, 4.4vw, 54px)/1.08 var(--font-display); letter-spacing: -2.4px; }
+.diwali-home-copy h2 span { background: linear-gradient(90deg, #fff0bd, #ffc85b, #ff9b55); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.diwali-home-copy p { max-width: 680px; color: #f5ddc2; font-size: 14px; line-height: 1.8; }
+.diwali-promo-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 19px; margin-top: 25px; }
+.diwali-promo-link { color: #ffe0a0; font-size: 11px; font-weight: 800; }
+.diwali-promo-art { position: relative; min-height: 220px; display: grid; place-items: center; }
+.diwali-promo-orbit { position: absolute; width: 205px; height: 205px; border: 1px solid rgba(255, 212, 132, .32); border-radius: 50%; box-shadow: 0 0 0 20px rgba(255, 200, 100, .035), 0 0 45px rgba(255, 173, 70, .11); animation: diwaliOrbit 28s linear infinite; }
+.diwali-promo-orbit-two { width: 145px; height: 145px; border-style: dashed; animation-direction: reverse; animation-duration: 34s; }
+.diwali-promo-lamp { position: relative; width: 86px; height: 36px; margin-top: 60px; border-radius: 0 0 48px 48px; background: linear-gradient(180deg, #ffd779, #e36b2f 80%); box-shadow: 0 13px 36px rgba(255, 157, 57, .32); }
+.diwali-promo-lamp:before { content: ""; position: absolute; left: 50%; top: -50px; width: 26px; height: 54px; transform: translateX(-50%); border-radius: 55% 45% 55% 45%; background: radial-gradient(ellipse at 50% 72%, #fff7c9 0 14%, #ffd45d 33%, #ff8338 65%, transparent 70%); filter: drop-shadow(0 0 13px #ffb547); animation: diwaliFlame 1.4s ease-in-out infinite alternate; }
+.diwali-promo-lamp:after { content: ""; position: absolute; left: 9px; right: 9px; top: 5px; height: 2px; border-radius: 50%; background: #fff1bd; }
+.diwali-promo-lamp span { position: absolute; width: 114px; height: 8px; left: 50%; bottom: -10px; transform: translateX(-50%); border-radius: 50%; background: rgba(255, 173, 76, .4); filter: blur(8px); }
+.diwali-promo-spark { position: absolute; top: 12px; right: 23px; color: #ffe3a1; font-size: 34px; text-shadow: 0 0 20px #ffb94f; animation: diwaliTwinkle 2s ease-in-out infinite alternate; }
+.diwali-promo-discount { position: absolute; right: -3px; bottom: 9px; width: 82px; height: 82px; border: 1px solid rgba(255, 226, 157, .65); border-radius: 50%; background: rgba(42, 20, 36, .74); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 0 0 7px rgba(255, 194, 81, .07), 0 0 30px rgba(255, 168, 64, .16); transform: rotate(10deg); }
+.diwali-promo-discount strong { font: 700 26px/.95 var(--font-display); color: #ffda82; }
+.diwali-promo-discount small { margin-top: 5px; font-size: 7px; letter-spacing: 1px; color: #fff0ce; }
+@keyframes diwaliOrbit { to { transform: rotate(360deg); } }
+@keyframes diwaliFlame { from { transform: translateX(-50%) scale(.94) rotate(-3deg); opacity: .88; } to { transform: translateX(-50%) scale(1.08) rotate(3deg); opacity: 1; } }
+@keyframes diwaliTwinkle { from { opacity: .55; transform: scale(.9) rotate(-8deg); } to { opacity: 1; transform: scale(1.12) rotate(8deg); } }
+/* Night sky and fireworks canvas */
+.diwali-sky-section { position: relative; isolation: isolate; }
+.diwali-fireworks { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; pointer-events: none; opacity: .8; }
+.hero-layout, .hero-bottom, .page-hero-content, .error-content { position: relative; z-index: 3; }
+.hero-art { z-index: 2; }
+.diwali-sky-lights { position: absolute; z-index: 2; pointer-events: none; top: 0; left: 0; right: 0; height: 28px; opacity: .72; background: radial-gradient(circle at 5% 7px, #ffd36e 0 3px, transparent 4px), radial-gradient(circle at 15% 13px, #ff8758 0 3px, transparent 4px), radial-gradient(circle at 25% 7px, #ffe8a2 0 3px, transparent 4px), radial-gradient(circle at 35% 13px, #ff9d48 0 3px, transparent 4px), radial-gradient(circle at 45% 7px, #ffd36e 0 3px, transparent 4px), radial-gradient(circle at 55% 13px, #ff8758 0 3px, transparent 4px), radial-gradient(circle at 65% 7px, #ffe8a2 0 3px, transparent 4px), radial-gradient(circle at 75% 13px, #ff9d48 0 3px, transparent 4px), radial-gradient(circle at 85% 7px, #ffd36e 0 3px, transparent 4px), radial-gradient(circle at 95% 13px, #ff8758 0 3px, transparent 4px); filter: drop-shadow(0 0 5px rgba(255, 186, 75, .9)); }
+.diwali-sky-lights:before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 16px; border-top: 1px solid rgba(255, 212, 134, .35); border-radius: 0 0 50% 50%; }
+.diwali-diya-row { position: absolute; z-index: 2; left: 4%; right: 4%; bottom: 15px; display: flex; justify-content: space-between; opacity: .6; pointer-events: none; }
+.diwali-diya { position: relative; width: 38px; height: 15px; border-radius: 0 0 25px 25px; background: linear-gradient(180deg, #ffd778, #d75d35); box-shadow: 0 5px 16px rgba(248, 139, 43, .34); }
+.diwali-diya:before { content: ""; position: absolute; left: 50%; top: -19px; width: 12px; height: 21px; transform: translateX(-50%); border-radius: 60% 40% 55% 45%; background: radial-gradient(ellipse at 50% 75%, #fffbd9 0 16%, #ffdb71 42%, #ff8a3c 68%, transparent 73%); filter: drop-shadow(0 0 7px #ffc65a); animation: diwaliFlame 1.3s ease-in-out infinite alternate; }
+.diwali-diya:nth-child(2) { transform: scale(.82); opacity: .8; }
+.diwali-diya:nth-child(3) { transform: scale(1.08); }
+.diwali-static-sky { background-image: radial-gradient(circle at 80% 22%, rgba(255, 199, 96, .18), transparent 10%), radial-gradient(circle at 18% 35%, rgba(255, 116, 82, .12), transparent 13%), linear-gradient(118deg, #090f20, #171027 48%, #29152c 100%) !important; }
+/* Festival-themed chatbot */
+.guide-launcher { border-color: rgba(255, 206, 112, .65); background: linear-gradient(135deg, #6f2d29, #28162e 74%); box-shadow: 0 13px 35px rgba(71, 29, 31, .35); }
+.guide-launcher-icon { color: #ffd36e; text-shadow: 0 0 13px rgba(255, 194, 79, .85); }
+.guide-panel { border-color: rgba(228, 157, 69, .48); box-shadow: 0 28px 75px rgba(44, 19, 30, .38); }
+.guide-panel-head { background: linear-gradient(110deg, #241329, #74342d 72%, #a34d28); }
+.guide-avatar { background: linear-gradient(145deg, #ffba4e, #b94738 70%); color: #2d1725; }
+.guide-panel-head small i { background: #ffd16b; box-shadow: 0 0 7px #ffd16b; }
+.guide-message-user { background: linear-gradient(130deg, #c76a26, #9c3c46); }
+.guide-result-link { color: #ad551d; }
+.guide-quick-actions button { border-color: #f0d6ab; color: #95501e; }
+.guide-quick-actions button:hover { background: #fff3dc; border-color: #e2ae61; }
+.guide-form input:focus { border-color: #e4a447; box-shadow: 0 0 0 3px rgba(224, 156, 57, .13); }
+.guide-form button { background: linear-gradient(135deg, #f7b642, #d96731); color: #2b1824; }
+.guide-disclaimer { color: #9d805d; }
+/* Global festive accents for interior pages */
+.breadcrumbs a { color: #ffd078; }
+.page-hero:after { border-color: rgba(255, 197, 100, .16); box-shadow: 0 0 0 35px rgba(255, 177, 73, .035), 0 0 0 75px rgba(255, 177, 73, .025); }
+.offer-hero { background-image: radial-gradient(ellipse at 80% 44%, rgba(255, 143, 61, .25), transparent 33%), radial-gradient(ellipse at 15% 90%, rgba(238, 75, 80, .12), transparent 35%), linear-gradient(115deg, #100e20, #321a31 72%, #652b2c) !important; }
+.offer-feature-card { background: radial-gradient(circle at 90% 10%, rgba(255, 189, 82, .22), transparent 35%), linear-gradient(145deg, #54243a, #1b1226 80%); border-color: rgba(255, 195, 105, .42); }
+.offer-discount-large strong span { color: #ffd166; }
+.offer-discount-large small { color: #ffd27b; }
+.offer-code-row { border-color: rgba(255, 211, 124, .45); }
+.offer-code-row strong { color: #ffda8d; }
+.copy-code { border-color: rgba(255, 208, 117, .5); color: #ffefca; }
+.offer-eligibility li:before { color: #c06b22; }
+.offer-small-note { background: #fff2dc; border-left-color: #e79a35; }
+.offer-service-grid article { border-color: #efdcc0; }
+.offer-service-grid article > span { color: #b96522; }
+.offer-terms li::marker { color: #d1842e; }
+.whatsapp-float { box-shadow: 0 12px 32px rgba(3, 73, 49, .25); }
+/* Mobile tuning */
+@media (max-width: 760px) {
+  .diwali-home-promo { padding: 48px 0 38px; }
+  .diwali-home-promo-inner { grid-template-columns: 1fr; gap: 8px; }
+  .diwali-home-copy h2 { font-size: 34px; letter-spacing: -1.5px; }
+  .diwali-promo-art { min-height: 155px; max-width: 280px; width: 100%; margin: 0 auto; }
+  .diwali-promo-orbit { width: 150px; height: 150px; }
+  .diwali-promo-orbit-two { width: 110px; height: 110px; }
+  .diwali-promo-discount { right: 8px; bottom: 0; }
+  .diwali-diya-row { left: 2%; right: 2%; bottom: 9px; }
+  .diwali-diya { transform: scale(.78); }
+  .diwali-diya:nth-child(2) { display: none; }
+  .guide-launcher { padding: 11px 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .diwali-fireworks { display: none; }
+  .diwali-promo-orbit, .diwali-promo-lamp:before, .diwali-promo-spark, .diwali-diya:before { animation: none !important; }
+}
+
+.diwali-inclusion-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:34px; }
+.diwali-inclusion-grid article { padding:22px; background:linear-gradient(150deg,#fffdf7,#fff3df); border:1px solid #efd9b6; border-radius:13px; box-shadow:0 12px 30px rgba(100,55,16,.045); }
+.diwali-inclusion-grid article b { color:#b96222; font-size:8px; letter-spacing:1.5px; }
+.diwali-inclusion-grid h3 { margin:13px 0 8px; font-size:18px; color:#2d2030; }
+.diwali-inclusion-grid p { margin:0; color:#796c61; font-size:11px; line-height:1.75; }
+@media(max-width:900px){.diwali-inclusion-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.diwali-inclusion-grid{grid-template-columns:1fr}}
