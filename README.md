@@ -12,7 +12,7 @@ A complete static public website for **StarnyX Technologies** with a warm, light
 - 18 top-level HTML pages for the StarnyX public company website: Home, About, Services, Website Demos, Our Developments, Offers, Pricing, FAQ, Contact, Get a Quote, Careers, Privacy, Terms, Refund Policy, Cookie Policy, Disclaimer, Service Agreement and 404.
 - Light ivory, warm white, marigold, saffron and gold Diwali design.
 - Bundled local hero and promotional photographs. No external image URLs are required for the main visuals.
-- Lightweight, colorful celebration particles that gently float around the hero artwork. There are no rockets, large starbursts, canvas effects, particle-physics loops or repeating JavaScript timers. Smaller screens use fewer particles, and motion respects `prefers-reduced-motion`.
+- Homepage-only Diwali skyshots: small glowing rockets rise, burst into colourful radial particles, then fade before the next staggered launch. The effect is CSS-animated and uses transform/opacity only—no canvas, per-particle JavaScript loops, requestAnimationFrame or timers. Desktop uses five staggered shells; smaller screens use four lighter shells. Motion respects `prefers-reduced-motion`.
 - Final responsive polish across all 18 pages: wider desktop content, fluid section spacing, stacked tablet layouts, compact mobile navigation and single-column enquiry fields on narrow screens.
 - Existing StarnyX blue metallic favicon/logo in the header and browser tab.
 - Separate Website Demo Gallery (`demos.html`) with Hotel, Lodge, Hotel & Lodge, Supermarket, Jewellers, Salon, Spa & Salon, Fashion, Clinic and Education cards. Each card has a View Demo control; only published demos open, while future demos are clearly marked Coming Soon. The Hotel Demo opens https://starnyxtechnologies.github.io/Hotel-demo/.
@@ -85,10 +85,10 @@ Review pricing, offers, legal content and company details before treating them a
 
 - `index.html`, other `.html` pages — pages
 - `styles.css` — original shared design system
-- `diwali-festival.css` — final light Diwali design and floating celebration-particle layer
+- `diwali-festival.css` — final light Diwali design and CSS skyshot launch/burst animations
 - `responsive-polish.css` — shared desktop, tablet and mobile layout refinements
 - `script.js` — navigation, forms, WhatsApp and Tejas assistant
-- `diwali-festival.js` — inserts a lightweight, colorful floating-particle layer into the page hero
+- `diwali-festival.js` — builds the homepage skyshot launch points and radial sparks; CSS handles all animation
 - `diwali-hero.webp`, `diwali-promo.webp` — locally bundled images
 - `favicon.svg`, `favicon.png` — StarnyX brand assets
 - `api/discord.js` — Vercel serverless Discord notification endpoint
