@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://starnyxtechnologies.in/sitemap.xml
