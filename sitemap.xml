@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://starnyxtechnologies.in/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://starnyxtechnologies.in/</loc></url>
+  <url><loc>https://starnyxtechnologies.in/about.html</loc></url>
+  <url><loc>https://starnyxtechnologies.in/services.html</loc></url>
+  <url><loc>https://starnyxtechnologies.in/projects.html</loc></url>
+  <url><loc>https://starnyxtechnologies.in/pricing.html</loc></url>
+  <url><loc>https://starnyxtechnologies.in/faq.html</loc></url>
+  <url><loc>https://starnyxtechnologies.in/contact.html</loc></url>
+  <url><loc>https://starnyxtechnologies.in/quote.html</loc></url>
+  <url><loc>https://starnyxtechnologies.in/careers.html</loc></url>
+  <url><loc>https://starnyxtechnologies.in/privacy-policy.html</loc></url>
+  <url><loc>https://starnyxtechnologies.in/terms.html</loc></url>
+  <url><loc>https://starnyxtechnologies.in/refund-policy.html</loc></url>
+  <url><loc>https://starnyxtechnologies.in/cookie-policy.html</loc></url>
+  <url><loc>https://starnyxtechnologies.in/disclaimer.html</loc></url>
+  <url><loc>https://starnyxtechnologies.in/service-agreement.html</loc></url>
 </urlset>
