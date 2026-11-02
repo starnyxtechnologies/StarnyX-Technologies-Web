@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#171027" />
+  <meta name="theme-color" content="#21152c" />
   <meta name="description" content="StarnyX Technologies helps businesses turn ideas into digital products through web development, mobile apps, UI/UX design and cloud solutions." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="StarnyX Technologies — Make This Diwali Brighter" />
@@ -60,31 +60,111 @@
             <div class="hero-note"><span class="note-line"></span><span>Make your Diwali brighter. Make your next move digital.</span></div>
           </div>
 
-          <div class="hero-art" aria-label="Abstract visual representing connected digital technology">
-            <div class="orbit orbit-outer"></div>
-            <div class="orbit orbit-middle"></div>
-            <div class="orbit orbit-inner"></div>
-            <div class="orbit-core code-orbit-core" aria-label="Animated digital code visual">
-              <div class="code-terminal">
-                <div class="code-terminal-head"><span class="terminal-dots"><i></i><i></i><i></i></span><span>STARNYX / BUILD MODE</span><b>LIVE</b></div>
-                <div class="code-terminal-body" aria-hidden="true">
-                  <div class="code-row"><em>01</em><span class="code-purple">const</span> <span class="code-cyan">idea</span> = <span class="code-green">"your vision"</span>;</div>
-                  <div class="code-row"><em>02</em><span class="code-purple">const</span> product = <span class="code-blue">design</span>(idea);</div>
-                  <div class="code-row"><em>03</em><span class="code-purple">await</span> <span class="code-cyan">build</span>(product);</div>
-                  <div class="code-row"><em>04</em><span class="code-purple">return</span> <span class="code-green">"what's next"</span>;</div>
-                  <div class="code-cursor-line"><span>›</span><i></i></div>
-                </div>
-                <div class="code-terminal-foot"><span><i></i> SYSTEM READY</span><span>BUILD · SHIP · GROW</span></div>
-              </div>
-              <div class="code-orbit-glow"></div>
-            </div>
-            <div class="orbit-node node-a"><i></i><span>WEB</span></div>
-            <div class="orbit-node node-b"><i></i><span>APP</span></div>
-            <div class="orbit-node node-c"><i></i><span>CLOUD</span></div>
-            <div class="orbit-node node-d"><i></i><span>DESIGN</span></div>
-            <div class="art-label art-label-top"><span class="pulse-dot"></span> Sparks of innovation</div>
-            <div class="art-label art-label-bottom">Ideas <b>✦</b> Celebration</div>
-            <div class="art-spark spark-one">✦</div><div class="art-spark spark-two">✧</div><div class="art-spark spark-three">✦</div>
+          <div class="hero-art diwali-hero-scene" role="img" aria-label="A glowing golden Diwali sky lantern surrounded by colourful fireworks and traditional diyas">
+            <div class="scene-glow scene-glow-one" aria-hidden="true"></div>
+            <div class="scene-glow scene-glow-two" aria-hidden="true"></div>
+            <svg class="diwali-hero-svg" viewBox="0 0 620 590" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <radialGradient id="sceneHalo"><stop offset="0" stop-color="#ffcf68" stop-opacity=".27"/><stop offset=".58" stop-color="#dc6b3d" stop-opacity=".10"/><stop offset="1" stop-color="#24132d" stop-opacity="0"/></radialGradient>
+                <linearGradient id="lanternGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0b5"/><stop offset=".24" stop-color="#ffbe4c"/><stop offset=".56" stop-color="#e96a32"/><stop offset=".82" stop-color="#9d3440"/><stop offset="1" stop-color="#ffd36c"/></linearGradient>
+                <linearGradient id="lanternPanel" x1="0" y1="0" x2="0.9" y2="1"><stop stop-color="#fff2bf" stop-opacity=".92"/><stop offset=".4" stop-color="#ffb74b" stop-opacity=".92"/><stop offset="1" stop-color="#ba3e39" stop-opacity=".92"/></linearGradient>
+                <linearGradient id="lanternPanelAlt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffdc82"/><stop offset=".5" stop-color="#e96c3d"/><stop offset="1" stop-color="#6e2440"/></linearGradient>
+                <linearGradient id="lanternEdge" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#fff3c7"/><stop offset=".5" stop-color="#f8a83d"/><stop offset="1" stop-color="#fff0af"/></linearGradient>
+                <linearGradient id="diyaBowl" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ffe39a"/><stop offset=".45" stop-color="#f59a36"/><stop offset="1" stop-color="#a93b2e"/></linearGradient>
+                <radialGradient id="flameFill"><stop stop-color="#fffde0"/><stop offset=".38" stop-color="#ffe06e"/><stop offset=".72" stop-color="#ff8b35"/><stop offset="1" stop-color="#f15a32" stop-opacity="0"/></radialGradient>
+                <filter id="warmGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="13" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+
+              <circle cx="312" cy="280" r="260" fill="url(#sceneHalo)"/>
+              <circle cx="312" cy="278" r="214" fill="none" stroke="#ffc76a" stroke-opacity=".15" stroke-width="1" stroke-dasharray="2 10"/>
+              <circle cx="312" cy="278" r="177" fill="none" stroke="#ffc76a" stroke-opacity=".13" stroke-width="1"/>
+
+              <!-- Large, visible sky-shot bursts -->
+              <g class="svg-firework firework-left" transform="translate(112 146)" filter="url(#softGlow)">
+                <circle r="8" fill="#fff2bc"/><circle r="42" fill="none" stroke="#ffc65d" stroke-opacity=".8" stroke-width="1.4"/>
+                <g stroke="#ffd36f" stroke-width="3" stroke-linecap="round">
+                  <path d="M0-18V-55 M0 18V55 M-18 0H-55 M18 0H55 M-13-13L-40-40 M13 13L40 40 M13-13L40-40 M-13 13L-40 40"/>
+                  <path d="M0-31V-43 M0 31V43 M-31 0H-43 M31 0H43" stroke="#fff2bf" stroke-width="2"/>
+                </g>
+                <g fill="#ff8b52"><circle cx="-52" cy="-22" r="3"/><circle cx="49" cy="-29" r="3"/><circle cx="34" cy="42" r="2.5"/><circle cx="-38" cy="38" r="2.5"/></g>
+              </g>
+              <g class="svg-firework firework-right" transform="translate(500 188)" filter="url(#softGlow)">
+                <circle r="6" fill="#fff7d7"/><circle r="34" fill="none" stroke="#ff8c6d" stroke-opacity=".8" stroke-width="1.5"/>
+                <g stroke="#ff9d67" stroke-width="3" stroke-linecap="round">
+                  <path d="M0-14V-46 M0 14V46 M-14 0H-46 M14 0H46 M-10-10L-33-33 M10 10L33 33 M10-10L33-33 M-10 10L-33 33"/>
+                </g>
+                <g fill="#ffe08a"><circle cx="-42" cy="-19" r="2.8"/><circle cx="41" cy="-20" r="2.8"/><circle cx="27" cy="38" r="2.4"/><circle cx="-33" cy="34" r="2.4"/></g>
+              </g>
+              <g class="svg-firework firework-top" transform="translate(335 72)" filter="url(#softGlow)">
+                <circle r="5" fill="#fff"/><g stroke="#a7e8f5" stroke-width="2.4" stroke-linecap="round"><path d="M0-12V-36 M0 12V36 M-12 0H-36 M12 0H36 M-9-9L-25-25 M9 9L25 25 M9-9L25-25 M-9 9L-25 25"/></g>
+              </g>
+
+              <!-- Decorative star particles -->
+              <g class="scene-stars" fill="#ffe5a1">
+                <path d="M62 270l5 12 12 5-12 5-5 12-5-12-12-5 12-5z"/><path d="M550 310l4 9 9 4-9 4-4 9-4-9-9-4 9-4z"/>
+                <circle cx="176" cy="72" r="3"/><circle cx="435" cy="83" r="2.5"/><circle cx="85" cy="390" r="2"/><circle cx="535" cy="420" r="3"/>
+              </g>
+
+              <!-- Main hanging Akash Kandil -->
+              <g class="main-kandil" filter="url(#warmGlow)">
+                <path d="M310 0V103" stroke="url(#lanternEdge)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M300 102Q310 88 320 102L315 119H305Z" fill="url(#lanternGold)" stroke="#ffe5a2" stroke-width="1.5"/>
+                <path d="M265 132L310 105L355 132L310 157Z" fill="url(#lanternGold)" stroke="#fff0b5" stroke-width="2"/>
+                <path d="M265 132L310 157L310 178L247 151Z" fill="#a84438" stroke="#ffd879" stroke-width="1.5"/>
+                <path d="M355 132L310 157L310 178L373 151Z" fill="#6c2941" stroke="#ffd879" stroke-width="1.5"/>
+                <path d="M247 151L373 151L390 322L310 420L230 322Z" fill="#8e3540" stroke="url(#lanternEdge)" stroke-width="3"/>
+                <path d="M247 151L310 178L310 392L230 322Z" fill="url(#lanternPanel)" stroke="#ffe4a0" stroke-width="2"/>
+                <path d="M373 151L310 178L310 392L390 322Z" fill="url(#lanternPanelAlt)" stroke="#ffe4a0" stroke-width="2"/>
+                <path d="M247 151L310 178L373 151L310 202Z" fill="#ffd36b" fill-opacity=".62" stroke="#fff0b5" stroke-width="1.5"/>
+                <path d="M310 178V392 M247 151L230 322 M373 151L390 322" stroke="#ffe8a7" stroke-width="2" stroke-opacity=".85" fill="none"/>
+                <path d="M239 249L310 281L381 249 M234 310L310 350L386 310" fill="none" stroke="#fff0b7" stroke-opacity=".72" stroke-width="2"/>
+                <path d="M267 191L310 213L353 191 M257 291L310 321L363 291" fill="none" stroke="#9e3a40" stroke-width="3" stroke-opacity=".55"/>
+                <path d="M280 225L310 241L340 225L310 268Z" fill="#fff0b4" fill-opacity=".28" stroke="#ffe5a0" stroke-width="1.4"/>
+                <path d="M310 277L338 299L310 323L282 299Z" fill="#fff0b4" fill-opacity=".22" stroke="#ffe5a0" stroke-width="1.3"/>
+                <path d="M230 322L310 392L390 322L375 351L310 422L245 351Z" fill="url(#lanternGold)" stroke="#fff1b5" stroke-width="2"/>
+                <path d="M281 394L310 422L339 394L310 451Z" fill="#c34b39" stroke="#ffe8a5" stroke-width="2"/>
+                <path d="M310 451V486 M296 438L286 470 M324 438L334 470" stroke="#ffd36a" stroke-width="2" stroke-linecap="round"/>
+                <path d="M286 470Q310 491 334 470" fill="none" stroke="#ffb74c" stroke-width="3"/>
+                <circle cx="310" cy="255" r="70" fill="#ffd36b" opacity=".12"/>
+                <path d="M310 204L316 218L330 224L316 230L310 244L304 230L290 224L304 218Z" fill="#fff6d5" opacity=".9"/>
+              </g>
+
+              <!-- Smaller side lanterns -->
+              <g class="side-kandil side-kandil-left" transform="translate(112 322) scale(.55)">
+                <path d="M0-160V-112" stroke="#ffcf70" stroke-width="3"/><path d="M-54-95L0-125L54-95L0-65Z" fill="url(#lanternGold)" stroke="#fff0b4" stroke-width="2"/>
+                <path d="M-54-95L54-95L69 10L0 72L-69 10Z" fill="url(#lanternPanelAlt)" stroke="#ffe6a1" stroke-width="3"/>
+                <path d="M-54-95L0-67V55L-69 10Z M54-95L0-67V55L69 10Z" fill="url(#lanternPanel)" stroke="#ffe6a1" stroke-width="2"/>
+                <path d="M0 55V112" stroke="#ffd16e" stroke-width="2"/><path d="M-14 98L0 128L14 98" fill="#d95a3a" stroke="#ffd16e" stroke-width="2"/>
+              </g>
+              <g class="side-kandil side-kandil-right" transform="translate(510 360) scale(.39)">
+                <path d="M0-160V-112" stroke="#ffcf70" stroke-width="3"/><path d="M-54-95L0-125L54-95L0-65Z" fill="url(#lanternGold)" stroke="#fff0b4" stroke-width="2"/>
+                <path d="M-54-95L54-95L69 10L0 72L-69 10Z" fill="url(#lanternPanelAlt)" stroke="#ffe6a1" stroke-width="3"/>
+                <path d="M-54-95L0-67V55L-69 10Z M54-95L0-67V55L69 10Z" fill="url(#lanternPanel)" stroke="#ffe6a1" stroke-width="2"/>
+                <path d="M0 55V112" stroke="#ffd16e" stroke-width="2"/><path d="M-14 98L0 128L14 98" fill="#d95a3a" stroke="#ffd16e" stroke-width="2"/>
+              </g>
+
+              <!-- Rangoli and diyas at the foreground -->
+              <g class="rangoli-art" transform="translate(310 510)" opacity=".8">
+                <circle r="49" fill="none" stroke="#ffc967" stroke-width="1.4" stroke-dasharray="3 5"/>
+                <circle r="34" fill="none" stroke="#ff8d62" stroke-width="1.4"/>
+                <path d="M0-42Q16-16 42 0Q16 16 0 42Q-16 16-42 0Q-16-16 0-42Z" fill="none" stroke="#ffd77c" stroke-width="1.4"/>
+                <circle r="7" fill="#ffca68"/>
+              </g>
+              <g class="hero-diya diya-left" transform="translate(85 512)">
+                <ellipse cy="7" rx="55" ry="11" fill="#ff9d45" opacity=".18" filter="url(#warmGlow)"/>
+                <path d="M-42 0Q-28 34 0 31Q28 34 42 0Q20 9 0 7Q-20 9-42 0Z" fill="url(#diyaBowl)" stroke="#ffe5a6" stroke-width="2"/>
+                <ellipse cy="1" rx="39" ry="7" fill="#ffe2a0"/><path d="M0-3C-19-25-8-47 0-61C10-44 19-23 0-3Z" fill="url(#flameFill)" filter="url(#softGlow)"/>
+                <path d="M0-8C-9-23-2-35 1-41C8-25 8-16 0-8Z" fill="#fff9d9"/>
+              </g>
+              <g class="hero-diya diya-right" transform="translate(535 514) scale(.82)">
+                <ellipse cy="7" rx="55" ry="11" fill="#ff9d45" opacity=".18" filter="url(#warmGlow)"/>
+                <path d="M-42 0Q-28 34 0 31Q28 34 42 0Q20 9 0 7Q-20 9-42 0Z" fill="url(#diyaBowl)" stroke="#ffe5a6" stroke-width="2"/>
+                <ellipse cy="1" rx="39" ry="7" fill="#ffe2a0"/><path d="M0-3C-19-25-8-47 0-61C10-44 19-23 0-3Z" fill="url(#flameFill)" filter="url(#softGlow)"/><path d="M0-8C-9-23-2-35 1-41C8-25 8-16 0-8Z" fill="#fff9d9"/>
+              </g>
+              <g class="floating-sparks" fill="#ffe3a0"><circle cx="160" cy="448" r="3"/><circle cx="460" cy="460" r="2.6"/><circle cx="190" cy="220" r="2"/><circle cx="435" cy="245" r="2.4"/></g>
+            </svg>
+            <div class="scene-caption"><span class="scene-caption-star">✦</span><span>LIGHT THE NIGHT · BRIGHTEN WHAT'S NEXT</span></div>
           </div>
         </div>
         <div class="container hero-bottom">

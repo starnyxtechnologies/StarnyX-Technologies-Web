@@ -11,7 +11,7 @@ Premium static public website for **StarnyX Technologies**.
 ## Public platform notice and chatbot
 
 - A separate, full-width Diwali announcement strip appears directly below the navigation on all public pages. The navigation and notice occupy separate layout rows and do not overlap. It promotes the festive message and explains that the main StarnyX business application is under construction. Hero sections include lightweight animated fireworks, festive lights and diya decorations; reduced-motion preferences are respected.
-- The StarnyX Diwali Guide is a small rule-based JavaScript chatbot with festive greetings, Happy Diwali wishes, service guidance and DIWALI25 offer guidance. It responds to greetings (hello, hi, hey, namaste), thanks, goodbye, basic questions about StarnyX, services, pricing, the Diwali offer, contact and the main application status. It does not use an AI API or access private data.
+- The StarnyX Tejas — StarnyX Digital Guide is a small rule-based JavaScript chatbot with festive greetings, Happy Diwali wishes, service guidance and DIWALI25 offer guidance. It responds to greetings (hello, hi, hey, namaste), thanks, goodbye, basic questions about StarnyX, services, pricing, the Diwali offer, contact and the main application status. It does not use an AI API or access private data.
 - Contact and quote forms prepare a WhatsApp message for +91 73855 85398 and send a separate enquiry notification to `/api/discord` when the Vercel webhook is configured. The visitor must press **Send** in WhatsApp to send the message.
 
 ## Pages
@@ -77,3 +77,6 @@ A GitHub repository is source storage, not a runtime secret manager for a static
 
 ## Diwali visual theme
 The public website uses a seasonal midnight, saffron, marigold and gold palette, with a lightweight canvas fireworks animation in hero areas, festive announcement banner, diya accents and Diwali-themed chatbot greetings. The offer reference is `DIWALI25`: up to 25% off selected StarnyX professional service fees, subject to written quotation confirmation. No automatic discount or online payment is processed on this public website.
+
+## Diwali Festival Experience v2
+The homepage features a custom animated SVG Akash Kandil, foreground diyas, animated sky-shot bursts and a festive midnight palette. Inner-page hero sections share the animated fireworks ambience. The Tejas assistant uses a human-style avatar and local intent-based replies.

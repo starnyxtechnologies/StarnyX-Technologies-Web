@@ -532,3 +532,197 @@ body.diwali-festival-mode {
 .diwali-inclusion-grid p { margin:0; color:#796c61; font-size:11px; line-height:1.75; }
 @media(max-width:900px){.diwali-inclusion-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.diwali-inclusion-grid{grid-template-columns:1fr}}
+
+
+/* =============================================================
+   STARNYX DIWALI FESTIVAL V2 — complete visual refresh
+   Designed around a glowing Akash Kandil, diyas and sky shots.
+   ============================================================= */
+:root {
+  --diwali-night: #100b20;
+  --diwali-plum: #28152e;
+  --diwali-wine: #57263b;
+  --diwali-saffron: #f5a623;
+  --diwali-marigold: #ff853d;
+  --diwali-gold: #ffd777;
+  --diwali-cream: #fff8e9;
+  --diwali-paper: #fffdf8;
+  --diwali-text: #2b2030;
+  --diwali-muted: #796b71;
+}
+body.diwali-festival-mode { background: var(--diwali-paper); color: var(--diwali-text); }
+.site-header { background: rgba(13, 10, 27, .97) !important; border-bottom: 1px solid rgba(255, 211, 125, .2) !important; }
+.brand-logo { filter: drop-shadow(0 0 8px rgba(255, 186, 75, .2)); }
+.brand-copy small { color: #edc98a !important; }
+.nav-links { color: #f1dfc5 !important; }
+.nav-links > a[aria-current="page"], .nav-links > a:hover { color: #ffd777 !important; }
+.nav-cta { color: #fff1d1 !important; border-color: rgba(255, 198, 103, .5) !important; background: rgba(176, 84, 44, .16) !important; }
+.nav-cta:hover { background: rgba(176, 84, 44, .28) !important; }
+.platform-notice { background: linear-gradient(100deg, #27132b 0%, #57263b 47%, #81391f 100%) !important; border-color: rgba(255, 203, 112, .38) !important; }
+.platform-notice-label { color: #ffe09a !important; }
+.platform-notice-label i { background: #ffd16a !important; box-shadow: 0 0 12px #ffbc50 !important; }
+.platform-notice p { color: #fff0d4 !important; }
+.platform-notice a { color: #ffde91 !important; }
+
+/* Hero: warm midnight sky with visible fireworks */
+.hero {
+  min-height: 790px !important;
+  padding-top: 104px !important;
+  padding-bottom: 20px !important;
+  background:
+    radial-gradient(ellipse at 79% 40%, rgba(224, 98, 51, .26), transparent 33%),
+    radial-gradient(ellipse at 18% 83%, rgba(147, 50, 69, .22), transparent 34%),
+    radial-gradient(ellipse at 54% 12%, rgba(255, 185, 69, .13), transparent 34%),
+    linear-gradient(118deg, #090e1d 0%, #171026 45%, #32182d 100%) !important;
+}
+.hero-grid { opacity: .35 !important; background-image: linear-gradient(rgba(255, 196, 106, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 196, 106, .05) 1px, transparent 1px) !important; }
+.hero-glow-one { background: rgba(232, 103, 52, .19) !important; }
+.hero-glow-two { background: rgba(255, 183, 66, .13) !important; }
+.hero-layout { min-height: 565px !important; grid-template-columns: 1fr 1.05fr !important; gap: 24px !important; }
+.hero-copy { max-width: 590px; }
+.hero h1 { font-size: clamp(56px, 6.5vw, 86px) !important; letter-spacing: -4.5px !important; }
+.hero h1 .gradient-text { background: linear-gradient(100deg, #fff1bd 0%, #ffc44e 35%, #ff8a4d 72%, #ff6b86 100%) !important; -webkit-background-clip: text !important; background-clip: text !important; color: transparent !important; }
+.hero-lede { color: #efdfd0 !important; }
+.eyebrow-light { color: #efd6ae !important; }
+.eyebrow-dot, .pulse-dot { background: #ffc75b !important; box-shadow: 0 0 0 5px rgba(255, 195, 84, .12), 0 0 18px rgba(255, 175, 58, .85) !important; }
+.button-primary { background: linear-gradient(110deg, #ffc24c 0%, #f18b37 58%, #d9504e 100%) !important; color: #2b1728 !important; box-shadow: 0 12px 34px rgba(228, 112, 48, .26) !important; }
+.button-primary:hover { box-shadow: 0 15px 40px rgba(228, 112, 48, .38) !important; }
+.button-ghost { color: #fff0d9 !important; border-color: rgba(255, 213, 155, .38) !important; background: rgba(255, 255, 255, .035) !important; }
+.button-ghost:hover { background: rgba(255, 192, 88, .1) !important; }
+.hero-note { color: #d8c2a9 !important; }
+.note-line { background: #ffc15b !important; }
+.hero-bottom { border-color: rgba(255, 206, 131, .19) !important; color: #d0b999 !important; }
+.hero-capabilities { color: #efdec1 !important; }
+.hero-capabilities i { background: #ffc15b !important; }
+
+/* Main Akash Kandil scene */
+.diwali-hero-scene { position: relative; z-index: 3; width: min(100%, 590px); height: 560px !important; max-width: 590px !important; justify-self: end; display: grid; place-items: center; overflow: visible; }
+.diwali-hero-svg { position: relative; z-index: 3; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 20px 42px rgba(0,0,0,.22)); }
+.scene-glow { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(35px); }
+.scene-glow-one { width: 280px; height: 320px; left: 27%; top: 24%; background: rgba(255, 153, 57, .2); }
+.scene-glow-two { width: 150px; height: 140px; right: 6%; bottom: 3%; background: rgba(255, 195, 83, .13); }
+.main-kandil { transform-origin: 310px 100px; animation: kandilSway 5.8s ease-in-out infinite; }
+.side-kandil-left { transform-origin: 112px 200px; animation: smallKandilSway 6.5s ease-in-out infinite; }
+.side-kandil-right { transform-origin: 510px 240px; animation: smallKandilSway 7s ease-in-out -2s infinite; }
+.svg-firework { transform-box: fill-box; transform-origin: center; animation: svgFirework 2.8s ease-out infinite; }
+.firework-right { animation-delay: .9s; }
+.firework-top { animation-delay: 1.6s; }
+.scene-stars { animation: starDrift 8s ease-in-out infinite alternate; }
+.floating-sparks { animation: sparkFloat 4s ease-in-out infinite alternate; }
+.hero-diya { animation: diyaBob 3.4s ease-in-out infinite alternate; transform-box: fill-box; }
+.diya-right { animation-delay: -1.8s; }
+.scene-caption { position: absolute; z-index: 4; bottom: 0; left: 50%; transform: translateX(-50%); display: flex; gap: 9px; align-items: center; white-space: nowrap; color: #ffe5b1; font-size: 8px; font-weight: 800; letter-spacing: 2px; text-shadow: 0 2px 12px rgba(0,0,0,.4); }
+.scene-caption-star { color: #ffd46d; font-size: 15px; text-shadow: 0 0 14px #ffb74d; }
+@keyframes kandilSway { 0%,100% { transform: rotate(-1.6deg); } 50% { transform: rotate(1.7deg); } }
+@keyframes smallKandilSway { 0%,100% { rotate: -2deg; } 50% { rotate: 2deg; } }
+@keyframes svgFirework { 0%,100% { opacity: .42; scale: .78; } 45% { opacity: 1; scale: 1.14; } 70% { opacity: .88; scale: 1.03; } }
+@keyframes starDrift { from { opacity: .55; transform: translateY(0); } to { opacity: 1; transform: translateY(-8px); } }
+@keyframes sparkFloat { from { opacity: .35; transform: translateY(4px); } to { opacity: 1; transform: translateY(-9px); } }
+@keyframes diyaBob { from { translate: 0 1px; } to { translate: 0 -4px; } }
+
+/* Bigger night-sky fireworks canvas on all page heroes */
+.diwali-fireworks { z-index: 1 !important; opacity: .94 !important; mix-blend-mode: screen; }
+.diwali-sky-lights { height: 38px !important; opacity: .85 !important; background: radial-gradient(circle at 4% 12px,#ffd36e 0 3px,transparent 5px), radial-gradient(circle at 12% 23px,#ff8758 0 3px,transparent 5px), radial-gradient(circle at 21% 10px,#ffe8a2 0 3px,transparent 5px), radial-gradient(circle at 31% 24px,#ff9d48 0 3px,transparent 5px), radial-gradient(circle at 42% 11px,#ffd36e 0 3px,transparent 5px), radial-gradient(circle at 53% 23px,#ff8758 0 3px,transparent 5px), radial-gradient(circle at 64% 10px,#ffe8a2 0 3px,transparent 5px), radial-gradient(circle at 75% 24px,#ff9d48 0 3px,transparent 5px), radial-gradient(circle at 86% 11px,#ffd36e 0 3px,transparent 5px), radial-gradient(circle at 96% 23px,#ff8758 0 3px,transparent 5px) !important; }
+.diwali-diya-row { opacity: .9 !important; bottom: 22px !important; }
+.diwali-diya { width: 46px !important; height: 18px !important; box-shadow: 0 5px 22px rgba(255, 139, 43, .5) !important; }
+.diwali-diya:before { width: 16px !important; height: 26px !important; top: -23px !important; filter: drop-shadow(0 0 11px #ffc65a) !important; }
+@keyframes diwaliFireworkGlow { 0%,100% { opacity: .35; transform: scale(.78); } 50% { opacity: 1; transform: scale(1.12); } }
+
+/* Entire site: warm paper, marigold details, festive cards */
+.intro-section, .services-section, .faq-section, .soft-band, .pricing-section, .projects-section, .contact-section { background-color: #fffaf0 !important; }
+.intro-section { background-image: radial-gradient(circle at 5% 18%, rgba(255, 196, 95, .09), transparent 22%), linear-gradient(180deg, #fffdf8, #fff8ed) !important; }
+.services-section, .faq-section { background-image: radial-gradient(circle at 96% 12%, rgba(255, 184, 83, .1), transparent 25%), #fff7e8 !important; }
+.capabilities-section, .closing-cta, .offer-hero, .site-footer { background: linear-gradient(115deg, #130e22, #2d1831 62%, #572637) !important; }
+.section-kicker, .section-kicker span, .service-detail-no, .process-no, .capability-number { color: #b96b24 !important; }
+.text-blue, .text-link, .card-link, .offer-service-grid a { color: #a95028 !important; }
+.service-card, .service-detail-card, .project-card, .pricing-card, .faq-item, .contact-card { background: linear-gradient(155deg, #fffefa, #fff7e9) !important; border-color: #efdcb9 !important; box-shadow: 0 14px 34px rgba(95, 48, 26, .055); }
+.service-card:hover, .service-detail-card:hover, .project-card:hover { border-color: #eab96c !important; box-shadow: 0 18px 42px rgba(151, 78, 35, .12) !important; }
+.service-icon { color: #a95628 !important; background: linear-gradient(145deg, #fff0d1, #ffe3b7) !important; }
+.service-card-cta { background: linear-gradient(135deg, #74313b, #29172f 78%) !important; color: #fff7e8 !important; }
+.service-card-cta p { color: #f1d9bd !important; }
+.button-light { color: #5a2a36 !important; background: #fff2d3 !important; border: 1px solid #f5d18f !important; }
+.soft-band { background: linear-gradient(120deg, #fff9ed, #ffefd9) !important; }
+.closing-cta { border-top: 1px solid rgba(255, 212, 131, .28); border-bottom: 1px solid rgba(255, 212, 131, .22); }
+.closing-cta h2, .capability-copy h2 { color: #fff4df !important; }
+.closing-cta p, .capability-copy p { color: #e8cfb3 !important; }
+.site-footer { border-top: 1px solid rgba(255, 209, 123, .26) !important; }
+.site-footer .brand-copy small { color: #e8c68d !important; }
+.footer-links h4 { color: #ffdb99 !important; }
+.footer-links a, .footer-bottom { color: #e0c9b4 !important; }
+.footer-whatsapp { color: #ffd781 !important; }
+.back-top { color: #ffda91 !important; }
+.form-card, .contact-form { background: #fffaf1 !important; border-color: #ecd7b6 !important; }
+input, textarea, select { accent-color: #d87930; }
+input:focus, textarea:focus, select:focus { border-color: #d98d42 !important; box-shadow: 0 0 0 3px rgba(220, 145, 56, .12) !important; }
+.form-consent input { accent-color: #c56c2b !important; }
+
+/* Diwali promo bands and offer sections */
+.diwali-home-promo, .diwali-strip { background: radial-gradient(ellipse at 80% 30%, rgba(255, 181, 69, .24), transparent 32%), linear-gradient(115deg, #24132d, #67303b 66%, #873b2c) !important; }
+.diwali-home-promo h2 span, .diwali-copy h2 span { background: linear-gradient(90deg, #fff0bb, #ffc34e, #ff9854) !important; -webkit-background-clip: text !important; background-clip: text !important; color: transparent !important; }
+.diwali-promo-lamp, .discount-orb { filter: drop-shadow(0 0 20px rgba(255, 172, 67, .26)); }
+.offer-feature-card { background: radial-gradient(circle at 80% 10%, rgba(255, 192, 82, .25), transparent 36%), linear-gradient(145deg, #663040, #1d1428 84%) !important; border-color: rgba(255, 203, 127, .46) !important; }
+.offer-code-row strong, .offer-discount-large strong, .offer-discount-large small { color: #ffdd91 !important; }
+.offer-small-note { background: #fff1d8 !important; border-left-color: #df9340 !important; }
+
+/* Tejas — a human-style festive assistant */
+.guide-launcher { border: 1px solid rgba(255, 216, 140, .78) !important; background: linear-gradient(130deg, #7d3434, #32182f 78%) !important; color: #fff4db !important; box-shadow: 0 15px 38px rgba(54, 25, 34, .4), 0 0 0 4px rgba(255, 194, 93, .07) !important; }
+.guide-launcher-icon { width: 29px; height: 29px; display: grid; place-items: center; border-radius: 50%; background: linear-gradient(145deg, #ffd979, #d46c37); box-shadow: 0 0 15px rgba(255, 190, 76, .3); color: #432036 !important; text-shadow: none !important; }
+.guide-launcher-icon svg { width: 21px; height: 21px; }
+.guide-panel { width: min(390px, calc(100vw - 28px)) !important; height: 565px !important; max-height: min(78vh, 640px) !important; background: #fffaf1 !important; border: 1px solid rgba(221, 163, 85, .7) !important; border-radius: 20px !important; box-shadow: 0 30px 85px rgba(34, 15, 30, .45) !important; }
+.guide-panel-head { height: 78px !important; flex-basis: 78px !important; background: linear-gradient(110deg, #25152d, #66303b 72%, #914628) !important; border-bottom: 1px solid rgba(255, 221, 157, .28); }
+.tejas-avatar { width: 47px; height: 47px; flex: 0 0 47px; display: grid; place-items: center; border-radius: 15px; overflow: hidden; background: linear-gradient(145deg, #ffe5a2, #ec9747 55%, #9b3b3b); border: 1px solid rgba(255, 236, 186, .8); box-shadow: 0 4px 17px rgba(255, 177, 71, .2); }
+.tejas-avatar svg { width: 43px; height: 43px; }
+.tejas-avatar .tejas-tilak { fill: #b63e35; }
+.guide-panel-head strong { color: #fff3d9 !important; font-size: 14px !important; }
+.guide-panel-head small { color: #e9cfaa !important; font-size: 9px !important; }
+.guide-panel-head small i { background: #8ee0a8 !important; box-shadow: 0 0 7px #8ee0a8 !important; }
+.guide-close { color: #ffedce !important; }
+.guide-messages { background: linear-gradient(180deg, #fffaf0, #fff5e5) !important; gap: 11px !important; }
+.guide-message { font-size: 12px !important; line-height: 1.7 !important; border-radius: 15px !important; }
+.guide-message-bot { background: #fffefa !important; color: #4a3540 !important; border: 1px solid #f0ddbd !important; border-top-left-radius: 5px !important; box-shadow: 0 4px 14px rgba(110, 68, 36, .045); }
+.guide-message-user { background: linear-gradient(130deg, #b95a36, #7c3344) !important; color: #fff8e9 !important; border-top-right-radius: 5px !important; }
+.guide-result-link { color: #a94d27 !important; font-size: 11px !important; padding: 4px 6px !important; }
+.guide-quick-actions { background: #fff6e8 !important; padding-top: 10px !important; }
+.guide-quick-actions button { border: 1px solid #edcf9e !important; color: #85452c !important; background: #fffdf7 !important; font-size: 10px !important; padding: 8px 11px !important; }
+.guide-quick-actions button:hover { background: #ffedc9 !important; border-color: #d99b51 !important; }
+.guide-form { background: #fffaf0 !important; border-top: 1px solid #efdfc8 !important; }
+.guide-form input { border-color: #ead7b9 !important; color: #3f2b35 !important; font-size: 12px !important; }
+.guide-form button { background: linear-gradient(135deg, #e9a33e, #c65e36) !important; color: #2e1c2d !important; }
+.guide-disclaimer { background: #fffaf0 !important; color: #947d68 !important; }
+
+/* All inner-page heroes become festive night skies, without reducing text clarity. */
+.page-hero, .error-page { background: radial-gradient(ellipse at 82% 34%, rgba(220, 101, 54, .24), transparent 34%), radial-gradient(ellipse at 14% 84%, rgba(157, 53, 68, .17), transparent 32%), linear-gradient(118deg, #0c1020, #21142e 56%, #542a38) !important; }
+.page-hero h1 .gradient-text { background: linear-gradient(90deg,#fff0bd,#ffc04e,#ff8750) !important; -webkit-background-clip:text !important; background-clip:text !important; color:transparent !important; }
+.breadcrumbs a { color: #ffd783 !important; }
+.page-hero-content > p { color: #eedcc6 !important; }
+
+/* Responsive Diwali scene and Tejas panel */
+@media (max-width: 980px) {
+  .hero { min-height: 820px !important; }
+  .hero-layout { grid-template-columns: 1fr 1fr !important; }
+  .diwali-hero-scene { height: 490px !important; }
+}
+@media (max-width: 760px) {
+  .hero { min-height: auto !important; padding-top: 66px !important; padding-bottom: 26px !important; }
+  .hero-layout { grid-template-columns: 1fr !important; min-height: unset !important; gap: 4px !important; }
+  .hero-copy { max-width: 100%; }
+  .hero h1 { font-size: clamp(46px, 12vw, 68px) !important; letter-spacing: -3px !important; margin: 21px 0 17px !important; }
+  .hero-lede { font-size: 14px !important; line-height: 1.75 !important; }
+  .diwali-hero-scene { width: min(100%, 470px) !important; height: auto !important; aspect-ratio: 620 / 590; justify-self: center !important; margin-top: 6px; }
+  .scene-caption { bottom: 1px; font-size: 7px; letter-spacing: 1.3px; }
+  .hero-bottom { display: grid !important; gap: 12px; margin-top: 16px !important; }
+  .hero-capabilities { flex-wrap: wrap; row-gap: 8px; }
+  .guide-widget { left: 12px !important; bottom: 12px !important; }
+  .guide-panel { width: min(390px, calc(100vw - 24px)) !important; height: min(565px, 76vh) !important; bottom: 61px !important; }
+  .guide-launcher { padding: 9px 13px !important; }
+  .whatsapp-float { right: 12px !important; bottom: 12px !important; }
+}
+@media (max-width: 390px) {
+  .hero-actions { gap: 8px; }
+  .hero-actions .button { padding: 12px 13px; font-size: 11px; }
+  .diwali-hero-scene { width: 108% !important; margin-left: -4%; }
+  .guide-panel { height: 72vh !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .main-kandil, .side-kandil, .svg-firework, .scene-stars, .floating-sparks, .hero-diya { animation: none !important; }
+}
