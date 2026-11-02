@@ -198,6 +198,7 @@ function createGuideBot() {
   const personIcon = `<svg viewBox="0 0 48 48" role="img" aria-label="Tejas assistant"><defs><linearGradient id="tejasKurta" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff1bf"/><stop offset="1" stop-color="#d9873c"/></linearGradient></defs><path d="M7 47c1-10 7-15 17-15s16 5 17 15" fill="url(#tejasKurta)"/><path d="M13 17c0-10 5-14 12-14s12 5 12 14v6c0 8-5 13-12 13s-12-5-12-13z" fill="#9b5638"/><path d="M12 17c0-10 6-14 13-14 6 0 11 4 12 11-4-2-8-4-13-4-4 0-8 2-12 7z" fill="#24172a"/><path d="M14 21c2-3 5-4 10-4s9 2 11 5v5c-1 7-6 11-12 11-6 0-10-5-10-12z" fill="#d9976f"/><path d="M18 24h3m7 0h3" stroke="#50302b" stroke-width="1.8" stroke-linecap="round"/><path d="M21 31q3 2 6 0" stroke="#8d4537" stroke-width="1.5" fill="none" stroke-linecap="round"/><path class="tejas-tilak" d="M24 19l2 5h-4z"/><path d="M10 47l4-12 10 5 10-5 4 12" fill="url(#tejasKurta)" stroke="#ffe7a5" stroke-width="1"/></svg>`;
   const widget = document.createElement('div');
   widget.className = 'guide-widget';
+  widget.id = 'tejas';
   widget.innerHTML = `
     <button class="guide-launcher" type="button" aria-label="Chat with Tejas, StarnyX assistant" aria-expanded="false"><span class="guide-launcher-icon">${personIcon}</span><span>Chat with Tejas</span><i class="guide-online-dot"></i></button>
     <section class="guide-panel" aria-label="Tejas, StarnyX digital guide" hidden>

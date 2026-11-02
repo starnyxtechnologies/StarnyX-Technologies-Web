@@ -240,7 +240,7 @@ input:focus, textarea:focus, select:focus { border-color: #d5a65b !important; bo
   filter: drop-shadow(0 0 5px rgba(229, 170, 76, .35));
 }
 .diwali-fairy-lights:before { content: ""; position: absolute; left: 0; right: 0; top: 1px; height: 18px; border-top: 1px solid rgba(175, 128, 67, .28); border-radius: 0 0 50% 50%; }
-.diwali-fireworks-canvas { position: absolute !important; z-index: 1 !important; inset: 0 !important; width: 100% !important; height: 100% !important; pointer-events: none !important; opacity: .78; }
+.diwali-fireworks-canvas { position: absolute !important; z-index: 2 !important; inset: 0 !important; width: 100% !important; height: 100% !important; pointer-events: none !important; opacity: .96; mix-blend-mode: multiply; }
 .hero-layout, .hero-bottom, .page-hero-content, .error-content, .diwali-home-promo-inner, .closing-cta-inner { position: relative; z-index: 3; }
 .diwali-particle {
   position: absolute; z-index: 2; width: 5px; height: 5px; border-radius: 50%; pointer-events: none;
@@ -300,6 +300,8 @@ input:focus, textarea:focus, select:focus { border-color: #d5a65b !important; bo
   .whatsapp-float { right: 12px !important; bottom: 12px !important; }
   .diwali-diya-divider { gap: 12px; }
   .diwali-diya-divider svg { width: 32px; height: 27px; }
+  /* Keep fireworks visible on phones; reduce density through canvas sizing, not by hiding them. */
+  .diwali-fireworks-canvas { display: block !important; opacity: .88 !important; }
 }
 @media (max-width: 390px) {
   .hero h1 { font-size: 42px !important; }
@@ -311,3 +313,11 @@ input:focus, textarea:focus, select:focus { border-color: #d5a65b !important; bo
   *, *:before, *:after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .diwali-fireworks-canvas { display: none !important; }
 }
+
+/* The main homepage sky-shots sit above the hero photograph but below its left-side copy. */
+.hero .diwali-fireworks-canvas { z-index: 5 !important; opacity: .92 !important; }
+.hero .hero-copy { z-index: 6 !important; }
+.hero .photo-art-caption { z-index: 6 !important; }
+/* Inner page sky-shots remain behind headings and buttons for comfortable readability. */
+.page-hero .diwali-fireworks-canvas,
+.error-page .diwali-fireworks-canvas { z-index: 2 !important; opacity: .96 !important; }

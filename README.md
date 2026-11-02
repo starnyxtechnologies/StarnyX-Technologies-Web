@@ -9,11 +9,14 @@ A complete static public website for **StarnyX Technologies** with a warm, light
 
 ## What is included
 
-- 17 HTML pages: Home, About, Services, Our Work, Offers, Pricing, FAQ, Contact, Get a Quote, Careers, Privacy, Terms, Refund Policy, Cookie Policy, Disclaimer, Service Agreement and 404.
+- 18 top-level HTML pages plus a bundled restaurant demo: Home, About, Services, Our Work, Offers, Pricing, FAQ, Contact, Get a Quote, Careers, Privacy, Terms, Refund Policy, Cookie Policy, Disclaimer, Service Agreement and 404.
 - Light ivory, warm white, marigold, saffron and gold Diwali design.
 - Bundled local hero and promotional photographs. No external image URLs are required for the main visuals.
 - Animated fireworks / sky shots, subtle floating light particles, fairy lights and diya dividers. Motion automatically respects `prefers-reduced-motion`.
 - Existing StarnyX blue metallic favicon/logo in the header and browser tab.
+- Separate Website Demo Gallery (`demos.html`) with Hotel, Lodge, Hotel & Lodge, Supermarket, Jewellers, Salon, Spa & Salon, Fashion, Clinic and Education cards. Each card has a View Demo control; only published demos open, while future demos are clearly marked Coming Soon. The Hotel Demo opens https://starnyxtechnologies.github.io/Hotel-demo/.
+- Our Developments page (`projects.html`) with transparent in-house build and concept-demo status labels.
+- Bundled working Demo Hotel restaurant website at `demos/hotel/index.html` (six pages plus local food/loader assets).
 - Tejas JavaScript guide assistant.
 - WhatsApp enquiry and quote actions.
 - Vercel serverless Discord enquiry endpoint at `/api/discord`.
@@ -89,3 +92,11 @@ Review pricing, offers, legal content and company details before treating them a
 - `favicon.svg`, `favicon.png` — StarnyX brand assets
 - `api/discord.js` — Vercel serverless Discord notification endpoint
 - `vercel.json` — Vercel function configuration
+
+
+## Website demos and developments
+
+- Open `demos.html` to browse separate industry demo cards. The live Hotel Demo button opens https://starnyxtechnologies.github.io/Hotel-demo/. Other industries remain Coming Soon until their demo URLs are published. The local restaurant preview is also bundled at `demos/hotel/index.html`.
+- Lodge, combined hotel/lodge, supermarket, jewellers, salon, spa, fashion, clinic and education cards are clearly labelled as concept previews; they are not represented as completed/live client projects.
+- Open `projects.html` (navigation label: Our Developments) for cards linking directly to the live StarnyX public website, published Demo Hotel website, Tejas feature and the Demo Gallery.
+- The bundled Demo Hotel is a restaurant-only concept, not a lodging/room-booking site. Its sample menu/prices and contact/location details are demo placeholders.
