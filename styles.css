@@ -126,3 +126,17 @@
 @media(max-width:760px){.orbit-core.code-orbit-core{width:255px;height:180px}.code-terminal-body{font-size:9px;gap:8px}.diwali-strip-inner{grid-template-columns:1fr;gap:24px}.diwali-side{flex-direction:row;flex-wrap:wrap;justify-content:flex-start}.discount-orb{width:95px;height:95px}.discount-orb strong{font-size:35px}.discount-orb small{font-size:7px}.diwali-copy h2{font-size:32px}.offer-feature-card{padding:30px 23px}.offer-service-grid,.service-detail-grid{grid-template-columns:1fr}.offer-service-grid p{min-height:0}.service-detail-card>p{min-height:0}.guide-widget{left:12px;bottom:12px}.guide-panel{width:min(370px,calc(100vw - 24px));height:500px;bottom:58px}.whatsapp-float{right:12px;bottom:12px;padding:12px 13px;font-size:10px}}
 @media(max-width:390px){.guide-launcher{padding:11px 13px;font-size:10px}.guide-panel{height:475px}.whatsapp-float{font-size:9px}.code-terminal-body{font-size:8px;padding-inline:9px}}
 @media(prefers-reduced-motion:reduce){.code-row,.code-orbit-glow,.code-cursor-line i{animation:none!important}.guide-launcher,.whatsapp-float,.service-detail-card{transition:none!important}}
+
+
+/* Secondary public platform announcement — inserted directly below the main header. */
+.platform-notice{position:relative;z-index:8;overflow:hidden;border-bottom:1px solid rgba(99,190,255,.2);background:linear-gradient(100deg,#08162b 0%,#0d2850 48%,#092038 100%);color:#dceeff}
+.platform-notice:before{content:"";position:absolute;inset:0 auto 0 -35%;width:30%;background:linear-gradient(90deg,transparent,rgba(63,184,255,.11),transparent);transform:skewX(-18deg);animation:platformNoticeSweep 8s ease-in-out infinite;pointer-events:none}
+.platform-notice-inner{position:relative;min-height:48px;display:flex;align-items:center;justify-content:center;gap:15px;padding-top:8px;padding-bottom:8px}
+.platform-notice-label{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;color:#82e8f5;font-size:8px;font-weight:900;letter-spacing:1.7px;white-space:nowrap}
+.platform-notice-label i{width:7px;height:7px;border-radius:50%;background:#55e5c0;box-shadow:0 0 12px rgba(85,229,192,.8)}
+.platform-notice p{margin:0;color:#c8d9ee;font-size:10px;line-height:1.5;text-align:center}
+.platform-notice a{flex:0 0 auto;color:#8ee9f5;font-size:9px;font-weight:800;white-space:nowrap;text-decoration:none}
+.platform-notice a:hover{color:#fff}
+@keyframes platformNoticeSweep{0%,65%{left:-35%}100%{left:115%}}
+@media(max-width:760px){.platform-notice-inner{min-height:0;display:grid;grid-template-columns:1fr auto;gap:5px 10px;padding-top:10px;padding-bottom:10px}.platform-notice-label{grid-column:1/-1}.platform-notice p{grid-column:1;text-align:left;font-size:9px}.platform-notice a{grid-column:2;grid-row:2;font-size:9px}}
+@media(prefers-reduced-motion:reduce){.platform-notice:before{animation:none}}

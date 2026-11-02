@@ -26,6 +26,23 @@ if (menuToggle && navLinks) {
   }));
 }
 
+// Public platform status notice — shared across all pages.
+function createPlatformNotice() {
+  const header = document.querySelector('.site-header');
+  if (!header || document.querySelector('.platform-notice')) return;
+  const notice = document.createElement('aside');
+  notice.className = 'platform-notice';
+  notice.setAttribute('aria-label', 'Platform update');
+  notice.innerHTML = `
+    <div class="platform-notice-inner container">
+      <span class="platform-notice-label"><i aria-hidden="true"></i> PLATFORM UPDATE</span>
+      <p>You’re visiting our secondary public platform. The main StarnyX business application is currently under construction.</p>
+      <a href="https://wa.me/${STARNYX_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hello StarnyX Technologies, I would like to know more about your services.') }" target="_blank" rel="noopener noreferrer">Talk to us <span aria-hidden="true">↗</span></a>
+    </div>`;
+  header.insertAdjacentElement('afterend', notice);
+}
+createPlatformNotice();
+
 // Current year and active navigation state.
 const year = document.getElementById('year');
 if (year) year.textContent = String(new Date().getFullYear());
@@ -98,14 +115,18 @@ if (contactForm) {
       `Offer code: ${STARNYX_CONFIG.offerCode} (if eligible)`
     ].filter(Boolean).join('\n');
 
-    // Open synchronously from the user gesture so popup blockers do not suppress WhatsApp.
-    const whatsappWindow = window.open(buildWhatsAppUrl(whatsappMessage), '_blank');
-    if (whatsappWindow) whatsappWindow.opener = null;
-    else window.location.href = buildWhatsAppUrl(whatsappMessage);
-    if (formNote) formNote.textContent = 'WhatsApp opened with your enquiry ready. Review the message and tap Send. Sending the WhatsApp message is your final submission.';
+    const whatsappUrl = buildWhatsAppUrl(whatsappMessage);
+    // Reserve a tab synchronously during the user gesture. If popups are blocked,
+    // wait for the Discord request before navigating this page to WhatsApp.
+    const whatsappWindow = window.open('about:blank', '_blank');
+    if (whatsappWindow) {
+      whatsappWindow.opener = null;
+      whatsappWindow.location.href = whatsappUrl;
+    }
 
     const submitButton = contactForm.querySelector('button[type="submit"]');
     if (submitButton) submitButton.disabled = true;
+    let discordStatus = 'UNREACHABLE';
     try {
       const response = await fetch('/api/discord', {
         method: 'POST',
@@ -113,20 +134,26 @@ if (contactForm) {
         body: JSON.stringify(enquiry)
       });
       const result = await response.json().catch(() => ({}));
-      if (formNote) {
-        if (result.code === 'DISPATCHED') {
-          formNote.textContent = 'WhatsApp is ready — tap Send to submit your enquiry. A private Discord notification was also delivered to the StarnyX team.';
-        } else if (result.code === 'NOT_CONFIGURED') {
-          formNote.textContent = 'WhatsApp is ready — tap Send to submit your enquiry. The private Discord notification is not configured yet.';
-        } else {
-          formNote.textContent = 'WhatsApp is ready — tap Send to submit your enquiry. The Discord notification could not be delivered; please continue through WhatsApp.';
-        }
-      }
+      discordStatus = result.code || (response.ok ? 'UNKNOWN' : 'DELIVERY_FAILED');
     } catch {
-      if (formNote) formNote.textContent = 'WhatsApp is ready — tap Send to submit your enquiry. The website could not reach its Discord notification endpoint; please continue through WhatsApp.';
+      discordStatus = 'UNREACHABLE';
     } finally {
       if (submitButton) submitButton.disabled = false;
     }
+
+    if (formNote) {
+      const whatsappInstruction = 'WhatsApp is ready with your enquiry. Review the message and tap Send to submit it.';
+      if (discordStatus === 'DISPATCHED') {
+        formNote.textContent = `${whatsappInstruction} A private Discord notification was delivered.`;
+      } else if (discordStatus === 'NOT_CONFIGURED') {
+        formNote.textContent = `${whatsappInstruction} Discord notifications are not configured yet.`;
+      } else if (discordStatus === 'ORIGIN_NOT_ALLOWED') {
+        formNote.textContent = `${whatsappInstruction} The current website origin is not allowed by the Discord endpoint configuration.`;
+      } else {
+        formNote.textContent = `${whatsappInstruction} Discord notification could not be delivered; continue through WhatsApp.`;
+      }
+    }
+    if (!whatsappWindow) window.location.assign(whatsappUrl);
   });
 }
 
@@ -160,8 +187,8 @@ function createGuideBot() {
     <button class="guide-launcher" type="button" aria-label="Open StarnyX guide" aria-expanded="false"><span class="guide-launcher-icon">✦</span><span>Ask StarnyX</span><i class="guide-online-dot"></i></button>
     <section class="guide-panel" aria-label="StarnyX website guide" hidden>
       <div class="guide-panel-head"><div class="guide-avatar">S<span>✦</span></div><div><strong>StarnyX Guide</strong><small><i></i> Quick website assistant</small></div><button type="button" class="guide-close" aria-label="Close guide">×</button></div>
-      <div class="guide-messages" aria-live="polite" aria-relevant="additions"><div class="guide-message guide-message-bot">Hi! I’m the StarnyX Guide. I can help you explore services, pricing, the Diwali offer or how to request a quote. What are you planning to build?</div></div>
-      <div class="guide-quick-actions"><button type="button" data-guide-query="What services do you offer?">Our services</button><button type="button" data-guide-query="Tell me about pricing">Pricing</button><button type="button" data-guide-query="Tell me about the Diwali offer">Diwali offer</button><button type="button" data-guide-query="How can I contact you?">WhatsApp</button></div>
+      <div class="guide-messages" aria-live="polite" aria-relevant="additions" role="log"><div class="guide-message guide-message-bot">Hi there! 👋 Welcome to StarnyX Technologies. I’m the website guide. You can ask me about our services, pricing, projects, offers or how to contact us. How can I help?</div></div>
+      <div class="guide-quick-actions"><button type="button" data-guide-query="Hello">Hello</button><button type="button" data-guide-query="What services do you offer?">Our services</button><button type="button" data-guide-query="Tell me about pricing">Pricing</button><button type="button" data-guide-query="How can I contact you?">WhatsApp</button></div>
       <form class="guide-form"><label class="sr-only" for="guide-input">Ask a question</label><input id="guide-input" name="question" maxlength="300" autocomplete="off" placeholder="Ask about a service…" required><button type="submit" aria-label="Send message">↑</button></form>
       <div class="guide-disclaimer">Rule-based guide · No AI · No account data</div>
     </section>`;
@@ -182,7 +209,62 @@ function createGuideBot() {
   close.addEventListener('click', () => toggle(false));
 
   const answer = (question) => {
-    const normalized = question.toLowerCase();
+    const normalized = question.toLowerCase().trim().replace(/[.!?,]+$/g, '').replace(/\s+/g, ' ');
+    const exact = (patterns) => patterns.some((pattern) => pattern.test(normalized));
+
+    // Friendly everyday conversation, handled locally without an AI service.
+    if (exact([/^(hi+|hii+|hello+|hey+|heyy+|namaste|hola)(\s+(there|bro|team|starnyx))?$/, /^(good morning|good afternoon|good evening|good night)(\s+(bro|team))?$/])) {
+      addBotMessage(messages, 'Hello! 👋 Great to meet you. I can guide you through StarnyX services, pricing, project enquiries and the next steps. What would you like to explore?');
+      return;
+    }
+    if (exact([/^(how are you|how r you|how are u|how are things)$/])) {
+      addBotMessage(messages, 'I’m doing great and ready to help! 😊 Tell me what you are planning to build, or ask me about any StarnyX service.');
+      return;
+    }
+    if (exact([/^(thanks|thank you|thankyou|thx|many thanks|okay thanks|ok thanks)(\s+(bro|a lot))?$/])) {
+      addBotMessage(messages, 'You’re very welcome! 💙 Whenever you’re ready, share your project idea. I can help you find the right service or connect you with the StarnyX team on WhatsApp.');
+      return;
+    }
+    if (exact([/^(bye|goodbye|see you|see ya|tata)(\s+(bro|team))?$/])) {
+      addBotMessage(messages, 'Goodbye! 👋 Thanks for visiting StarnyX Technologies. Have a great day — we’ll be here when you’re ready to build something.');
+      return;
+    }
+    if (exact([/^(help|what can you do|what can i ask|menu|help me)$/])) {
+      addBotMessage(messages, 'I can help with website development, web applications, mobile apps, UI/UX design, cloud and deployment, automation, pricing, the current offer and WhatsApp enquiries. Try asking “What services do you offer?”');
+      return;
+    }
+    if (exact([/^(who are you|what is your name|your name)$/])) {
+      addBotMessage(messages, 'I’m the StarnyX Guide — a simple website assistant for StarnyX Technologies. I can answer basic questions about our public services and guide you to the right page.');
+      return;
+    }
+    if (exact([/^(what is starnyx|tell me about starnyx|about starnyx|what do you do)$/])) {
+      addBotMessage(messages, 'StarnyX Technologies is focused on digital solutions such as websites, web applications, mobile experiences, UI/UX design and technology integrations. Explore our About and Services pages to learn more.');
+      const link = document.createElement('a');
+      link.className = 'guide-result-link';
+      link.href = 'about.html';
+      link.textContent = 'About StarnyX ↗';
+      messages.appendChild(link);
+      return;
+    }
+    if (exact([/^(is the app ready|where is the app|main app status|website application status|is your platform ready)$/])) {
+      addBotMessage(messages, 'You are visiting our secondary public information platform. The main StarnyX business application is currently under construction. For current service and project enquiries, please contact our team on WhatsApp.');
+      return;
+    }
+
+    if (exact([/^(services|service|what services|what services do you offer|which services do you offer|service list)$/])) {
+      addBotMessage(messages, 'We can discuss website development, web applications and SaaS, mobile app development, UI/UX design, cloud and DevOps, and automation or API integrations. Tell me what you want to build and I can guide you to the right service.');
+      const link = document.createElement('a');
+      link.className = 'guide-result-link';
+      link.href = 'services.html';
+      link.textContent = 'Explore all services ↗';
+      messages.appendChild(link);
+      return;
+    }
+    if (exact([/^(ok|okay|ok bro|nice|great|cool|understood)$/])) {
+      addBotMessage(messages, 'Glad I could help! 😊 You can ask another question or start a project conversation with us on WhatsApp.');
+      return;
+    }
+
     const match = botKnowledge.find((entry) => entry.keys.some((key) => normalized.includes(key)));
     if (!match) {
       addBotMessage(messages, 'I can help with websites, web apps, mobile apps, UI/UX, cloud deployment, automation, pricing and the Diwali offer. Choose a topic above or contact our team on WhatsApp for a specific requirement.');

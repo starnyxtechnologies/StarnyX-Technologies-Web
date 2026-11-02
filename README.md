@@ -8,6 +8,12 @@ Premium static public website for **StarnyX Technologies**.
 - Hosting: Vercel (static pages + one serverless Discord notification endpoint)
 - No public payment gateway, login or business application is included in this phase.
 
+## Public platform notice and chatbot
+
+- A shared announcement strip appears directly below the header on all public pages. It explains that this is the secondary public platform while the main StarnyX business application is under construction.
+- The StarnyX Guide is a small rule-based JavaScript chatbot. It responds to greetings (hello, hi, hey, namaste), thanks, goodbye, basic questions about StarnyX, services, pricing, the Diwali offer, contact and the main application status. It does not use an AI API or access private data.
+- Contact and quote forms prepare a WhatsApp message for +91 73855 85398 and send a separate enquiry notification to `/api/discord` when the Vercel webhook is configured. The visitor must press **Send** in WhatsApp to send the message.
+
 ## Pages
 
 Home, About, Services, Our Work, Pricing, Offers, FAQ, Contact, Get a Quote, Careers, Privacy Policy, Terms, Refund Policy, Cookie Policy, Disclaimer, Service Agreement and 404.
@@ -40,9 +46,11 @@ The Discord webhook URL is a secret. **Do not paste it into `script.js`, any HTM
 3. Choose **New Webhook**, give it a name such as `StarnyX Website Enquiries`, select the correct channel, and copy the webhook URL.
 4. Open **Vercel Dashboard → your website project → Settings → Environment Variables**.
 5. Add a variable named exactly `DISCORD_WEBHOOK_URL`. Paste the copied webhook URL as its value. Select **Production** (and Preview too only if you want preview enquiries sent to the same channel).
-6. Optionally set `ALLOWED_ORIGIN` to `https://starnyxtechnologies.in`. The function already allows the official root domain, `www` domain, local development origins and the active Vercel deployment URL. It also applies a best-effort per-function-instance rate limit; for a high-traffic launch, add a shared rate limiter or CAPTCHA/bot protection.
+6. Set `ALLOWED_ORIGIN` to the exact public website origin, for example `https://starnyxtechnologies.in` or `https://www.starnyxtechnologies.in`. You may enter multiple comma-separated origins if required. The endpoint also permits the current Vercel deployment URL and the known project alias.
 7. Save the variables and trigger a new deployment (Deployments → latest deployment → Redeploy). Vercel Functions read environment variables at runtime; redeploy after changing them.
 8. Test the Contact or Get a Quote form. The visitor’s WhatsApp opens with a prepared message; they must tap **Send** in WhatsApp. When the webhook is configured, the website also sends a private notification to the Discord channel.
+
+**Do not paste the actual webhook URL into a source file, `.env.example`, or GitHub repository.** The repository shown earlier was Public. A committed webhook can be copied and abused by anyone. GitHub Actions repository secrets are not automatically available to a deployed Vercel Function; configure the runtime secret in Vercel Project Settings. Keep the repository private as an additional source-code privacy measure, but still keep the webhook out of Git history.
 
 If `DISCORD_WEBHOOK_URL` is absent, the website still works and WhatsApp enquiries remain available. The form will report that the private Discord alert is not configured.
 

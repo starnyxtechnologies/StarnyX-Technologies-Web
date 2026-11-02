@@ -5,6 +5,7 @@
 const ALLOWED_ORIGINS = new Set([
   'https://starnyxtechnologies.in',
   'https://www.starnyxtechnologies.in',
+  'https://starnyx-technologies-web.vercel.app',
   'http://localhost:3000',
   'http://127.0.0.1:3000'
 ]);
@@ -57,9 +58,15 @@ module.exports = async function handler(req, res) {
 
   const origin = req.headers.origin;
   const previewOrigin = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null;
-  const configuredOrigin = process.env.ALLOWED_ORIGIN;
-  if (origin && !ALLOWED_ORIGINS.has(origin) && origin !== previewOrigin && origin !== configuredOrigin) {
+  const configuredOrigins = String(process.env.ALLOWED_ORIGIN || '')
+    .split(',').map((value) => value.trim()).filter(Boolean);
+  if (!origin || (!ALLOWED_ORIGINS.has(origin) && origin !== previewOrigin && !configuredOrigins.includes(origin))) {
     return res.status(403).json({ ok: false, code: 'ORIGIN_NOT_ALLOWED' });
+  }
+
+  const contentType = String(req.headers['content-type'] || '').toLowerCase();
+  if (!contentType.includes('application/json')) {
+    return res.status(415).json({ ok: false, code: 'UNSUPPORTED_MEDIA_TYPE' });
   }
 
   const webhook = process.env.DISCORD_WEBHOOK_URL;
