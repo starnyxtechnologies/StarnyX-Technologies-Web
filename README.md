@@ -10,7 +10,7 @@ Premium static public website for **StarnyX Technologies**.
 
 ## Public platform notice and chatbot
 
-- A shared announcement strip appears directly below the header on all public pages. It explains that this is the secondary public platform while the main StarnyX business application is under construction.
+- A separate, full-width announcement strip appears directly below the navigation on all public pages. The navigation and notice occupy separate layout rows and do not overlap. It explains that this is the secondary public platform while the main StarnyX business application is under construction.
 - The StarnyX Guide is a small rule-based JavaScript chatbot. It responds to greetings (hello, hi, hey, namaste), thanks, goodbye, basic questions about StarnyX, services, pricing, the Diwali offer, contact and the main application status. It does not use an AI API or access private data.
 - Contact and quote forms prepare a WhatsApp message for +91 73855 85398 and send a separate enquiry notification to `/api/discord` when the Vercel webhook is configured. The visitor must press **Send** in WhatsApp to send the message.
 
@@ -50,7 +50,7 @@ The Discord webhook URL is a secret. **Do not paste it into `script.js`, any HTM
 7. Save the variables and trigger a new deployment (Deployments → latest deployment → Redeploy). Vercel Functions read environment variables at runtime; redeploy after changing them.
 8. Test the Contact or Get a Quote form. The visitor’s WhatsApp opens with a prepared message; they must tap **Send** in WhatsApp. When the webhook is configured, the website also sends a private notification to the Discord channel.
 
-**Do not paste the actual webhook URL into a source file, `.env.example`, or GitHub repository.** The repository shown earlier was Public. A committed webhook can be copied and abused by anyone. GitHub Actions repository secrets are not automatically available to a deployed Vercel Function; configure the runtime secret in Vercel Project Settings. Keep the repository private as an additional source-code privacy measure, but still keep the webhook out of Git history.
+**Do not paste the actual webhook URL into a source file, `.env.example`, or GitHub repository.** The repository shown earlier was Public. A committed webhook can be copied and abused by anyone. GitHub Actions repository secrets are available only to GitHub Actions jobs; they are not automatically available to a deployed Vercel Function at runtime. This website sends Discord alerts through the Vercel serverless endpoint `api/discord.js`, so the runtime secret must be configured in Vercel Project Settings → Environment Variables. This is a technical requirement, not an optional preference. Keep the repository private as an additional source-code privacy measure, but still keep the webhook out of Git history.
 
 If `DISCORD_WEBHOOK_URL` is absent, the website still works and WhatsApp enquiries remain available. The form will report that the private Discord alert is not configured.
 

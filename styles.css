@@ -140,3 +140,136 @@
 @keyframes platformNoticeSweep{0%,65%{left:-35%}100%{left:115%}}
 @media(max-width:760px){.platform-notice-inner{min-height:0;display:grid;grid-template-columns:1fr auto;gap:5px 10px;padding-top:10px;padding-bottom:10px}.platform-notice-label{grid-column:1/-1}.platform-notice p{grid-column:1;text-align:left;font-size:9px}.platform-notice a{grid-column:2;grid-row:2;font-size:9px}}
 @media(prefers-reduced-motion:reduce){.platform-notice:before{animation:none}}
+
+
+/* Final layout correction: keep the navigation and platform notice in separate rows. */
+.site-header,
+.inner-page .site-header {
+  position: sticky;
+  top: 0;
+  inset: 0 0 auto;
+  z-index: 50;
+  background: rgba(5, 16, 32, .96);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, .10);
+}
+
+.nav {
+  min-height: 82px;
+}
+
+.nav-links {
+  gap: clamp(13px, 1.65vw, 24px);
+  font-size: 12px;
+}
+
+.platform-notice {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.platform-notice-inner {
+  min-height: 44px;
+  gap: 18px;
+}
+
+.platform-notice p {
+  font-size: 10px;
+}
+
+/* Add breathing room below the now-flowing header and announcement. */
+.hero {
+  padding-top: 104px;
+}
+
+.page-hero {
+  padding-top: 82px;
+}
+
+@media (max-width: 980px) {
+  .nav-links {
+    gap: 16px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav {
+    min-height: 76px;
+    height: 76px;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: relative;
+    z-index: 3;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    padding: 18px 24px 24px;
+    background: #0a1b34;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    font-size: 13px;
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-links > a {
+    padding: 13px 3px;
+  }
+
+  .nav-links .nav-cta {
+    text-align: center;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding-top: 66px;
+  }
+
+  .page-hero {
+    padding: 66px 0 64px;
+    min-height: 320px;
+  }
+
+  .platform-notice-inner {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 7px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+
+  .platform-notice-label,
+  .platform-notice p,
+  .platform-notice a {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .platform-notice p {
+    text-align: left;
+    font-size: 10px;
+  }
+
+  .platform-notice a {
+    justify-self: end;
+    font-size: 10px;
+  }
+}

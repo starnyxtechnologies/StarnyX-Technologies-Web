@@ -35,9 +35,9 @@ function clean(value, max = 1000) {
   return String(value ?? '').replace(/[\u0000-\u001f\u007f]/g, ' ').trim().slice(0, max);
 }
 
-function safeDiscordText(value) {
+function safeDiscordText(value, max = 900) {
   // Prevent user-submitted text from triggering @everyone/@here or user mentions.
-  return clean(value, 900).replace(/@/g, '@\u200b');
+  return clean(value, max).replace(/@/g, '@\u200b');
 }
 
 module.exports = async function handler(req, res) {
