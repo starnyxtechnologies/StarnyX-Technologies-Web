@@ -1,69 +1,47 @@
-# StarnyX Technologies — SEO & Google Search launch playbook
+# StarnyX — practical SEO launch playbook
 
-This is an action guide, not a promise of a Google position. No code or agency can guarantee the first result for every query. Google says useful, original, people-first content is one of the strongest foundations, and indexing/ranking is not guaranteed.
+## What the project already includes
 
-## 1. Technical SEO already included in this project
+- Crawlable HTML pages with distinct page titles, descriptions and canonical URLs.
+- Root-level `robots.txt` and `sitemap.xml` listing the indexable pages (not the 404 page).
+- Organization + WebSite structured data on the home page; Article + Breadcrumb structured data on the three guides.
+- Social sharing metadata and a 1200×630 StarnyX preview image.
+- Descriptive headings, internal links, responsive styles, reduced-motion support and original written guides.
+- Custom brand SVG, favicon and Diwali diya/rangoli details. The visual treatment is intentionally restrained so the site remains a technology studio, not a festival advert.
 
-- One preferred hostname: `https://starnyxtechnologies.in/` (the Vercel config redirects `www` to the apex host if both domains are attached).
-- `/index.html` permanently redirects to `/`, avoiding a second homepage URL.
-- Page-specific titles, descriptions, canonical URLs, Open Graph/Twitter share metadata and a raster social preview image.
-- `robots.txt`, an XML sitemap with canonical public pages, and `lastmod` dates.
-- Organization + WebSite JSON-LD on the home page, and Article JSON-LD on each original guide. No fake street address, reviews, ratings, client logos or LocalBusiness details are included.
-- Mobile-responsive layouts, reduced-motion support, image assets kept local, and semantic headings/links.
-- Original guides that link into relevant services and enquiry pages.
+## Google Search Console after deployment
 
-## 2. Set up Google Search Console after deployment
+1. Visit https://search.google.com/search-console and add a **Domain property** for `starnyxtechnologies.in`.
+2. Google will show a unique DNS TXT verification token. Copy that exact token into the DNS provider for the domain. Do not use a token from another property or invent one.
+3. Return to Search Console and click Verify after DNS has propagated.
+4. Open **Sitemaps** and submit `https://starnyxtechnologies.in/sitemap.xml`.
+5. Use **URL Inspection** for the home page, services, demos, projects and useful guide pages; check whether each is available to Google. Request indexing for important changed URLs once.
+6. Review **Page indexing** and **Core Web Vitals** reports as Google collects enough data.
 
-1. Sign in to Google Search Console using the Google account that will own the property.
-2. Add a **Domain property** for `starnyxtechnologies.in`.
-3. Google will provide a DNS TXT verification value. Add that exact value at the DNS provider for the domain. The value is unique to your account and is intentionally not fabricated or included in this ZIP.
-4. Complete verification, open **Sitemaps**, and submit `sitemap.xml`.
-5. Open **URL Inspection** and inspect the home page, `/services.html`, `/demos.html`, `/projects.html` and `/insights.html`. After the live pages return successfully, use **Request indexing** for the most important pages.
-6. Check **Page indexing** and **Core Web Vitals** over time. Fix any real errors shown there; do not repeatedly request indexing for the same URL.
+Google explains that requesting a recrawl does not guarantee instant inclusion and that recrawling may take days or weeks: https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl
 
-Google may take days or weeks to crawl updates. A sitemap or indexing request helps discovery; it does not guarantee indexing or an immediate ranking.
+## What improves visibility over time
 
-## 3. Search topics to build around
+- Publish accurate, original answers to real customer questions. Keep articles useful, readable and maintained; avoid mass-produced keyword pages.
+- Add genuine project case studies only after work is actually completed and the client permits publication. Explain the problem, approach, screenshots, scope and outcome honestly.
+- Ask real customers for honest reviews on platforms where they actually used the service. Never invent testimonials, star ratings, client logos or certifications.
+- Earn relevant mentions/links through partnerships, local business communities, vendor directories that are genuinely relevant, and useful resources. Do not buy bulk backlinks or participate in link schemes.
+- Use the same exact brand name and phone number consistently across legitimate profiles.
+- If StarnyX serves customers face-to-face at an eligible staffed location or as a qualifying service-area business, review Google Business Profile eligibility first. Do not use a virtual office or fake address.
+- Run the deployed URL through PageSpeed Insights: https://pagespeed.web.dev/. Improve actual issues (image size, layout shifts, mobile readability and loading time) based on the report.
+- Check Search Console queries and pages after indexing. Improve pages based on the phrases people really use rather than repeating a fixed keyword list.
 
-Use these as starting topics, then review actual Search Console queries before making changes:
+## Important: no first-place promise
 
-- Brand: `StarnyX Technologies`, `StarnyX`.
-- Core service pages: `website development company India`, `business website development India`, `web application development India`, `UI UX design services`, `mobile app development`.
-- Decision support: `business website planning checklist`, `website vs web application`, `website project brief`.
+No ZIP, metadata field, sitemap, AI tool or SEO agency can guarantee Google's first position. Rankings depend on relevance, quality, competition, location, links, reputation, crawl/index status and many other signals. Start with correct technical setup, genuinely useful content and real proof of work.
 
-Do not repeat phrases unnaturally. Keep each page focused on the questions it genuinely answers. The homepage introduces the studio; the Services page describes delivery capabilities; the Demos and Work pages show real independently hosted examples; each guide answers one practical question.
+## Keyword themes to use naturally
 
-## 4. Build trust and useful signals
+- StarnyX Technologies / StarnyX
+- Business website development
+- Custom web application development
+- UI/UX design
+- Mobile application development
+- Cloud and automation services
 
-- Add real project write-ups as work is completed. Include the problem, your role, approach, actual screenshots and what was delivered. Publish measurable results only when you can substantiate them and have permission.
-- Ask real customers for honest reviews on platforms they actually use. Never buy reviews or fabricate testimonials.
-- Publish genuinely useful guides based on work and questions you can answer. Update them when services, tools or recommendations change.
-- Earn relevant links through genuine partners, associations, client credits (with permission), local business networks and useful resources. Avoid paid link schemes, mass directory spam and automated backlinks.
-- Keep business name, phone and website details consistent wherever you list the business.
-
-## 5. Google Business Profile — only if eligible
-
-A Business Profile is for businesses that make in-person contact with customers during stated hours. An online-only company or virtual office is not eligible. Create one only if StarnyX has a real staffed location that meets Google's guidelines or genuinely serves customers in person as a service-area business. Do not invent or rent a virtual address for ranking.
-
-## 6. Monthly review routine
-
-- In Search Console, compare clicks, impressions, average position and click-through rate over the previous 28 days.
-- Identify relevant queries with impressions but weak click-through; improve titles/descriptions so they accurately describe the page.
-- Identify pages getting impressions for the wrong intent; improve the content or internal links rather than stuffing more keywords.
-- Check new indexing issues, broken links, mobile layout and real enquiry completion.
-- Add one genuinely useful guide or project story when there is something original to say—not just to hit a publishing quota.
-
-## 7. Before going live checklist
-
-- Attach both `starnyxtechnologies.in` and `www.starnyxtechnologies.in` to the same Vercel project and confirm HTTPS is active.
-- Deploy the ZIP contents with `index.html`, `assets/`, `api/`, `insights/`, `robots.txt`, `sitemap.xml`, `vercel.json` and `site.webmanifest` at the repository root.
-- Open the home page, services, contact, quote, one insight article, the sitemap and robots file in a private browser window.
-- Submit a test enquiry. WhatsApp should open with a draft; the visitor presses Send. For Discord notifications, set `DISCORD_WEBHOOK_URL` and `ALLOWED_ORIGIN` as Vercel server-side Environment Variables and redeploy.
-- Verify Google Search Console after deployment and submit the sitemap.
-
-## Official Google references
-
-- SEO Starter Guide: https://developers.google.com/search/docs/fundamentals/seo-starter-guide
-- Page indexing report: https://support.google.com/webmasters/answer/7440203
-- Request a recrawl: https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl
-- Business Profile eligibility: https://support.google.com/business/answer/13763036
+Use a phrase only where the page genuinely covers that service. Do not create a keyword-stuffed footer or repeat the same phrases on every page.

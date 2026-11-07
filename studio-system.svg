@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 650" fill="none">
+<defs>
+ <linearGradient id="bg" x1="38" y1="18" x2="730" y2="641" gradientUnits="userSpaceOnUse"><stop stop-color="#243750"/><stop offset=".55" stop-color="#17263B"/><stop offset="1" stop-color="#101A29"/></linearGradient>
+ <linearGradient id="gold" x1="100" y1="100" x2="650" y2="550" gradientUnits="userSpaceOnUse"><stop stop-color="#E9C58F"/><stop offset="1" stop-color="#B9783E"/></linearGradient>
+ <linearGradient id="panel" x1="120" y1="100" x2="610" y2="570" gradientUnits="userSpaceOnUse"><stop stop-color="#31465F"/><stop offset="1" stop-color="#22344B"/></linearGradient>
+ <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" stroke="#A9B8C8" stroke-opacity=".10"/></pattern>
+ <filter id="shadow" x="70" y="50" width="650" height="570" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="22"/></filter>
+</defs>
+<rect x="10" y="10" width="740" height="630" rx="28" fill="url(#bg)"/>
+<rect x="10" y="10" width="740" height="630" rx="28" fill="url(#grid)"/>
+<circle cx="594" cy="136" r="114" fill="#D69A55" fill-opacity=".10" filter="url(#shadow)"/>
+<circle cx="587" cy="139" r="88" stroke="#D69A55" stroke-opacity=".45" stroke-width="1.2"/>
+<circle cx="587" cy="139" r="66" stroke="#D69A55" stroke-opacity=".22" stroke-dasharray="3 8"/>
+<path d="M587 38v202M486 139h202M516 68l142 142M658 68 516 210" stroke="#D69A55" stroke-opacity=".20"/>
+<rect x="52" y="48" width="656" height="554" rx="18" stroke="#D6E0EA" stroke-opacity=".20"/>
+<circle cx="78" cy="76" r="4" fill="#D69A55"/><circle cx="94" cy="76" r="4" fill="#8293A5"/><circle cx="110" cy="76" r="4" fill="#8293A5"/>
+<text x="136" y="80" fill="#C8D2DE" font-family="Arial,sans-serif" font-size="10" letter-spacing="2.2">STARNYX / DIGITAL STUDIO</text>
+<path d="M52 104h656" stroke="#D6E0EA" stroke-opacity=".16"/>
+<text x="92" y="151" fill="#D9A766" font-family="Arial,sans-serif" font-size="10" letter-spacing="2.8">STRATEGY  /  DESIGN  /  ENGINEERING</text>
+<text x="92" y="211" fill="#F7F5F0" font-family="Arial,sans-serif" font-size="43" font-weight="700" letter-spacing="-1.5">Make ideas</text>
+<text x="92" y="261" fill="#F7F5F0" font-family="Arial,sans-serif" font-size="43" font-weight="700" letter-spacing="-1.5">work in the</text>
+<text x="92" y="311" fill="#E4B77C" font-family="Arial,sans-serif" font-size="43" font-weight="700" letter-spacing="-1.5">real world.</text>
+<text x="94" y="346" fill="#B9C5D1" font-family="Arial,sans-serif" font-size="12">A connected approach to digital products.</text>
+<rect x="92" y="388" width="270" height="118" rx="12" fill="url(#panel)" stroke="#91A1B1" stroke-opacity=".24"/>
+<text x="114" y="417" fill="#AEBCCC" font-family="Arial,sans-serif" font-size="9" letter-spacing="1.7">DELIVERY FRAMEWORK</text>
+<rect x="114" y="434" width="62" height="48" rx="7" fill="#D69A55" fill-opacity=".17" stroke="#D69A55" stroke-opacity=".45"/>
+<rect x="188" y="434" width="62" height="48" rx="7" fill="#8BA6B6" fill-opacity=".12" stroke="#8BA6B6" stroke-opacity=".35"/>
+<rect x="262" y="434" width="78" height="48" rx="7" fill="#8BA6B6" fill-opacity=".12" stroke="#8BA6B6" stroke-opacity=".35"/>
+<path d="M128 450h34M128 460h22M202 450h34M202 460h25M276 450h48M276 460h32" stroke="#E8E2D7" stroke-width="2" stroke-linecap="round"/>
+<rect x="402" y="350" width="254" height="190" rx="14" fill="#F3F0E8"/>
+<path d="M402 391h254" stroke="#D7D0C4"/>
+<circle cx="424" cy="371" r="4" fill="#C78346"/><circle cx="439" cy="371" r="4" fill="#D5C8B5"/><circle cx="454" cy="371" r="4" fill="#D5C8B5"/>
+<text x="424" y="421" fill="#1A2A3F" font-family="Arial,sans-serif" font-size="12" font-weight="700">Project overview</text>
+<text x="424" y="441" fill="#778291" font-family="Arial,sans-serif" font-size="9">A clearer view of what's moving.</text>
+<rect x="424" y="460" width="92" height="56" rx="7" fill="#E7E1D6"/>
+<path d="M438 499l14-13 12 6 22-22 17 12" stroke="#B97B45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="528" y="460" width="106" height="9" rx="4.5" fill="#D8D2C8"/><rect x="528" y="478" width="83" height="7" rx="3.5" fill="#E2DDD4"/><rect x="528" y="494" width="96" height="7" rx="3.5" fill="#E2DDD4"/>
+<rect x="548" y="522" width="86" height="3" rx="1.5" fill="#D69A55"/>
+<rect x="92" y="530" width="270" height="35" rx="8" fill="#D69A55" fill-opacity=".12" stroke="#D69A55" stroke-opacity=".3"/>
+<circle cx="111" cy="547" r="4" fill="#D69A55"/><text x="126" y="551" fill="#E3D8C8" font-family="Arial,sans-serif" font-size="10" letter-spacing=".6">THOUGHTFUL BY DESIGN</text>
+<path d="M683 548v-24m-8 8 8-8 8 8" stroke="#D69A55" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="92" y="584" fill="#8F9EAD" font-family="Arial,sans-serif" font-size="9" letter-spacing="1.6">STX / 001</text>
+</svg>

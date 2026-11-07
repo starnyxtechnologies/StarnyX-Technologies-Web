@@ -52,6 +52,13 @@
         source: form.dataset.source || 'Public website',
         company_website: encode(data.get('company_website'))
       };
+      // Quietly discard bot submissions that populate the hidden honeypot field.
+      if (payload.company_website) {
+        const status = form.querySelector('.form-status');
+        if (status) status.textContent = 'Thank you. Your enquiry has been received.';
+        form.reset();
+        return;
+      }
       const message = [
         'Hello StarnyX Technologies, I would like to discuss a project.',
         '', `Name: ${payload.name}`,
