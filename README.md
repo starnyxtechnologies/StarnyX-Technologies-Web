@@ -1,43 +1,40 @@
-# StarnyX Technologies — Diwali Public Website
+# StarnyX Technologies — Professional Diwali Public Website
 
-A complete static public website for **StarnyX Technologies** with a warm, light Diwali visual theme.
+A complete static public website for **StarnyX Technologies**, refreshed with a restrained, professional Diwali identity. The design uses a light ivory canvas, deep navy typography, warm gold and saffron accents, real festive photography and custom line-art SVGs.
 
 - Official website: https://starnyxtechnologies.in
 - WhatsApp enquiries: +91 73855 85398
-- Main StarnyX business application: under construction (announced on the public website)
-- Payment gateway: not included on this public marketing website
+- Public email contact flow: not used; WhatsApp is the public enquiry channel.
+- Payment gateway: not included on this public marketing website.
 
 ## What is included
 
-- 18 top-level HTML pages for the StarnyX public company website: Home, About, Services, Website Demos, Our Developments, Offers, Pricing, FAQ, Contact, Get a Quote, Careers, Privacy, Terms, Refund Policy, Cookie Policy, Disclaimer, Service Agreement and 404.
-- Light ivory, warm white, marigold, saffron and gold Diwali design.
-- Bundled local hero and promotional photographs. No external image URLs are required for the main visuals.
-- Homepage-only Diwali skyshots: small glowing rockets rise, burst into colourful radial particles, then fade before the next staggered launch. The effect is CSS-animated and uses transform/opacity only—no canvas, per-particle JavaScript loops, requestAnimationFrame or timers. Desktop uses five staggered shells; smaller screens use four lighter shells. Motion respects `prefers-reduced-motion`.
-- Final responsive polish across all 18 pages: wider desktop content, fluid section spacing, stacked tablet layouts, compact mobile navigation and single-column enquiry fields on narrow screens.
-- Existing StarnyX blue metallic favicon/logo in the header and browser tab.
-- Separate Website Demo Gallery (`demos.html`) with Hotel, Lodge, Hotel & Lodge, Supermarket, Jewellers, Salon, Spa & Salon, Fashion, Clinic and Education cards. Each card has a View Demo control; only published demos open, while future demos are clearly marked Coming Soon. The Hotel Demo opens https://starnyxtechnologies.github.io/Hotel-demo/.
-- Our Developments page (`projects.html`) with transparent in-house build and concept-demo status labels.
-- Tejas JavaScript guide assistant.
-- WhatsApp enquiry and quote actions.
+- 18 top-level HTML pages: Home, About, Services, Website Demos, Our Developments, Offers, Pricing, FAQ, Contact, Get a Quote, Careers, Privacy, Terms, Refund Policy, Cookie Policy, Disclaimer, Service Agreement and 404.
+- Professional light Diwali visual system: ivory and warm-white surfaces, deep navy type, muted gold/saffron accents, disciplined spacing, cleaner typography, flatter cards and consistent buttons/forms.
+- Four custom Diwali SVG assets: diya, mandala, toran and fine divider ornament. These are original lightweight vector assets created for this site; no cartoon clip-art is used.
+- Bundled local hero and promotional photographs. The main website visuals do not depend on remote image URLs.
+- Homepage skyshots: small glowing launch trails rise, burst into coloured particles and fade in a staggered sequence. The effect uses CSS animation with a small fixed number of elements, transform/opacity only, and no canvas, requestAnimationFrame, timers or external animation libraries. It respects `prefers-reduced-motion`.
+- Responsive refinements across desktop, laptop, tablet and mobile, including a compact navigation menu, fluid page widths, stacked FAQ/contact layouts and single-column narrow-screen forms.
+- Existing StarnyX logo/favicon in the header and browser tab.
+- Separate Website Demo Gallery (`demos.html`) with industry cards. Only published demos open; future demos are marked Coming Soon. The Hotel Demo opens https://starnyxtechnologies.github.io/Hotel-demo/.
+- Our Developments page (`projects.html`) with transparent project and concept-demo status labels.
+- Tejas JavaScript guide assistant, WhatsApp enquiry/quote actions, SEO metadata, sitemap and robots.txt.
 - Vercel serverless Discord enquiry endpoint at `/api/discord`.
-- SEO metadata, sitemap and robots.txt.
 
-## Important: upload ALL files
+## Important: upload all files
 
 The two main photographs are stored in the project root:
 
 - `diwali-hero.webp`
 - `diwali-promo.webp`
 
-**Do not upload only the HTML files.** Upload both `.webp` images, all three CSS files, both JavaScript files, `favicon.svg`, `favicon.png`, the complete `api/` folder and `vercel.json` as well. If the images are omitted, the hero/promo photographs will show as missing.
+Upload the complete ZIP contents, including the `assets/` folder, all CSS and JavaScript files, both `.webp` images, `favicon.svg`, `favicon.png`, the complete `api/` folder and `vercel.json`. The archive keeps `index.html` and all website files at its root.
 
-The ZIP is intentionally clean and keeps `index.html` and all website files at the archive root. It contains only the StarnyX public company website, required assets, the demo directory page with external links, the Discord API endpoint and deployment documentation. Individual demo websites are hosted in their own separate repositories and are NOT bundled here. Extract the ZIP and upload the contents directly to the root of the GitHub repository.
+This package contains only the StarnyX public company website and its required assets/API/deployment documentation. The Hotel Demo, Lodge Demo and all other individual demo websites are separate projects and are **not** bundled here. The StarnyX Demos page contains cards and external links only.
 
 ## Local preview
 
-No build or package installation is required.
-
-You can open `index.html` directly, or run a local static server from this folder:
+No build or package installation is required. Open `index.html` directly, or run a static server from this folder:
 
 ```bash
 python -m http.server 8080
@@ -48,56 +45,50 @@ Then open `http://localhost:8080`.
 ## GitHub + Vercel deployment
 
 1. Extract the ZIP.
-2. Upload **all extracted files and folders** to the root of the GitHub repository, replacing the older website files.
-3. Commit the changes to the production branch.
-4. Connect/import the repository in Vercel.
-5. Framework preset: **Other**.
-6. Build command: leave blank.
-7. Output directory: `.` (project root).
-8. Install command: leave blank.
-9. Add `starnyxtechnologies.in` and `www.starnyxtechnologies.in` under Vercel → Project → Settings → Domains.
-10. Apply the DNS records Vercel shows for the domain.
+2. Upload all extracted files and folders to the root of the StarnyX public website GitHub repository, replacing the existing website files.
+3. Remove any stale local `demos/` directory from the repository if one remains from an older commit; individual demo source must stay in separate repositories.
+4. Commit the changes to the production branch.
+5. Connect/import the repository in Vercel.
+6. Framework preset: **Other**. Build command: blank. Output directory: `.`. Install command: blank.
+7. Add `starnyxtechnologies.in` and `www.starnyxtechnologies.in` under Vercel → Project → Settings → Domains and apply the DNS records Vercel shows.
 
 ## Discord enquiry notifications
 
-The browser never contains the Discord webhook URL.
-
-The included function is `api/discord.js`. Configure these variables in **Vercel → Project → Settings → Environment Variables**:
+The browser never contains the Discord webhook URL. The included function is `api/discord.js`. Configure these in **Vercel → Project → Settings → Environment Variables**:
 
 - `DISCORD_WEBHOOK_URL` — the complete Discord incoming webhook URL.
 - `ALLOWED_ORIGIN` — `https://starnyxtechnologies.in,https://www.starnyxtechnologies.in` (comma-separated origins; add the Vercel preview origin only when needed).
 
-Apply to Production (and Preview only if you want preview enquiries sent to Discord), save, then redeploy. GitHub repository secrets are for GitHub Actions and are not automatically available inside a Vercel Function.
-
-The API intentionally returns `NOT_CONFIGURED` when the webhook is absent and never reports a fake delivery success.
+Apply to Production (and Preview only when you want preview enquiries sent to Discord), save, then redeploy. GitHub repository secrets are not automatically available inside a Vercel Function. The API returns `NOT_CONFIGURED` when the webhook is absent and does not report a fake delivery success.
 
 ## WhatsApp
 
-The configured enquiry number is `+91 73855 85398`. WhatsApp opens a pre-filled message; the visitor still presses Send in WhatsApp. This site does not send WhatsApp messages silently.
+The configured enquiry number is `+91 73855 85398`. WhatsApp opens a pre-filled message; the visitor still presses Send in WhatsApp. This site does not send messages silently.
 
-## Content and business facts
+## Scope and content review
 
-This is a public marketing site, not the future Explorer / Client / Admin application. There is no login portal, database, payment gateway, online ordering, or booking system in this website package. The larger StarnyX business application can be developed separately later.
+This is the StarnyX public marketing website, not the future Explorer / Client / Admin business application. It has no login portal, database, payment gateway, online ordering or booking system. The larger business application remains a separate future project.
 
-Review pricing, offers, legal content and company details before treating them as final commercial/legal terms. The displayed `DIWALI25` is an enquiry code; the final discount and eligible scope must be confirmed by StarnyX.
+Review pricing, offers, legal content and company details before treating them as final commercial/legal terms. `DIWALI25` is an enquiry code; the final discount and eligibility must be confirmed by StarnyX in the written quotation.
 
-## Files
+## Key files
 
-- `index.html`, other `.html` pages — pages
-- `styles.css` — original shared design system
-- `diwali-festival.css` — final light Diwali design and CSS skyshot launch/burst animations
-- `responsive-polish.css` — shared desktop, tablet and mobile layout refinements
-- `script.js` — navigation, forms, WhatsApp and Tejas assistant
-- `diwali-festival.js` — builds the homepage skyshot launch points and radial sparks; CSS handles all animation
-- `diwali-hero.webp`, `diwali-promo.webp` — locally bundled images
-- `favicon.svg`, `favicon.png` — StarnyX brand assets
-- `api/discord.js` — Vercel serverless Discord notification endpoint
-- `vercel.json` — Vercel function configuration
-
+- `index.html` and the other `.html` files — public pages.
+- `styles.css` — base shared design system.
+- `diwali-festival.css` — light Diwali styling and CSS skyshot animations.
+- `responsive-polish.css` — earlier responsive refinements.
+- `professional-diwali.css` — final professional theme overrides and unified responsive layout; load this last.
+- `assets/diwali-diya.svg`, `assets/diwali-mandala.svg`, `assets/diwali-toran.svg`, `assets/diwali-divider.svg` — custom Diwali vector artwork.
+- `diwali-hero.webp`, `diwali-promo.webp` — bundled photographic visuals.
+- `script.js` — navigation, forms, WhatsApp and Tejas assistant.
+- `diwali-festival.js` — creates the small homepage skyshot elements; CSS runs the animations.
+- `showcase.css`, `showcase.js` — Demos and Our Developments presentation.
+- `api/discord.js` — Vercel serverless Discord notification endpoint.
+- `vercel.json` — Vercel function configuration.
 
 ## Website demos and developments
 
-- Open `demos.html` to browse separate industry demo cards. The Hotel Demo card opens the independently hosted website at https://starnyxtechnologies.github.io/Hotel-demo/. This repository contains only the card, a lightweight CSS preview illustration and the external link; it does not contain the Hotel Demo source, pages or images. Other industries remain Coming Soon until their own websites are built, hosted separately and their URLs are added to the relevant cards.
-- Lodge, combined hotel/lodge, supermarket, jewellers, salon, spa, fashion, clinic and education cards are clearly labelled as concept previews; they are not represented as completed/live client projects.
-- Open `projects.html` (navigation label: Our Developments) for cards linking to the independently hosted Hotel Demo, the StarnyX public website and the relevant in-house showcase pages/features.
-- Each business demo (Hotel, Lodge, Supermarket, Jewellers, Salon and others) is a separate website/repository. Add its published URL to `demos.html` only when ready.
+- Open `demos.html` to browse separate demo cards. The Hotel Demo opens `https://starnyxtechnologies.github.io/Hotel-demo/`. This company website repository contains only its card, a lightweight CSS preview and the external link—not the Hotel Demo source, pages or images.
+- Lodge, Hotel & Lodge, Supermarket, Jewellers, Salon, Spa & Salon, Fashion, Clinic and Education cards remain Coming Soon until their own independent websites are published.
+- Open `projects.html` (Our Developments) to view cards linking to separately hosted projects and in-house showcase sections.
+- Each business demo is built and deployed from its own repository. Add a published URL to `demos.html` only when that independent demo is ready.

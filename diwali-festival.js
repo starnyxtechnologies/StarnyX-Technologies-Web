@@ -15,27 +15,25 @@
   layer.setAttribute('aria-hidden', 'true');
 
   const palette = [
-    '#ffcf58', '#ff765f', '#ff4f91', '#bf83ff',
-    '#66a8ff', '#42d6c3', '#fff18a', '#ff9c54'
+    '#D7A64E', '#E17A58', '#C96D85', '#9C88B5',
+    '#6FAAA0', '#E6BD72', '#B87950', '#E59A70'
   ];
 
   // Each shell travels up, bursts, and fades. Staggering keeps the home hero festive.
   const desktopShells = [
-    { x: 32, y: 27, delay: '0s', lift: 142 },
-    { x: 51, y: 17, delay: '2s', lift: 174 },
-    { x: 72, y: 30, delay: '4s', lift: 148 },
-    { x: 90, y: 18, delay: '6s', lift: 166 },
-    { x: 61, y: 47, delay: '8s', lift: 130 }
+    { x: 34, y: 25, delay: '0s', lift: 132 },
+    { x: 54, y: 16, delay: '2.5s', lift: 152 },
+    { x: 75, y: 28, delay: '5s', lift: 138 },
+    { x: 91, y: 18, delay: '7.5s', lift: 146 }
   ];
   const mobileShells = [
-    { x: 22, y: 24, delay: '0s', lift: 116 },
-    { x: 76, y: 20, delay: '2.1s', lift: 132 },
-    { x: 48, y: 43, delay: '4.2s', lift: 110 },
-    { x: 91, y: 36, delay: '6.3s', lift: 120 }
+    { x: 24, y: 23, delay: '0s', lift: 106 },
+    { x: 76, y: 19, delay: '3s', lift: 118 },
+    { x: 51, y: 38, delay: '6s', lift: 108 }
   ];
 
   const shells = smallScreen ? mobileShells : desktopShells;
-  const sparkCount = smallScreen ? 12 : 16;
+  const sparkCount = smallScreen ? 10 : 14;
 
   shells.forEach((shell, shellIndex) => {
     const burst = document.createElement('div');
@@ -59,14 +57,14 @@
       const spark = document.createElement('i');
       spark.className = 'skyshot-spark';
       const angle = (Math.PI * 2 * i) / sparkCount + (shellIndex * 0.21);
-      const radius = (smallScreen ? 34 : 42) + ((i * 13 + shellIndex * 7) % (smallScreen ? 22 : 32));
+      const radius = (smallScreen ? 28 : 34) + ((i * 11 + shellIndex * 7) % (smallScreen ? 18 : 24));
       const dx = Math.cos(angle) * radius;
       const dy = Math.sin(angle) * radius * 0.82;
 
       spark.style.setProperty('--spark-x', `${dx.toFixed(1)}px`);
       spark.style.setProperty('--spark-y', `${dy.toFixed(1)}px`);
       spark.style.setProperty('--spark-color', palette[(i + shellIndex * 3) % palette.length]);
-      spark.style.setProperty('--spark-size', `${i % 4 === 0 ? 4 : 3}px`);
+      spark.style.setProperty('--spark-size', `${i % 4 === 0 ? 3.5 : 2.5}px`);
       burst.appendChild(spark);
     }
 
