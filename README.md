@@ -1,48 +1,62 @@
-# StarnyX Technologies — New Public Website
+# StarnyX Technologies — complete public website
 
-A fresh, independent redesign of the StarnyX public company website. The interface, logo mark, visual system, vector artwork, page layouts and browser interactions have been created as a new implementation. This is not the StarnyX web application.
+A complete static website project for `https://starnyxtechnologies.in/`. This is the **public company/marketing website only**; it is not the future Explorer / Client / Admin web application. Hotel and Lodge demo websites are separate projects and their source is not bundled here.
 
-## Design direction
+## Project structure
 
-- Premium editorial technology-studio identity: warm paper surfaces, deep ink/navy, restrained saffron and muted gold accents.
-- No large Diwali photo/banner in the hero. Seasonal character is limited to carefully drawn diya/rangoli details and two small CSS-only skyshot accents in the home hero.
-- Original SVG brand mark, product-system hero visual, diya line artwork, rangoli motif and social preview artwork.
-- Responsive layout for desktop, laptop, tablet and mobile. Accessible navigation, native FAQ accordions, keyboard focus styles and reduced-motion support.
-- No Canvas, animation libraries, continuous JavaScript animation loops or external stock photography. Google Fonts are loaded as progressive enhancement; system sans-serif fallbacks are defined.
+```text
+/
+├── index.html and the other top-level website pages
+├── insights/                 # three original SEO guides
+├── assets/
+│   ├── css/styles.css        # responsive site design system
+│   ├── js/site.js            # menu, enquiry and page interactions
+│   ├── images/               # product illustration and social preview
+│   │   └── decor/            # original Diwali diya/rangoli SVG artwork
+│   └── icons/                # brand mark, favicon and app icons
+├── api/enquiry.js            # optional private Discord notification endpoint
+├── robots.txt
+├── sitemap.xml
+├── site.webmanifest
+├── vercel.json
+├── SEO-PLAYBOOK.md
+└── DISCORD-SETUP.md
+```
 
 ## Pages
 
-18 top-level pages: Home, Studio/About, Services, Demos, Our Developments, Offers, Pricing, FAQ, Contact, Get a Quote, Careers, Privacy Policy, Terms, Refund Policy, Cookie Policy, Disclaimer, Service Agreement and 404.
+Home, Studio, Services, Demos, Our Developments, Insights, Offers, Pricing, FAQ, Contact, Get a Quote, Careers, Privacy Policy, Terms, Refund Policy, Cookie Policy, Disclaimer, Service Agreement and 404, plus three original guides inside `insights/`.
 
-## Enquiries
+## Design and experience
 
-- Public WhatsApp contact: `+91 73855 85398`. Forms prepare a detailed WhatsApp message; the visitor must review and press Send.
-- Optional private Discord notifications use the Vercel serverless function at `/api/enquiry`. Configure `DISCORD_WEBHOOK_URL` and `ALLOWED_ORIGIN` in Vercel Environment Variables. The webhook is never included in browser code.
-- No email contact flow, user login, payment checkout or database is included.
+- Original StarnyX identity: deep navy, warm ivory, muted brass/gold and saffron accents.
+- Professional Diwali detail through original diya/rangoli line art and restrained festive highlights. There is no large Diwali hero banner or stock Diwali photo.
+- Custom product-system illustration, responsive layouts, mobile navigation, accessible focus styles and reduced-motion support.
+- Lightweight CSS-only festive spark accents; no Canvas or continuous JavaScript animation loops.
+- No stock photo hotlinks or third-party runtime image dependencies. Google Fonts are a progressive enhancement with local system fallbacks.
 
-## Separate demo websites
+## Functional behaviour
 
-The Demos and Our Developments pages contain cards and links only. The currently published Hotel Demo opens `https://starnyxtechnologies.github.io/Hotel-demo/`. Other industry demos are labelled as in development/coming soon until their independent websites are published. No Hotel or Lodge demo source code is bundled here.
+- WhatsApp number: `+91 73855 85398`. Enquiry forms prepare a message; the visitor reviews it and presses Send in WhatsApp.
+- Optional Discord notifications use `/api/enquiry.js`. Configure `DISCORD_WEBHOOK_URL` and `ALLOWED_ORIGIN` in Vercel Project Settings → Environment Variables. Never place the webhook URL in browser JavaScript or public GitHub source.
+- No email contact flow, user login, payment checkout, CMS or database is included.
+- Pricing is requirement-based; no fixed price or automatic discount is promised.
 
 ## Local preview
 
-No package installation or build step is required. Open `index.html` directly or run:
-
-```bash
-python -m http.server 8080
-```
-
-Then open `http://localhost:8080`. The WhatsApp forms work as a handoff. Discord notifications require Vercel and server-side environment variables.
+Run `python -m http.server 8080` from the project root and open `http://localhost:8080`. The site has no build step or package install requirement.
 
 ## Deploy to GitHub + Vercel
 
-1. Extract the ZIP and upload all files/folders to the root of the StarnyX public website repository.
-2. Remove any obsolete local `demos/` directory left from earlier versions. Individual demo websites remain in separate repositories.
-3. Commit the changes to the production branch.
-4. In Vercel use Framework Preset `Other`, with no build command and output directory `.`.
-5. Keep the existing domain assignment or confirm `starnyxtechnologies.in` and `www.starnyxtechnologies.in` under Vercel → Settings → Domains.
-6. Configure the Discord variables only if private enquiry notifications are needed, then redeploy.
+1. Extract the ZIP.
+2. Upload **all contents inside** the extracted folder to the root of the public website repository, preserving folders.
+3. Remove obsolete files from the previous deployment that are no longer part of this project. In particular, do not retain old `styles.css`, `site.js`, old `/assets` files or an old `demos/` source folder. Individual demos stay in separate repositories.
+4. Commit to the production branch.
+5. In Vercel, use Framework Preset `Other`, no build command, and output directory `.`. Root directory should be the repository root.
+6. Attach `starnyxtechnologies.in` and `www.starnyxtechnologies.in` to this Vercel project and confirm HTTPS. The config redirects `www` to the non-www canonical host.
+7. Add the Discord variables only if private notifications are required, then redeploy.
+8. Follow `SEO-PLAYBOOK.md` to verify Search Console and submit `sitemap.xml`.
 
-## Scope and commercial details
+## Important
 
-This is a public marketing website, not the future Explorer / Client / Admin application. Pricing is requirement-based; no fixed price or automatic discount is promised. Project scope, delivery, fees and any offer are confirmed in a written proposal. Review the legal and commercial copy before treating it as legal advice or a signed agreement.
+Review the legal and commercial wording before treating it as legal advice or a signed agreement. Use only accurate company details and genuine project claims. Do not publish a physical address, client logos, ratings, reviews or credentials unless they are real and authorised.

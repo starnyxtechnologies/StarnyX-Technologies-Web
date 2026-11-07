@@ -1,0 +1,17 @@
+STARNYX TECHNOLOGIES — DEPLOYMENT CHECKLIST
+
+[ ] Extract the ZIP.
+[ ] Upload all extracted contents (not the enclosing folder) to the GitHub repo root.
+[ ] Delete obsolete old root files/folders that conflict with this release.
+[ ] Confirm `index.html`, `assets/`, `api/`, `insights/`, `robots.txt`, `sitemap.xml`, `site.webmanifest` and `vercel.json` are at repo root.
+[ ] Commit changes.
+[ ] Confirm Vercel: Framework Other, Build Command empty, Output Directory `.`, Root Directory repository root.
+[ ] Confirm apex and www domains attached; HTTPS active.
+[ ] Configure Discord server-side env values only if needed.
+[ ] Redeploy.
+[ ] Test home, Services, Contact, Quote, one Insight article, WhatsApp flow and `/sitemap.xml`.
+[ ] Verify Google Search Console Domain property via your unique DNS TXT token.
+[ ] Submit `https://starnyxtechnologies.in/sitemap.xml`.
+[ ] Request indexing for the homepage and key service pages.
+
+No package install or build command is required for this static site.
