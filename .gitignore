@@ -1,13 +1,5 @@
-# Local secrets and environment files
-.env
-.env.local
-.env.*.local
-!.env.example
-
-# Vercel local project metadata
 .vercel
-
-# OS/editor files
 .DS_Store
-Thumbs.db
-.vscode/
+.env
+.env.*
+!.env.example
