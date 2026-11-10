@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+<title id="title">StarnyX star mark</title><desc id="desc">A royal eight-point star formed from gold and ivory geometric facets.</desc>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8d982"/><stop offset=".48" stop-color="#d69b37"/><stop offset="1" stop-color="#a96b23"/></linearGradient><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#243c68"/><stop offset="1" stop-color="#0d1830"/></linearGradient></defs>
+<path d="M60 4 72 42 111 22 82 57 116 78 76 76 60 116 44 76 4 78 38 57 9 22 48 42Z" fill="url(#g)" stroke="#0d1830" stroke-width="3" stroke-linejoin="round"/>
+<path d="M60 17 68 51 101 34 75 60 102 72 69 69 60 103 51 69 18 72 45 60 19 34 52 51Z" fill="url(#b)" stroke="#fff4d8" stroke-width="2" stroke-linejoin="round"/>
+<path d="M60 31 66 55 89 45 72 61 89 69 65 67 60 90 55 67 31 69 48 61 31 45 54 55Z" fill="url(#g)"/>
+<circle cx="60" cy="60" r="7" fill="#fff8e7" stroke="#d49d43" stroke-width="2"/>
+</svg>

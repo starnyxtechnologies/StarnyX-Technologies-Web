@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 690" role="img" aria-labelledby="t d">
+<title id="t">StarnyX digital studio illustration</title><desc id="d">A refined digital workspace showing connected web, app and automation interfaces around the StarnyX star.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#162747"/><stop offset="1" stop-color="#0b1428"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8d887"/><stop offset="1" stop-color="#c78b2e"/></linearGradient>
+ <linearGradient id="ivory" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffdf7"/><stop offset="1" stop-color="#eee6d7"/></linearGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<circle cx="465" cy="345" r="270" fill="#d79b3e" opacity=".11" filter="url(#shadow)"/>
+<circle cx="465" cy="345" r="250" fill="none" stroke="#d9b76e" stroke-opacity=".28" stroke-dasharray="3 12"/>
+<circle cx="465" cy="345" r="205" fill="none" stroke="#fff2d4" stroke-opacity=".16"/>
+<!-- main interface -->
+<rect x="190" y="105" width="540" height="430" rx="26" fill="url(#ivory)" stroke="#d8c49d" stroke-width="2"/>
+<path d="M190 132a27 27 0 0 1 27-27h486a27 27 0 0 1 27 27v36H190Z" fill="#f4eee2"/>
+<circle cx="220" cy="140" r="5" fill="#d27f62"/><circle cx="239" cy="140" r="5" fill="#ddb45f"/><circle cx="258" cy="140" r="5" fill="#78a88a"/>
+<rect x="310" y="130" width="240" height="18" rx="9" fill="#e3dac9"/>
+<rect x="220" y="194" width="480" height="300" rx="16" fill="#fffefa"/>
+<rect x="246" y="220" width="190" height="13" rx="6.5" fill="#172747"/>
+<rect x="246" y="245" width="245" height="8" rx="4" fill="#d7d2c7"/>
+<rect x="246" y="262" width="205" height="8" rx="4" fill="#e4ded2"/>
+<rect x="246" y="298" width="120" height="35" rx="9" fill="#172747"/>
+<rect x="380" y="298" width="108" height="35" rx="9" fill="#f2e7d2" stroke="#ddc89f"/>
+<rect x="246" y="365" width="205" height="105" rx="12" fill="#f6f0e4"/>
+<path d="M265 442 306 399l32 22 42-42 49 55" fill="none" stroke="#cf933c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="306" cy="399" r="5" fill="#172747"/><circle cx="380" cy="379" r="5" fill="#172747"/>
+<rect x="470" y="365" width="205" height="105" rx="12" fill="#172747"/>
+<circle cx="515" cy="417" r="26" fill="#dca747"/><path d="M515 393 522 410l18 7-18 7-7 18-7-18-18-7 18-7Z" fill="#fff4d8"/>
+<rect x="554" y="397" width="90" height="8" rx="4" fill="#fff3d7" opacity=".8"/><rect x="554" y="415" width="68" height="7" rx="3.5" fill="#fff3d7" opacity=".4"/>
+<!-- floating panels -->
+<g transform="rotate(-8 160 365)"><rect x="45" y="300" width="180" height="118" rx="18" fill="#fffdf7" stroke="#d8bd84" stroke-width="2"/><rect x="65" y="323" width="40" height="40" rx="11" fill="#172747"/><path d="M85 329 91 342l14 5-14 5-6 14-5-14-14-5 14-5Z" fill="#e5b34e"/><rect x="119" y="331" width="83" height="8" rx="4" fill="#172747"/><rect x="119" y="349" width="58" height="7" rx="3.5" fill="#cfc5b4"/><rect x="65" y="382" width="125" height="7" rx="3.5" fill="#e8dfd0"/></g>
+<g transform="rotate(8 746 335)"><rect x="665" y="275" width="190" height="125" rx="18" fill="#fffdf7" stroke="#d8bd84" stroke-width="2"/><circle cx="700" cy="315" r="18" fill="#f0e1c2"/><path d="M700 298 705 310l13 5-13 5-5 13-5-13-13-5 13-5Z" fill="#bd7c30"/><rect x="730" y="307" width="95" height="8" rx="4" fill="#172747"/><rect x="730" y="325" width="70" height="7" rx="3.5" fill="#d7cebf"/><rect x="688" y="359" width="140" height="7" rx="3.5" fill="#e8dfd0"/></g>
+<!-- star -->
+<g transform="translate(456 565) scale(.55)"><path d="M0-88 22-25 86-58 38-4 91 33 27 25 0 91-27 25-91 33-38-4-86-58-22-25Z" fill="url(#gold)" stroke="#fff4d8" stroke-width="4" stroke-linejoin="round"/><path d="M0-54 14-12 56-29 22 0 56 20 17 15 0 57-17 15-56 20-22 0-56-29-14-12Z" fill="#172747"/><circle r="10" fill="#fff5dc"/></g>
+<!-- festive accents -->
+<g fill="#e7b650"><circle cx="115" cy="185" r="4"/><circle cx="775" cy="180" r="5"/><circle cx="800" cy="480" r="3"/><circle cx="125" cy="505" r="3"/></g>
+<g stroke="#e8b957" stroke-width="2" fill="none" opacity=".8"><path d="M112 215v38m-19-19h38m-33-14 28 28m0-28-28 28"/><path d="M792 215v38m-19-19h38m-33-14 28 28m0-28-28 28"/></g>
+</svg>

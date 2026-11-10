@@ -1,31 +1,31 @@
-# SEO launch checklist for StarnyX Technologies
+# SEO & launch checklist
 
-## 1. Publish and verify the technical foundation
-- Confirm `https://starnyxtechnologies.in/` loads with HTTPS.
-- Confirm the www hostname has one redirect direction only: `www` → apex, configured in Vercel Domains. Do not create a reverse redirect elsewhere.
-- Open `/robots.txt` and `/sitemap.xml` and confirm they return successfully.
-- Open several `.html` pages, their CSS file and favicon to ensure assets are not returning 404.
-- The HTML pages use the apex host as their canonical URL. Keep that as the preferred domain in Search Console.
+## After GitHub Pages deployment
 
-## 2. Google Search Console
-1. Open https://search.google.com/search-console.
-2. Add a **Domain** property for `starnyxtechnologies.in`.
-3. Copy the TXT record Google provides and add it to the domain's DNS records. The verification token is unique to your Google account and is intentionally not fabricated in this ZIP.
-4. After verification, submit `https://starnyxtechnologies.in/sitemap.xml`.
-5. Use URL Inspection for the home page, About, Services, key service pages, Demos and Insights. Request indexing after checking that each URL is accessible and canonical.
-6. Check Pages/Indexing and Core Web Vitals reports over time. Fix actual issues shown there.
+1. Confirm all pages and root assets load at `https://starnyxtechnologies.github.io/hg/`.
+2. If the official domain is to use GitHub Pages, set `starnyxtechnologies.in` as the custom domain in Settings → Pages and follow GitHub's current DNS instructions. Do not create competing redirects at multiple providers.
+3. Verify the domain property in [Google Search Console](https://search.google.com/search-console) using the exact DNS TXT record supplied by Google. That token is account-specific and is not fabricated inside this ZIP.
+4. Submit `https://starnyxtechnologies.in/sitemap.xml` after the custom domain is serving this site.
+5. Inspect the home, services, demos and insights URLs and request indexing. Indexing is not immediate and ranking cannot be guaranteed.
+6. Add genuine client work, screenshots, measurable outcomes and authentic testimonials as they become available.
 
-## 3. Build relevance and trust
-- Keep the company name, description and WhatsApp contact consistent across the website and legitimate business profiles.
-- Publish useful original pages for the services you actually offer. Do not create near-duplicate city pages or repeat the same keyword unnaturally.
-- Add genuine project case studies only after projects exist. Include the problem, scope, process, screenshots and outcome with client permission. Never invent client names, reviews, awards or metrics.
-- Ask relevant partners and clients for honest links or mentions. Avoid paid link schemes and spam directories.
-- Review titles and descriptions as services and markets become clearer.
+## Technical SEO included
 
-## 4. What this ZIP cannot do automatically
-- It cannot verify your Google account or add its private Search Console DNS token.
-- It cannot guarantee indexing, a first-page result or a number-one position. Search performance depends on competition, content quality, relevance, links, user needs and time.
-- It does not create a Google Business Profile. Only create one if the business meets Google's eligibility rules for customer-facing businesses or service-area businesses. Do not use a virtual office as a fake location.
+- Unique page titles and meta descriptions
+- Canonical URLs on the intended official domain
+- Organization and WebSite structured data
+- Open Graph and Twitter social metadata
+- Root `robots.txt` and XML sitemap
+- Responsive, semantic HTML and accessible navigation
+- Local SVG and PNG social/brand assets
 
-## 5. Suggested priority queries
-Start with accurate brand and service phrases such as `StarnyX Technologies`, `StarnyX website development`, `business website development India`, `web application development India`, `UI UX design services` and `workflow automation services`. Track impressions and queries in Search Console and improve pages based on real data.
+## Target topics
+
+- StarnyX Technologies
+- business website development India
+- web application development India
+- UI/UX and product design
+- mobile app development
+- workflow automation and integrations
+
+Use these topics naturally where they accurately describe a page. Avoid keyword stuffing or fake reviews.

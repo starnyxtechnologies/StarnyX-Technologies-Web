@@ -2,18 +2,19 @@
   "name": "StarnyX Technologies",
   "short_name": "StarnyX",
   "description": "Digital experiences built with purpose.",
-  "start_url": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#faf7f0",
   "theme_color": "#101d36",
   "icons": [
     {
-      "src": "/assets/icons/icon-192.png",
+      "src": "./icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/assets/icons/icon-512.png",
+      "src": "./icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

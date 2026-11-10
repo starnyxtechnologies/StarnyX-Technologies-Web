@@ -1,105 +1,142 @@
+/* StarnyX website interactions. No third-party JS or tracking. */
 (() => {
-  'use strict';
-  const menuButton = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.primary-nav');
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+
+  // Accessible mobile navigation
+  const menuButton = $('.menu-toggle');
+  const nav = $('.nav-links');
   if (menuButton && nav) {
     menuButton.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('is-open');
-      menuButton.setAttribute('aria-expanded', String(isOpen));
-      menuButton.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      const open = nav.classList.toggle('is-open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      document.body.classList.toggle('menu-open', open);
     });
-    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+    $$('a', nav).forEach(link => link.addEventListener('click', () => {
       nav.classList.remove('is-open');
       menuButton.setAttribute('aria-expanded', 'false');
-      menuButton.setAttribute('aria-label', 'Open menu');
+      document.body.classList.remove('menu-open');
     }));
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
         nav.classList.remove('is-open');
         menuButton.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
       }
     });
   }
 
-  document.querySelectorAll('[data-year]').forEach((node) => {
-    node.textContent = String(new Date().getFullYear());
+  // Footer year
+  const year = $('[data-year]');
+  if (year) year.textContent = new Date().getFullYear();
+
+  // Reveal content without a continuous animation loop
+  const revealNodes = $$('.reveal');
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.08});
+    revealNodes.forEach(node => observer.observe(node));
+  } else revealNodes.forEach(node => node.classList.add('is-visible'));
+
+  // FAQ accordions
+  $$('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const answer = button.parentElement.querySelector('.faq-answer');
+      const isOpen = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!isOpen));
+      answer.hidden = isOpen;
+      const sign = button.querySelector('[data-sign]');
+      if (sign) sign.textContent = isOpen ? '+' : '−';
+    });
   });
 
-  // Prefill a selected service when a visitor follows a service-specific quote link.
-  const serviceFromUrl = new URLSearchParams(window.location.search).get('service');
-  if (serviceFromUrl) {
-    const select = document.querySelector('select[name="service"]');
-    const map = {
-      website: 'Website development', 'web-app': 'Web application / SaaS',
-      'mobile-app': 'Mobile application', 'ui-ux': 'UI/UX design',
-      'cloud-devops': 'Cloud & DevOps', automation: 'Automation & integrations'
-    };
-    if (select && map[serviceFromUrl]) select.value = map[serviceFromUrl];
-  }
-
-  const encode = (value) => String(value || '').trim();
-  document.querySelectorAll('[data-enquiry-form]').forEach((form) => {
-    form.addEventListener('submit', async (event) => {
+  // Enquiry forms open a prepared WhatsApp message; nothing is silently submitted.
+  $$('[data-whatsapp-form]').forEach(form => {
+    form.addEventListener('submit', event => {
       event.preventDefault();
       if (!form.reportValidity()) return;
       const data = new FormData(form);
-      const payload = {
-        name: encode(data.get('name')),
-        phone: encode(data.get('phone')),
-        service: encode(data.get('service')) || 'General enquiry',
-        budget: encode(data.get('budget')) || 'Not specified',
-        message: encode(data.get('message')),
-        source: form.dataset.source || 'Public website',
-        company_website: encode(data.get('company_website'))
-      };
-      // Quietly discard bot submissions that populate the hidden honeypot field.
-      if (payload.company_website) {
-        const status = form.querySelector('.form-status');
-        if (status) status.textContent = 'Thank you. Your enquiry has been received.';
-        form.reset();
-        return;
-      }
-      const message = [
-        'Hello StarnyX Technologies, I would like to discuss a project.',
-        '', `Name: ${payload.name}`,
-        `WhatsApp: ${payload.phone || 'Not provided'}`,
-        `Service: ${payload.service}`,
-        `Budget: ${payload.budget}`,
-        `Source: ${payload.source}`,
-        '', 'Project details:', payload.message
-      ].join('\n');
-      const whatsappUrl = `https://wa.me/917385585398?text=${encodeURIComponent(message)}`;
-      const status = form.querySelector('.form-status');
-      const submit = form.querySelector('button[type="submit"]');
-      if (submit) { submit.disabled = true; submit.dataset.original = submit.innerHTML; submit.innerHTML = 'Preparing message…'; }
-      // Open WhatsApp synchronously in the user gesture so popup blockers do not suppress it.
-      const waLink = document.createElement('a');
-      waLink.href = whatsappUrl;
-      waLink.target = '_blank';
-      waLink.rel = 'noopener noreferrer';
-      waLink.style.display = 'none';
-      document.body.appendChild(waLink);
-      waLink.click();
-      waLink.remove();
-      if (status) status.textContent = 'Your WhatsApp message is ready. Review the details and press Send in WhatsApp.';
-      try {
-        const response = await fetch('/api/enquiry', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload), credentials: 'same-origin'
-        });
-        const result = await response.json().catch(() => ({}));
-        if (status && response.ok && result.code === 'DISPATCHED') {
-          status.textContent = 'WhatsApp is ready. Your private enquiry notification was also delivered.';
-        } else if (status && result.code === 'NOT_CONFIGURED') {
-          status.textContent = 'WhatsApp is ready. The private notification channel is not configured yet.';
-        } else if (status && result.code === 'DELIVERY_FAILED') {
-          status.textContent = 'WhatsApp is ready. The private notification could not be delivered; please send the WhatsApp message.';
-        }
-      } catch (_) {
-        if (status) status.textContent = 'WhatsApp is ready. Please review the message and press Send there.';
-      } finally {
-        if (submit) { submit.disabled = false; submit.innerHTML = submit.dataset.original || 'Send enquiry'; }
-      }
+      const lines = [
+        'Hello StarnyX Technologies,',
+        '',
+        'I would like to discuss a project.',
+        ...[...data.entries()].map(([key, value]) => `${key.replaceAll('_',' ')}: ${String(value).trim()}`).filter(line => !line.endsWith(': ')),
+        '',
+        'Please let me know the next steps.'
+      ];
+      const url = `https://wa.me/917385585398?text=${encodeURIComponent(lines.join('\n'))}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+      const status = $('[data-form-status]', form);
+      if (status) status.textContent = 'WhatsApp opened with your project brief. Review the message and press Send in WhatsApp.';
+      form.reset();
     });
   });
+
+  // Tejas: simple, rule-based website assistant. No external AI API.
+  const launcher = $('.tejas-launcher');
+  const panel = $('.tejas-panel');
+  const close = $('.tejas-close');
+  const form = $('.tejas-form');
+  const input = $('.tejas-input');
+  const messages = $('.tejas-messages');
+  const quick = $$('.tejas-quick button');
+  const addMessage = (text, type='bot') => {
+    if (!messages) return;
+    const bubble = document.createElement('div');
+    bubble.className = `tejas-message ${type === 'user' ? 'user' : ''}`;
+    bubble.textContent = text;
+    messages.appendChild(bubble);
+    messages.scrollTop = messages.scrollHeight;
+  };
+  const answer = (raw) => {
+    const q = raw.toLowerCase();
+    if (/\b(hi|hello|hey|namaste|good morning|good evening)\b/.test(q)) return 'Hello! Welcome to StarnyX. I am Tejas, the website assistant. Tell me what you would like to build.';
+    if (/price|cost|budget|quote|rate|charge/.test(q)) return 'Every project is scoped around its features, design and delivery needs. We do not use one fixed price for every build. Please use the Get a Quote page to share your brief.';
+    if (/website|web site|landing page/.test(q)) return 'We plan and build responsive business websites, service websites, landing pages and e-commerce experiences. Our focus is clarity, speed, accessibility and easy content journeys.';
+    if (/web app|application|dashboard|portal|saas/.test(q)) return 'We design and develop web applications such as customer portals, dashboards, booking flows and workflow tools. The right scope starts with your users and business process.';
+    if (/mobile|android|ios|app/.test(q)) return 'We can help plan mobile app experiences for Android and iOS, including UX flows, interface design and development planning. Share your app idea and target users.';
+    if (/design|ui|ux|brand|interface/.test(q)) return 'Our UI/UX work includes discovery, user journeys, wireframes, interface systems, responsive layouts and handoff-ready design.';
+    if (/automation|cloud|integrat|api/.test(q)) return 'We help connect tools and streamline repeatable workflows with practical automation, API integration and cloud-aware engineering.';
+    if (/demo|hotel|lodge|showcase/.test(q)) return 'You can view our live Hotel website demo on the Demos page. Other industry demos are being prepared separately.';
+    if (/time|timeline|how long|delivery/.test(q)) return 'Timelines depend on scope, content readiness, integrations and review cycles. We confirm a practical delivery plan after understanding your requirements.';
+    if (/contact|talk|human|whatsapp|team/.test(q)) return 'You can talk to the StarnyX team on WhatsApp using the green button, or open the Contact page. A person will confirm the details with you.';
+    if (/thank/.test(q)) return 'You are welcome! Happy to help. Share your idea whenever you are ready.';
+    return 'Thanks for sharing. I can help with websites, web applications, mobile apps, UI/UX and automation. Try asking about a service, pricing, timeline or demos—or send your brief through Get a Quote.';
+  };
+  const setPanel = open => {
+    if (!panel || !launcher) return;
+    panel.classList.toggle('is-open', open);
+    panel.setAttribute('aria-hidden', String(!open));
+    launcher.setAttribute('aria-expanded', String(open));
+    if (open && input) input.focus();
+  };
+  launcher?.addEventListener('click', () => setPanel(!panel.classList.contains('is-open')));
+  close?.addEventListener('click', () => setPanel(false));
+  form?.addEventListener('submit', e => {
+    e.preventDefault();
+    const value = input?.value.trim();
+    if (!value) return;
+    addMessage(value, 'user');
+    addMessage(answer(value));
+    input.value = '';
+  });
+  quick.forEach(button => button.addEventListener('click', () => {
+    const value = button.textContent.trim();
+    addMessage(value, 'user');
+    addMessage(answer(value));
+  }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setPanel(false); });
+
+  // Back to top
+  const topButton = $('.back-top');
+  if (topButton) {
+    window.addEventListener('scroll', () => topButton.classList.toggle('visible', window.scrollY > 500), {passive:true});
+    topButton.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+  }
 })();
