@@ -9,17 +9,6 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.starnyxtechnologies.in"
-        }
-      ],
-      "destination": "https://starnyxtechnologies.in/:path*",
-      "permanent": true
     }
   ],
   "headers": [

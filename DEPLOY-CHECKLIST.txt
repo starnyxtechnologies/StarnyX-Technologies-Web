@@ -5,13 +5,14 @@ STARNYX TECHNOLOGIES — DROP-IN DEPLOY CHECKLIST
 [ ] Replace/delete old root HTML, old style/script files and old demos/ source folder.
 [ ] Confirm the repo root shows index.html, styles.css, site.js, vercel.json, assets/, api/, insights/, robots.txt and sitemap.xml.
 [ ] Commit the changes to the branch connected to Vercel.
-[ ] Vercel project Root Directory: . (repository root). vercel.json also pins framework=Other, no build/install command and outputDirectory=.
+[ ] Vercel project Root Directory: . (repository root). vercel.json pins framework=Other, no build/install command and outputDirectory=.
+[ ] Vercel Settings > Domains: set www.starnyxtechnologies.in as the Primary Domain. Set starnyxtechnologies.in to redirect TO www.starnyxtechnologies.in. Do not add a second www-to-apex redirect in Vercel, Cloudflare, or vercel.json.
 [ ] Deploy. Check homepage, /styles.css, /starnyx-mark.svg, /studio-system.svg and /sitemap.xml in a browser.
 [ ] Check desktop and mobile. Hard refresh once (Ctrl+Shift+R) after deployment.
 [ ] Test Contact and Quote forms. Confirm WhatsApp opens with prefilled details; press Send manually.
 [ ] Optional: set DISCORD_WEBHOOK_URL and ALLOWED_ORIGIN in Vercel Environment Variables, then redeploy.
 [ ] Add/verify Domain property in Google Search Console using Google's unique DNS TXT token.
-[ ] Submit https://starnyxtechnologies.in/sitemap.xml.
+[ ] Submit https://www.starnyxtechnologies.in/sitemap.xml.
 [ ] Inspect the home, services, demos, projects and insights URLs and request indexing.
 
 Do not upload webhook secrets to public GitHub. Google indexing and ranking are not guaranteed by deployment or sitemap submission.

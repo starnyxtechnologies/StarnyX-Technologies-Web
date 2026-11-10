@@ -1,6 +1,6 @@
 # StarnyX Technologies — complete, drop-in public website
 
-This ZIP is the **complete public marketing website** for https://starnyxtechnologies.in/. It is not the future Explorer / Client / Admin web application. Hotel and Lodge demo websites remain separate projects and are not bundled here.
+This ZIP is the **complete public marketing website** for https://www.starnyxtechnologies.in/. It is not the future Explorer / Client / Admin web application. Hotel and Lodge demo websites remain separate projects and are not bundled here.
 
 ## IMPORTANT — upload this ZIP correctly
 

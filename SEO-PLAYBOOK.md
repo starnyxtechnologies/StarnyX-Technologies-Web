@@ -14,7 +14,7 @@
 1. Visit https://search.google.com/search-console and add a **Domain property** for `starnyxtechnologies.in`.
 2. Google will show a unique DNS TXT verification token. Copy that exact token into the DNS provider for the domain. Do not use a token from another property or invent one.
 3. Return to Search Console and click Verify after DNS has propagated.
-4. Open **Sitemaps** and submit `https://starnyxtechnologies.in/sitemap.xml`.
+4. Open **Sitemaps** and submit `https://www.starnyxtechnologies.in/sitemap.xml`.
 5. Use **URL Inspection** for the home page, services, demos, projects and useful guide pages; check whether each is available to Google. Request indexing for important changed URLs once.
 6. Review **Page indexing** and **Core Web Vitals** reports as Google collects enough data.
 

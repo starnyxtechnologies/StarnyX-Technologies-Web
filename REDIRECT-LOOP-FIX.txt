@@ -1,0 +1,25 @@
+STARNYX TECHNOLOGIES — REDIRECT LOOP FIX
+
+The previous configuration could create a redirect loop:
+- Vercel project domain setting could redirect the apex host to www.
+- vercel.json also redirected www back to the apex host.
+
+This package removes the host-based redirect from vercel.json and uses www as the canonical host in page metadata and sitemap. Let Vercel perform the ONE domain redirect.
+
+REQUIRED VERCEL SETTING
+1. Open the StarnyX project in Vercel.
+2. Go to Settings > Domains.
+3. Set www.starnyxtechnologies.in as Primary Domain.
+4. Set starnyxtechnologies.in to Redirect to www.starnyxtechnologies.in.
+5. Remove any Cloudflare Redirect Rule / Page Rule or other custom rule that sends www back to the apex host.
+6. Redeploy after committing this package.
+
+Do not re-add a host-based www-to-apex redirect in vercel.json. The only redirect in vercel.json is /index.html -> /.
+
+TEST AFTER DEPLOY
+- https://www.starnyxtechnologies.in/about.html should return the page directly.
+- https://starnyxtechnologies.in/about.html should redirect once to the www URL.
+- https://www.starnyxtechnologies.in/styles.css should return CSS, not an HTML page.
+- https://www.starnyxtechnologies.in/sitemap.xml should return XML.
+
+The exact DNS / SSL status still depends on the live Vercel project and DNS provider settings.
